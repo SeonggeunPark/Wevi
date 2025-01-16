@@ -35,3 +35,15 @@
 # 컨트롤 g 하면 그룹핑
 
 # 컨트롤 딜리트 그룹풀림
+
+# Figma 특강 3일차
+
+# 도움되는 사이트
+
+# https://m3.material.io/
+
+# https://developer.apple.com/design/
+
+# https://www.designsystems.com/open-design-systems/
+
+# shift alt 이동 → 복사하면서 이동
