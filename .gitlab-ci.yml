@@ -1,7 +1,3 @@
-
-yaml
-복사
-편집
 stages:
   - build
   - deploy
