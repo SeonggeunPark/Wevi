@@ -1,6 +1,5 @@
 stages:
   - build
-  - deploy
 
 # 프론트엔드 빌드
 frontend-build:
