@@ -1,49 +1,56 @@
-# This file is a template, and might need editing before it works on your project.
-# This is a sample GitLab CI/CD configuration file that should run without any modifications.
-# It demonstrates a basic 3 stage CI/CD pipeline. Instead of real tests or scripts,
-# it uses echo commands to simulate the pipeline execution.
-#
-# A pipeline is composed of independent jobs that run scripts, grouped into stages.
-# Stages run in sequential order, but jobs within stages run in parallel.
-#
-# For more information, see: https://docs.gitlab.com/ee/ci/yaml/index.html#stages
-#
-# You can copy and paste this template into a new `.gitlab-ci.yml` file.
-# You should not add this template to an existing `.gitlab-ci.yml` file by using the `include:` keyword.
-#
-# To contribute improvements to CI/CD templates, please follow the Development guide at:
-# https://docs.gitlab.com/ee/development/cicd/templates.html
-# This specific template is located at:
-# https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Getting-Started.gitlab-ci.yml
 
-stages:          # List of stages for jobs, and their order of execution
+yaml
+복사
+편집
+stages:
   - build
-  - test
   - deploy
 
-build-job:       # This job runs in the build stage, which runs first.
+# 프론트엔드 빌드
+frontend-build:
   stage: build
+  image: node:18-alpine
   script:
-    - echo "Compiling the code..."
-    - echo "Compile complete."
+    - echo "Building frontend"
+    - cd frontend
+    - npm install
+    - npm run build
+  artifacts:
+    paths:
+      - frontend/dist
+  tags:
+    - frontend  # frontend 태그가 있는 러너에서만 실행
 
-unit-test-job:   # This job runs in the test stage.
-  stage: test    # It only starts when the job in the build stage completes successfully.
+# 백엔드 빌드
+backend-build:
+  stage: build
+  image: gradle:jdk17
   script:
-    - echo "Running unit tests... This will take about 60 seconds."
-    - sleep 60
-    - echo "Code coverage is 90%"
+    - echo "Building backend"
+    - cd backend
+    - ./gradlew build
+  artifacts:
+    paths:
+      - backend/build/libs/*.jar
+  tags:
+    - backend  # backend 태그가 있는 러너에서만 실행
 
-lint-test-job:   # This job also runs in the test stage.
-  stage: test    # It can run at the same time as unit-test-job (in parallel).
+# 프론트엔드 배포
+frontend-deploy:
+  stage: deploy
   script:
-    - echo "Linting code... This will take about 10 seconds."
-    - sleep 10
-    - echo "No lint issues found."
+    - echo "Deploying frontend"
+    - cd frontend
+    - # 실제 배포 스크립트 작성 (예: Docker, AWS S3 등)
+  tags:
+    - frontend  # frontend 태그가 있는 러너에서만 실행
 
-deploy-job:      # This job runs in the deploy stage.
-  stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
-  environment: production
+# 백엔드 배포
+backend-deploy:
+  stage: deploy
   script:
-    - echo "Deploying application..."
-    - echo "Application successfully deployed."
+    - echo "Deploying backend"
+    - cd backend
+    - # 실제 배포 스크립트 작성 (예: Docker, AWS EC2 등)
+  tags:
+    - backend  # backend 태그가 있는 러너에서만 실행
