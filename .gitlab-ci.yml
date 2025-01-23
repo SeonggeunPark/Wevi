@@ -16,18 +16,4 @@ frontend-build:
   only:
     - front # 프론트 브랜에만 빌드 실행
   tags:
-    - frontend  # frontend 태그가 있는 러너에서만 실행
-
-# 백엔드 빌드
-backend-build:
-  stage: build
-  image: gradle:jdk17
-  script:
-    - echo "Building backend"
-    - cd backend
-    - ./gradlew build
-  artifacts:
-    paths:
-      - backend/build/libs/*.jar
-  tags:
-    - backend  # backend 태그가 있는 러너에서만 실행
+    - frontend  # frontend 태그가 있는 러너에서만 실행\
