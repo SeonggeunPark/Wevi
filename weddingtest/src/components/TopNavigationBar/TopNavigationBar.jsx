@@ -1,70 +1,63 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import searchicon2 from "../../assets/searchicon2.png";
+import hamburgericon from "../../assets/hamburgericon.png";
+import alarmicon from "../../assets/alarmicon.png";
+import potatosearchicon from "../../assets/potatosearch.png";
 
 function TopNavigationBar() {
   return (
-    <header className="flex items-center justify-between px-4 py-2 bg-white shadow-md">
+    <header className="flex items-center w-screen fixed top-0 justify-between px-4 py-3 bg-white shadow-md">
       {/* 로고 섹션 */}
-      <div className="flex items-center">
+      <Link to="/" className="flex items-center">
         <img
-          src="/path-to-logo.png" // 로고 이미지 경로
+          src={potatosearchicon} // 로고 이미지 경로
           alt="Logo"
-          className="h-8 w-auto"
+          className="h-10 w-10 object-contain" // 로고 크기 조정
         />
         <span className="ml-2 text-lg font-bold text-gray-700">WEDDI</span>
-      </div>
+      </Link>
 
       {/* 아이콘 섹션 */}
       <div className="flex items-center space-x-4">
-        <button aria-label="Search" className="text-gray-600 hover:text-gray-800">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M21 21l-4.35-4.35M10.5 18a7.5 7.5 0 100-15 7.5 7.5 0 000 15z"
-            />
-          </svg>
-        </button>
+        {/* 검색 아이콘 */}
+        <Link
+          to="/search"
+          aria-label="Search"
+          className="text-gray-600 hover:text-gray-800"
+        >
+          <img
+            src={searchicon2}
+            alt="Search Icon"
+            className="h-8 w-8 object-contain"
+          />
+        </Link>
 
-        <button aria-label="Notifications" className="text-gray-600 hover:text-gray-800">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6 6 0 10-12 0v3.159c0 .538-.214 1.054-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-            />
-          </svg>
-        </button>
+        {/* 알림 아이콘 */}
+        <Link
+          to="/alarm"
+          aria-label="Notifications"
+          className="text-gray-600 hover:text-gray-800"
+        >
+          <img
+            src={alarmicon}
+            alt="Alarm Icon"
+            className="h-8 w-8 object-contain"
+          />
+        </Link>
 
-        <button aria-label="Menu" className="text-gray-600 hover:text-gray-800">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M4 6h16M4 12h16m-7 6h7"
-            />
-          </svg>
-        </button>
+        {/* 메뉴 아이콘 */}
+        <Link
+          to="/hamburger"
+          aria-label="Menu"
+          className="text-gray-600 hover:text-gray-800"
+        >
+          <img
+            src={hamburgericon}
+            alt="Menu Icon"
+            className="h-8 w-8 object-contain"
+          />
+        </Link>
       </div>
     </header>
   );
