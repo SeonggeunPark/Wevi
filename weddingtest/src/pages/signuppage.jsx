@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Button1 from "../components/Buttons/Button1";
 
 export default function SignUpPage() {
   const [enteredValues, setEnteredValues] = useState({
@@ -11,8 +12,8 @@ export default function SignUpPage() {
     event.preventDefault();
     console.log(enteredValues);
     // 비밀번호와 비밀번호 확인 같은지 검사
-    if (enteredValues.password!==enteredValues.passwordConfirm){
-      console.log("wrong")
+    if (enteredValues.password !== enteredValues.passwordConfirm) {
+      console.log("wrong");
     }
   }
 
@@ -79,12 +80,7 @@ export default function SignUpPage() {
         </p>
 
         {/* 다음 버튼 */}
-        <button
-          onClick={handleSubmit}
-          className="w-full bg-gray-300 text-gray-600 py-3 rounded-lg cursor-not-allowed"
-        >
-          다음
-        </button>
+        <Button1 onClick={handleSubmit}>다음</Button1>
       </div>
     </div>
   );

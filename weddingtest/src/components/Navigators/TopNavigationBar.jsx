@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import searchicon2 from "../../assets/searchicon2.png";
 import hamburgericon from "../../assets/hamburgericon.png";
