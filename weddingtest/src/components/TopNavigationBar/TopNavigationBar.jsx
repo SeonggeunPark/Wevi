@@ -7,7 +7,7 @@ import potatosearchicon from "../../assets/potatosearch.png";
 
 function TopNavigationBar() {
   return (
-    <header className="flex items-center w-screen fixed top-0 justify-between px-4 py-3 bg-white shadow-md">
+    <header className="flex items-center w-screen fixed top-0 justify-between px-4 py-3 bg-[#FFFDFA] shadow-md">
       {/* 로고 섹션 */}
       <Link to="/" className="flex items-center">
         <img
