@@ -8,7 +8,7 @@ pipeline {
         DEPLOY_PATH = '/home/ubuntu/nginx/html'  // Front 배포 경로 (Nginx)
         APP_NAME = 'jenkins-test'  // 백엔드 컨테이너명
         DOCKER_IMAGE = 'jenkins-test:latest'  // 백엔드 Docker 이미지명
-        GRADLE_OPTS = '-Dorg.gradle.jvmargs="-Xmx256m"'  // Gradle 메모리 제한
+        GRADLE_OPTS = '-Dorg.gradle.jvmargs="-Xmx256m"'  // Gradle 메모리 제한d
     }
 
     stages {
