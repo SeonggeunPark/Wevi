@@ -1,4 +1,4 @@
-export default function WeddingServiceCard({ image, title, priceRange }) {
+export default function CardSearch({ image, title, priceRange }) {
   return (
     <div className="rounded-2xl shadow-md overflow-hidden">
       <img src={image} alt={title} className="w-full h-48 object-cover" />
