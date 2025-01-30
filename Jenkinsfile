@@ -69,7 +69,7 @@ pipeline {
                         npm run build
                     '''
                     
-                    // 기존 파일 제거 후 새 빌드 배포
+                    // 기존 파일 제거 후 새 빌드 배포d
                     sh '''
                         rm -rf ${DEPLOY_PATH}/*
                         cp -r dist/* ${DEPLOY_PATH}/
