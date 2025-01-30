@@ -2,7 +2,7 @@ import TopNavigationBar from "../components/Navigators/TopNavigationBar2";
 import BottomNavigationBar from "../components/Navigators/BottomNavigationBar";
 import Section from "../components/Tabs/Section";
 import TabBar1 from "../components/Tabs/TabBar1";
-import TabButton from "../components/Tabs/TabButon";
+import TabButton from "../components/Tabs/TabButton";
 
 import { useState } from "react";
 
@@ -37,19 +37,19 @@ export default function SearchPage() {
                 isSelected={selectedTopic === "웨딩홀"}
                 onClick={() => handleSelect("웨딩홀")}
               >
-                Components
+                웨딩홀
               </TabButton>
               <TabButton
                 isSelected={selectedTopic === "드레스"}
                 onClick={() => handleSelect("드레스스")}
               >
-                JSX
+                드레스
               </TabButton>
               <TabButton
                 isSelected={selectedTopic === "스튜디오"}
                 onClick={() => handleSelect("스튜디오")}
               >
-                Props
+                스튜디오
               </TabButton>
               <TabButton
                 isSelected={selectedTopic === "헤어메이크업"}
@@ -59,9 +59,8 @@ export default function SearchPage() {
               </TabButton>
             </>
           }
-        >
-          {tabContent}
-        </TabBar1>
+        ></TabBar1>
+        {tabContent}
       </Section>
       <BottomNavigationBar />
     </>
