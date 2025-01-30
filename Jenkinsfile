@@ -25,22 +25,49 @@ pipeline {
                 nodejs "${NODE_VERSION}"
             }
             steps {
-                dir('frontend') {  // frontend 디렉토리로 이동
+                dir('frontend') {
                     script {
+                        // 빌드 전 상태 출력
                         sh '''
+                            echo "===== Build Environment ====="
+                            echo "Node Version:"
                             node --version
+                            echo "NPM Version:"
                             npm --version
+                            echo "Current Directory:"
+                            pwd
+                            ls -la
+                        '''
+
+                        // 빌드 프로세스
+                        sh '''
+                            echo "===== Starting Build Process ====="
                             rm -rf node_modules
                             npm install
-                            CI=false npm run build  # React 빌드 시 경고를 에러로 처리하지 않도록 설정
+                            CI=false npm run build
                         '''
                         
-                        // 기존 파일 제거 후 새 빌드 배포
+                        // 배포
                         sh '''
+                            echo "===== Starting Deployment ====="
+                            echo "Cleaning deployment directory..."
                             rm -rf ${DEPLOY_PATH}/*
-                            cp -r build/* ${DEPLOY_PATH}/  # dist를 build로 변경
+                            
+                            echo "Copying build files..."
+                            cp -r build/* ${DEPLOY_PATH}/
+                            
+                            echo "Verifying deployment..."
+                            ls -la ${DEPLOY_PATH}
                         '''
                     }
+                }
+            }
+            post {
+                success {
+                    echo '프론트엔드 빌드 및 배포 성공'
+                }
+                failure {
+                    echo '프론트엔드 빌드 및 배포 실패'
                 }
             }
         }
@@ -49,6 +76,12 @@ pipeline {
     post {
         always {
             cleanWs()
+        }
+        success {
+            echo '파이프라인 성공'
+        }
+        failure {
+            echo '파이프라인 실패'
         }
     }
 }
