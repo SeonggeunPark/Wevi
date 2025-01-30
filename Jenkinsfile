@@ -23,7 +23,7 @@ pipeline {
 
         stage('Backend Build & Deploy') {
             when {
-                expression { BRANCH_NAME == 'origin/back' }  // back 브랜치일 때 실행
+                expression { BRANCH_NAME == 'origin/back' }  // back 브랜치일 때 실행d
             }
             tools {
                 jdk "${JAVA_VERSION}"
