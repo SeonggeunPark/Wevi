@@ -16,7 +16,7 @@ export default function HomePage() {
   return (
     <>
       <TopNavigationBar />
-      <main className="flex flex-col w-screen items-center justify-center min-h-[calc(100vh-8rem)] bg-pink-100">
+      <main className="flex flex-col w-screen items-center justify-center min-h-[calc(100vh-8rem)] bg-[#609966]">
         {/* 가운데 사진 */}
         <div className="relative">
           <img
