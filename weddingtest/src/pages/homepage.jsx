@@ -1,8 +1,8 @@
-import TopNavigationBar from "../components/TopNavigationBar/TopNavigationBar";
-import BottomNavigationBar from "../components/BottomNavigationBar/BottomNavigationBar";
+import TopNavigationBar from "../components/Navigators/TopNavigationBar";
+import BottomNavigationBar from "../components/Navigators/BottomNavigationBar";
 import potatooriginal from "../assets/potatooriginal.png";
 
-import React, { useState } from "react";
+import { useState } from "react";
 
 export default function HomePage() {
   // 말풍선 내용 상태 관리
