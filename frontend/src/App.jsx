@@ -4,7 +4,7 @@ import { CORE_CONCEPTS } from "./data";
 import Header from "./components/Header/Header";
 import TabButton from "./components/TabButon";
 import { EXAMPLES } from "./data.js";
-import TopNavigationBar from "./components/TopNavigationBar/TopNavigationBar.jsx";
+import TopNavigationBar from "./components/TopNavigationBar/topNavigationBar.jsx";
 import BottomNavigationBar from "./components/BottomNavigationBar/BottomNavigationBar.jsx";
 
 function CoreConcept({ image, title, description }) {
