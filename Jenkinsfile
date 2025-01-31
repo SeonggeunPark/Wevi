@@ -31,6 +31,40 @@ pipeline {
             steps {
                 dir('backend') {
                     script {
+                        // 빌드 전 상태 출력
+                        sh '''
+                            echo "===== Build Environment ====="
+                            echo "jdk Version:"
+                            java --version
+                            echo "Docker Version:"
+                            docker --version
+                            echo "Current Directory:"
+                            pwd
+                            ls -la
+                        '''
+
+                        // Prepare Environment
+                        sh '''
+                            rm -rf src/main/resources
+                            mkdir -p src/main/resources
+                            chmod 777 src/main/resources
+
+                            # Docker 캐시 정리
+                            docker system prune -f
+                        '''
+
+                        // 시크릿 파일 넣어주기
+                        // withCredentials([
+                        //     file(credentialsId: 'prod-yaml', variable: 'prodFile'),
+                        //     file(credentialsId: 'secret-yaml', variable: 'secretFile')
+                        // ]) 
+                        // sh '''
+                        //     cp "$prodFile" src/main/resources/application-prod.yml
+                        //     cp "$secretFile" src/main/resources/application-secret.yml
+                        //     chmod 644 src/main/resources/application-*.yml
+                        // '''
+        
+
                         sh '''
                             chmod +x gradlew
                             ./gradlew clean build -x test --no-daemon --max-workers 2 -Dorg.gradle.jvmargs="-Xmx256m"
