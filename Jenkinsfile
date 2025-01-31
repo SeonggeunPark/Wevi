@@ -3,14 +3,11 @@ pipeline {
 
     environment {
         BRANCH_NAME = "${GIT_BRANCH}"
-        NODE_VERSION = 'node18'
+        NODE_VERSION = 'node20'
         DEPLOY_PATH = '/home/ubuntu/nginx/html'
         JAVA_VERSION = 'jdk17'
         APP_NAME = 'jenkins-test'
         DOCKER_IMAGE = 'jenkins-test:latest'
-        // Mattermost 설정
-        MATTERMOST_WEBHOOK = credentials('mattermost-webhook')
-        MATTERMOST_CHANNEL = '#jenkins-alerts'
     }
 
     stages {
@@ -19,7 +16,6 @@ pipeline {
                 checkout scm
                 script {
                     echo "현재 브랜치: ${BRANCH_NAME}"
-                    notifyMattermost("STARTED", "파이프라인 시작")
                 }
             }
         }
@@ -85,14 +81,10 @@ pipeline {
             }
             post {
                 success {
-                    script {
-                        notifyMattermost("SUCCESS", "백엔드 빌드 및 배포 성공")
-                    }
+                    echo '백엔드 빌드 및 배포 성공'
                 }
                 failure {
-                    script {
-                        notifyMattermost("FAILURE", "백엔드 빌드 및 배포 실패")
-                    }
+                    echo '백엔드 빌드 및 배포 실패'
                 }
             }
         }
@@ -131,7 +123,7 @@ pipeline {
                             rm -rf ${DEPLOY_PATH}/*
                             
                             echo "Copying build files..."
-                            cp -r build/* ${DEPLOY_PATH}/
+                            cp -r dist/* ${DEPLOY_PATH}/
                             
                             echo "Verifying deployment..."
                             ls -la ${DEPLOY_PATH}
@@ -141,67 +133,41 @@ pipeline {
             }
             post {
                 success {
-                    script {
-                        notifyMattermost("SUCCESS", "프론트엔드 빌드 및 배포 성공")
-                    }
+                    echo '프론트엔드 빌드 및 배포 성공'
                 }
                 failure {
-                    script {
-                        notifyMattermost("FAILURE", "프론트엔드 빌드 및 배포 실패")
-                    }
+                    echo '프론트엔드 빌드 및 배포 실패'
                 }
             }
         }
     }
 
     post {
-        always {
-            cleanWs()
-        }
         success {
             script {
-                notifyMattermost("SUCCESS", "전체 파이프라인 성공적으로 완료")
+                def Author_ID = sh(script: "git show -s --pretty=%an", returnStdout: true).trim()
+                def Author_Name = sh(script: "git show -s --pretty=%ae", returnStdout: true).trim()
+                withCredentials([string(credentialsId: 'mattermost-webhook', variable: 'WEBHOOK_URL')]) {
+                    mattermostSend(color: 'good',
+                        message: "빌드 성공: ${env.JOB_NAME} #${env.BUILD_NUMBER} by ${Author_ID}(${Author_Name})\n(<${env.BUILD_URL}|Details>)",
+                        endpoint: WEBHOOK_URL,
+                        channel: 'f1f632e18102627b0737ddbefcf0c505'
+                    )
+                }
             }
         }
         failure {
             script {
-                notifyMattermost("FAILURE", "파이프라인 실패")
+                def Author_ID = sh(script: "git show -s --pretty=%an", returnStdout: true).trim()
+                def Author_Name = sh(script: "git show -s --pretty=%ae", returnStdout: true).trim()
+                withCredentials([string(credentialsId: 'mattermost-webhook', variable: 'WEBHOOK_URL')]) {
+                    mattermostSend(color: 'danger',
+                        message: "빌드 실패: ${env.JOB_NAME} #${env.BUILD_NUMBER} by ${Author_ID}(${Author_Name})\n(<${env.BUILD_URL}|Details>)",
+                        endpoint: WEBHOOK_URL,
+                        channel: 'f1f632e18102627b0737ddbefcf0c505'
+                    )
+                }
             }
         }
     }
-}
-
-// Mattermost 알림 함수
-def notifyMattermost(String status, String message) {
-    def color = status == 'SUCCESS' ? '#36a64f' : status == 'FAILURE' ? '#dc3545' : '#ffc107'
-    def payload = JsonOutput.toJson([
-        channel: MATTERMOST_CHANNEL,
-        username: 'Jenkins',
-        text: "**${env.JOB_NAME}** - ${message}",
-        attachments: [[
-            fallback: "${status}: ${message}",
-            color: color,
-            fields: [
-                [
-                    title: "Status",
-                    value: status,
-                    short: true
-                ],
-                [
-                    title: "Branch",
-                    value: BRANCH_NAME,
-                    short: true
-                ],
-                [
-                    title: "Build Number",
-                    value: "#${env.BUILD_NUMBER}",
-                    short: true
-                ]
-            ]
-        ]]
-    ])
-
-    sh """
-        curl -X POST -H 'Content-Type: application/json' --data '${payload}' ${MATTERMOST_WEBHOOK}
-    """
 }
