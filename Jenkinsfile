@@ -13,6 +13,7 @@ pipeline {
                 checkout scm
                 script {
                     echo "현재 브랜치: ${BRANCH_NAME}"
+                    echo "v2"
                 }
             }
         }
