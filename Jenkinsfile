@@ -97,7 +97,7 @@ pipeline {
                 nodejs "${NODE_VERSION}"
             }
             steps {
-                dir('frontend') {
+                dir('weddingtest') {
                     script {
                         sh '''
                             echo "===== Build Environment ====="
