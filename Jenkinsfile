@@ -27,7 +27,7 @@ pipeline {
             steps {
                 dir('frontend') {
                     script {
-                        // 빌드 전 상태 출력d
+                        // 빌드 전 상태 출력
                         sh '''
                             echo "===== Build Environment ====="
                             echo "Node Version:"
