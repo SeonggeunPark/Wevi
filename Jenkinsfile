@@ -8,9 +8,6 @@ pipeline {
         JAVA_VERSION = 'jdk17'
         APP_NAME = 'jenkins-test'
         DOCKER_IMAGE = 'jenkins-test:latest'
-        // Mattermost 설정
-        MATTERMOST_WEBHOOK = credentials('mattermost-webhook')
-        MATTERMOST_CHANNEL = '#jenkins-alerts'
     }
 
     stages {
@@ -155,53 +152,27 @@ pipeline {
     }
 
     post {
-        always {
-            cleanWs()
-        }
         success {
             script {
-                notifyMattermost("SUCCESS", "전체 파이프라인 성공적으로 완료")
+                def Author_ID = sh(script: "git show -s --pretty=%an", returnStdout: true).trim()
+                def Author_Name = sh(script: "git show -s --pretty=%ae", returnStdout: true).trim()
+                mattermostSend(color: 'good',
+                    message: "빌드 성공: ${env.JOB_NAME} #${env.BUILD_NUMBER} by ${Author_ID}(${Author_Name})\n(<${env.BUILD_URL}|Details>)",
+                    endpoint: 'https://meeting.ssafy.com/hooks/ofbrtcoj37rjuft67ifsw9fy1w',
+                    channel: 'f1f632e18102627b0737ddbefcf0c505'
+                        )
             }
         }
         failure {
             script {
-                notifyMattermost("FAILURE", "파이프라인 실패")
+                def Author_ID = sh(script: "git show -s --pretty=%an", returnStdout: true).trim()
+                def Author_Name = sh(script: "git show -s --pretty=%ae", returnStdout: true).trim()
+                mattermostSend(color: 'danger',
+                    message: "빌드 실패: ${env.JOB_NAME} #${env.BUILD_NUMBER} by ${Author_ID}(${Author_Name})\n(<${env.BUILD_URL}|Details>)",
+                    endpoint: 'https://meeting.ssafy.com/hooks/ofbrtcoj37rjuft67ifsw9fy1w',
+                    channel: 'f1f632e18102627b0737ddbefcf0c505'
+                        )
             }
         }
     }
-}
-
-// Mattermost 알림 함수
-def notifyMattermost(String status, String message) {
-    def color = status == 'SUCCESS' ? '#36a64f' : status == 'FAILURE' ? '#dc3545' : '#ffc107'
-    def payload = JsonOutput.toJson([
-        channel: MATTERMOST_CHANNEL,
-        username: 'Jenkins',
-        text: "**${env.JOB_NAME}** - ${message}",
-        attachments: [[
-            fallback: "${status}: ${message}",
-            color: color,
-            fields: [
-                [
-                    title: "Status",
-                    value: status,
-                    short: true
-                ],
-                [
-                    title: "Branch",
-                    value: BRANCH_NAME,
-                    short: true
-                ],
-                [
-                    title: "Build Number",
-                    value: "#${env.BUILD_NUMBER}",
-                    short: true
-                ]
-            ]
-        ]]
-    ])
-
-    sh """
-        curl -X POST -H 'Content-Type: application/json' --data '${payload}' ${MATTERMOST_WEBHOOK}
-    """
 }
