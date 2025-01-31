@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         BRANCH_NAME = "${GIT_BRANCH}"
-        NODE_VERSION = 'node18'
+        NODE_VERSION = 'node20'
         DEPLOY_PATH = '/home/ubuntu/nginx/html'
     }
 
