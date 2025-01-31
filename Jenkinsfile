@@ -16,7 +16,6 @@ pipeline {
                 checkout scm
                 script {
                     echo "현재 브랜치: ${BRANCH_NAME}"
-                    notifyMattermost("STARTED", "파이프라인 시작")
                 }
             }
         }
@@ -82,14 +81,10 @@ pipeline {
             }
             post {
                 success {
-                    script {
-                        notifyMattermost("SUCCESS", "백엔드 빌드 및 배포 성공")
-                    }
+                    echo '백엔드 빌드 및 배포 성공'
                 }
                 failure {
-                    script {
-                        notifyMattermost("FAILURE", "백엔드 빌드 및 배포 실패")
-                    }
+                    echo '백엔드 빌드 및 배포 실패'
                 }
             }
         }
@@ -138,14 +133,10 @@ pipeline {
             }
             post {
                 success {
-                    script {
-                        notifyMattermost("SUCCESS", "프론트엔드 빌드 및 배포 성공")
-                    }
+                    echo '프론트엔드 빌드 및 배포 성공'
                 }
                 failure {
-                    script {
-                        notifyMattermost("FAILURE", "프론트엔드 빌드 및 배포 실패")
-                    }
+                    echo '프론트엔드 빌드 및 배포 실패'
                 }
             }
         }
