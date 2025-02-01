@@ -4,12 +4,15 @@ import com.ssafy.wevi.config.SecurityUtils;
 import com.ssafy.wevi.dto.ApiResponseDto;
 import com.ssafy.wevi.dto.User.UserCreateDto;
 import com.ssafy.wevi.dto.User.UserResponseDto;
+import com.ssafy.wevi.dto.User.UserSpouseResponseDto;
 import com.ssafy.wevi.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/users")
@@ -29,7 +32,7 @@ public class UserController {
         return new ApiResponseDto<>(
                 HttpStatus.CREATED.value(),
                 true,
-                "User created successfully",
+                "User created successfully.",
                 userResponseDto
         );
     }
@@ -45,7 +48,7 @@ public class UserController {
         return new ApiResponseDto<>(
                 HttpStatus.OK.value(),
                 true,
-                "User found by auth successfully",
+                "User found by auth successfully.",
                 userResponseDto
         );
     }
@@ -58,8 +61,34 @@ public class UserController {
         return new ApiResponseDto<>(
                 HttpStatus.OK.value(),
                 true,
-                "User found by id successfully",
+                "User found by id successfully.",
                 userResponseDto
         );
+    }
+
+    @GetMapping("/spouse")
+    public ApiResponseDto<UserSpouseResponseDto> getSpouseInfo() {
+        // 로그인한 유저 ID 가져오기
+        String userId = SecurityUtils.getAuthenticatedUserId();
+
+        // 배우자 정보 가져오기
+        Optional<UserSpouseResponseDto> spouseResponse = userService.getSpouse(Integer.valueOf(userId));
+
+        // 배우자가 있는 경우
+        if (spouseResponse.isPresent()) {
+            return new ApiResponseDto<>(
+                    HttpStatus.OK.value(),
+                    true,
+                    "Spouse information found successfully.",
+                    spouseResponse.get()
+            );
+        } else {   // 베우자가 없는 경우
+            return new ApiResponseDto<>(
+                    HttpStatus.OK.value(),
+                    true,
+                    "No spouse information found.",
+                    null
+            );
+        }
     }
 }

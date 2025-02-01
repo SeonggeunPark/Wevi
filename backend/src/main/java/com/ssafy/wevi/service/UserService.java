@@ -3,6 +3,7 @@ package com.ssafy.wevi.service;
 import com.ssafy.wevi.domain.User;
 import com.ssafy.wevi.dto.User.UserCreateDto;
 import com.ssafy.wevi.dto.User.UserResponseDto;
+import com.ssafy.wevi.dto.User.UserSpouseResponseDto;
 import com.ssafy.wevi.enums.UserStatus;
 import com.ssafy.wevi.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -44,10 +46,21 @@ public class UserService {
         return userRepository.findById(id).map(user -> toUserResponseDto(user));
     }
 
-//    @Transactional(readOnly = true)
-//    public Optional<UserResponseDto> findByEmail(String email) {
-//        return userRepository.findByEmail(email).map(user -> toUserResponseDto(user));
-//    }
+    @Transactional(readOnly = true)
+    public Optional<UserSpouseResponseDto> getSpouse(Integer userId) {
+        // 배우자 정보 조회
+        return userRepository.findById(userId)
+                .map(user -> user.getSpouse())
+                .filter(Objects::nonNull)
+                .map(spouse -> {
+                    UserSpouseResponseDto userSpouseResponseDto = new UserSpouseResponseDto();
+                    userSpouseResponseDto.setSpouseId(spouse.getUserId());
+                    userSpouseResponseDto.setNickname(spouse.getNickname());
+                    userSpouseResponseDto.setName(spouse.getName());
+
+                    return userSpouseResponseDto;
+                });
+    }
 
     // update랑 delete도 만들기!!!!
     // 배우자 추가 기능도 만들기!!
