@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
-import searchicon2 from "../../assets/searchicon2.png";
-import hamburgericon from "../../assets/hamburgericon.png";
-import alarmicon from "../../assets/alarmicon.png";
+import icon_home from "../../assets/8687429_ic_fluent_home_regular_icon.png";
+import icon_calendar from "../../assets/9025172_calendar_blank_icon.png";
+import icon_mypage from "../../assets/4781820_avatar_male_man_people_person_icon.png";
+import icon_search from "../../assets/5349754_explore_find_magnifier_magnifying glass_search_icon.png";
+import icon_alarm from "../../assets/4781824_alarm_alert_attention_bell_clock_icon.png";
+import icon_arrow from "../../assets/2849832_arrows_navigation_arrow_left_back_icon.png";
+import icon_progress from "../../assets/9025639_list_bullets_icon.png";
+import icon_menu from "../../assets/9025668_list_icon.png";
+
 import potatosearchicon from "../../assets/potatosearch.png";
 
 function TopNavigationBar() {
@@ -26,7 +32,7 @@ function TopNavigationBar() {
           className="text-gray-600 hover:text-gray-800"
         >
           <img
-            src={searchicon2}
+            src={icon_search}
             alt="Search Icon"
             className="h-8 w-8 object-contain"
           />
@@ -39,7 +45,7 @@ function TopNavigationBar() {
           className="text-gray-600 hover:text-gray-800"
         >
           <img
-            src={alarmicon}
+            src={icon_alarm}
             alt="Alarm Icon"
             className="h-8 w-8 object-contain"
           />
@@ -52,7 +58,7 @@ function TopNavigationBar() {
           className="text-gray-600 hover:text-gray-800"
         >
           <img
-            src={hamburgericon}
+            src={icon_menu}
             alt="Menu Icon"
             className="h-8 w-8 object-contain"
           />
