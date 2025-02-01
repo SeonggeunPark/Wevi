@@ -45,7 +45,7 @@ public class SecurityConfig {
                 .formLogin(configurer -> configurer
                         // POSTMAN 테스트랑 프론트한테 /auth/login만 RequestBody가 form-data여야 한다고 전달하기
                         // parameter는 username, password임
-                        .loginProcessingUrl("/auth/login")
+                        .loginProcessingUrl("/api/auth/login")
                         .successHandler(new HttpStatusAuthenticationSuccessHandler(HttpStatus.OK))
                         .failureHandler(new AuthenticationEntryPointFailureHandler(authenticationEntryPoint))
                         .permitAll(true)
@@ -57,8 +57,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests(registry -> registry
                         .requestMatchers(
                                 // 로그인 안했어도 요청 가능한 API는 여기 추가해주기
-                                new AntPathRequestMatcher("/auth/login", "POST"),
-                                new AntPathRequestMatcher("/users/signup", "POST")
+                                new AntPathRequestMatcher("/api/auth/login", "POST"),
+                                new AntPathRequestMatcher("/api/users/signup", "POST")
                         ).permitAll()
                         .anyRequest().authenticated())
                 .exceptionHandling(customizer -> customizer

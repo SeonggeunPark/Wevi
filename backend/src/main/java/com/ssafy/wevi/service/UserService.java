@@ -28,7 +28,9 @@ public class UserService {
         user.setName(userCreateDto.getName());
         user.setPassword(passwordEncoder.encode(userCreateDto.getPassword()));
         user.setPhone(userCreateDto.getPhone());
-        user.setAddress(userCreateDto.getAddress());
+        user.setZonecode(userCreateDto.getZonecode());
+        user.setAutoRoadAddress(userCreateDto.getAutoRoadAddress());
+        user.setAddressDetail(userCreateDto.getAddressDetail());
         user.setStatus(UserStatus.ACTIVE.name());
         user.setCreatedAt(LocalDateTime.now());
 
@@ -47,7 +49,8 @@ public class UserService {
 //        return userRepository.findByEmail(email).map(user -> toUserResponseDto(user));
 //    }
 
-    // update랑 delete도 만들기!!!!!!!!!!!!!!!!
+    // update랑 delete도 만들기!!!!
+    // 배우자 추가 기능도 만들기!!
 
     // 내가 원하는 값만 내보내기 위해서
     // 예를 들어, 유저 정보를 조회할 때 굳이 계약까지 불러올 필요는 없음
@@ -56,14 +59,16 @@ public class UserService {
         if (user == null) return null;
 
         UserResponseDto userResponseDto = new UserResponseDto();
-        userResponseDto.setId(user.getId());
+        userResponseDto.setUserId(user.getUserId());
         userResponseDto.setEmail(user.getEmail());
-        userResponseDto.setAuthProvider(user.getAuthProvider());
         userResponseDto.setNickname(user.getNickname());
         userResponseDto.setName(user.getName());
         userResponseDto.setPhone(user.getPhone());
-        userResponseDto.setAddress(user.getAddress());
+        userResponseDto.setZonecode(user.getZonecode());
+        userResponseDto.setAutoRoadAddress(user.getAutoRoadAddress());
+        userResponseDto.setAddressDetail(user.getAddressDetail());
         userResponseDto.setCreatedAt(user.getCreatedAt());
+        userResponseDto.setSpouse(user.getSpouse());
 
         return userResponseDto;
     }

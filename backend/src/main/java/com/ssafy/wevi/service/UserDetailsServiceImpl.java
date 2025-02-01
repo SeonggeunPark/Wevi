@@ -21,7 +21,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     // 내가 만든 User 아니고 SpringSecurity User임...
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return userRepository.findByEmail(username).map(user -> User.builder()
-                .username(String.valueOf(user.getId())) // Authentication.getName
+                .username(String.valueOf(user.getUserId())) // Authentication.getName
                 .password(user.getPassword())
                 .authorities(List.of())
                 .build()).orElseThrow(() -> new UsernameNotFoundException(username));
