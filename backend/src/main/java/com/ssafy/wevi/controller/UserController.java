@@ -1,5 +1,6 @@
 package com.ssafy.wevi.controller;
 
+import com.ssafy.wevi.config.SecurityUtils;
 import com.ssafy.wevi.dto.UserCreateDto;
 import com.ssafy.wevi.dto.UserResponseDto;
 import com.ssafy.wevi.service.UserService;
@@ -22,9 +23,6 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @Slf4j
 public class UserController {
-    // SecurityContext: 인증정보가 담겨있는 틀
-    // SecurityContextHolder: 틀이 담겨있는 장소
-    private static final SecurityContextHolderStrategy securityContextHolderStrategy = SecurityContextHolder.getContextHolderStrategy();
 
     private final UserService userService;
 
@@ -39,15 +37,8 @@ public class UserController {
 
     @GetMapping("/{id}")
     public ResponseEntity<UserResponseDto> findById(@PathVariable Integer id) {
-        // 현재 요청의 인증 정보 가져오기
-        Authentication authentication = securityContextHolderStrategy.getContext().getAuthentication();
-
-        if (authentication == null || !authentication.isAuthenticated()) {
-            throw new AccessDeniedException("Access denied");
-        }
-
-        // 인증 정보 안에서 userId 가져오기 (UserDetailsService.loadUserByUsername 메서드에서 리턴한 UserDetails.getUsername의 값)
-        String userId = authentication.getName();
+        // 유저 ID 가져오기
+        String userId = SecurityUtils.getAuthenticatedUserId();
 
         if (!Objects.equals(userId, String.valueOf(id))) {
             throw new AccessDeniedException("User ID: " + userId + " does not match ID: " + id);
@@ -56,11 +47,6 @@ public class UserController {
         return ResponseEntity.ok(userResponseDto);
     }
 
-//    @GetMapping("/{id}")
-//    public ResponseEntity<UserResponseDto> findById(@PathVariable Integer id) {
-//        UserResponseDto userResponseDto = userService.findById(id).orElseThrow();
-//        return ResponseEntity.ok(userResponseDto);
-//    }
 
 //    @GetMapping("/{email}")
 //    public ResponseEntity<UserResponseDto> findByEmail(@PathVariable String email) {
