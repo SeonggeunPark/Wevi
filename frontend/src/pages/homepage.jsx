@@ -16,7 +16,7 @@ export default function HomePage() {
   return (
     <>
       <TopNavigationBar />
-      <main className="flex flex-col w-screen items-center justify-center min-h-[calc(100vh-8rem)] bg-[#609966]">
+      <main className="flex flex-col w-screen items-center justify-center overflow-hidden h-[calc(100vh-144px)] bg-[#609966]">
         {/* 가운데 사진 */}
         <div className="relative">
           <img
@@ -25,7 +25,7 @@ export default function HomePage() {
             className="w-auto h-auto" // 높이 고정
           />
           {/* 말풍선 */}
-          <div className="absolute top-15 left-1/2 -translate-x-1/2 -translate-y-full bg-white p-4 rounded-lg shadow-md text-center text-gray-800 w-[300px] max-w-auto max-h-30 overflow-y-auto whitespace-normal">
+          <div className="font-pretendard absolute top-15 left-1/2 -translate-x-1/2 -translate-y-full bg-white p-4 rounded-lg shadow-md text-center text-gray-800 w-[300px] max-w-auto max-h-30 overflow-y-auto whitespace-normal">
             {speechText}
           </div>
         </div>

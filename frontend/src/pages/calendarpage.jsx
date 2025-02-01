@@ -5,6 +5,7 @@ import TopNavigationBar from "../components/Navigators/TopNavigationBar";
 import scheduleData from "../scheduleData.js";
 import CardCalendar from "../components/Cards/CardCalendar.jsx";
 import BottomNavigationBar from "../components/Navigators/BottomNavigationBar.jsx";
+import "../pages/react-calendar.css"
 
 export default function CalendarPage() {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -27,10 +28,18 @@ export default function CalendarPage() {
   return (
     <>
       <TopNavigationBar />
-      <div className="min-h-screen bg-gray-100 p-4">
+      <div className="min-h-screen  bg-gray-100 p-4">
         {/* 📅 캘린더 */}
         <div className="bg-white rounded-lg shadow-md p-4 mb-4">
-          <Calendar
+          <Calendar 
+            style={{
+              width: "100%",
+              maxWidth: "1024px",
+              margin: "0 auto",
+              borderRadius: "8px",
+              boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+            }}
+            className="custom-calendar"
             onChange={handleDateClick}
             value={selectedDate}
             tileClassName={({ date, view }) =>

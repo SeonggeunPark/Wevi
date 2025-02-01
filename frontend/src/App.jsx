@@ -11,7 +11,8 @@ import HamburgerPage from './pages/hamburgerpage'
 import MyPage from './pages/mypage'
 import ProgressPage from './pages/progresspage'
 import SearchPage from './pages/searchpage'
-import AiPlannerPage from './pages/aiplannerpage'
+import AiPlannerResultPage from './pages/aiplannerresultpage'
+import AiPlannerStartPage from './pages/aiplannerstartpage'
 
 const router = createBrowserRouter([
   {path: '/', element: <HomePage/>},
@@ -24,7 +25,8 @@ const router = createBrowserRouter([
   {path: '/mypage', element: <MyPage/>},
   {path: '/progress', element: <ProgressPage/>},
   {path: '/search', element: <SearchPage/>},
-  {path: '/aiplanner', element: <AiPlannerPage/>}
+  {path: '/aiplannerresult', element: <AiPlannerResultPage/>},
+  {path: '/aiplannerstart', element: <AiPlannerStartPage/>}
   
 
 ])
