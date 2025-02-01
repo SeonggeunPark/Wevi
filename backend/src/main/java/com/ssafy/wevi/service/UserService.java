@@ -1,8 +1,8 @@
 package com.ssafy.wevi.service;
 
 import com.ssafy.wevi.domain.User;
-import com.ssafy.wevi.dto.UserCreateDto;
-import com.ssafy.wevi.dto.UserResponseDto;
+import com.ssafy.wevi.dto.User.UserCreateDto;
+import com.ssafy.wevi.dto.User.UserResponseDto;
 import com.ssafy.wevi.enums.UserStatus;
 import com.ssafy.wevi.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -68,7 +68,7 @@ public class UserService {
         userResponseDto.setAutoRoadAddress(user.getAutoRoadAddress());
         userResponseDto.setAddressDetail(user.getAddressDetail());
         userResponseDto.setCreatedAt(user.getCreatedAt());
-        userResponseDto.setSpouse(user.getSpouse());
+        userResponseDto.setSpouseId(user.getSpouse() != null ? user.getSpouse().getUserId() : null);
 
         return userResponseDto;
     }

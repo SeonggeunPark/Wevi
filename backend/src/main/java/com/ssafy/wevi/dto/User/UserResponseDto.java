@@ -1,4 +1,4 @@
-package com.ssafy.wevi.dto;
+package com.ssafy.wevi.dto.User;
 
 import com.ssafy.wevi.domain.User;
 import lombok.Getter;
@@ -18,5 +18,5 @@ public class UserResponseDto {
     private String autoRoadAddress;
     private String addressDetail;
     private LocalDateTime createdAt;
-    private User spouse;
+    private Integer spouseId;
 }

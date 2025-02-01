@@ -1,7 +1,6 @@
-package com.ssafy.wevi.dto;
+package com.ssafy.wevi.dto.User;
 
 import com.ssafy.wevi.domain.User;
-import com.ssafy.wevi.enums.UserStatus;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -1,4 +1,4 @@
-package com.ssafy.wevi.dto;
+package com.ssafy.wevi.dto.User;
 
 import lombok.Getter;
 import lombok.Setter;
