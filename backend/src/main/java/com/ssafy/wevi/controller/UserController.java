@@ -27,6 +27,7 @@ public class UserController {
     private final UserService userService;
 
     // CREATE는 Optional일 수가 없으므로 할 필요 X
+    // 회원가입
     @PostMapping("/signup")
     @ResponseStatus(HttpStatus.CREATED)
     public UserResponseDto create(@RequestBody UserCreateDto userCreateDto) {
@@ -35,22 +36,20 @@ public class UserController {
         return userResponseDto;
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<UserResponseDto> findById(@PathVariable Integer id) {
-        // 유저 ID 가져오기
+    // 본인 유저 정보 조회하기
+    @GetMapping
+    public ResponseEntity<UserResponseDto> getUser() {
+        // 로그인한 유저 ID 가져오기
         String userId = SecurityUtils.getAuthenticatedUserId();
 
-        if (!Objects.equals(userId, String.valueOf(id))) {
-            throw new AccessDeniedException("User ID: " + userId + " does not match ID: " + id);
-        }
-        UserResponseDto userResponseDto = userService.findById(id).orElseThrow();
+        UserResponseDto userResponseDto = userService.findById(Integer.valueOf(userId)).orElseThrow();
         return ResponseEntity.ok(userResponseDto);
     }
 
-
-//    @GetMapping("/{email}")
-//    public ResponseEntity<UserResponseDto> findByEmail(@PathVariable String email) {
-//        UserResponseDto userResponseDto = userService.findByEmail(email).orElseThrow();
-//        return ResponseEntity.ok(userResponseDto);
-//    }
+    // 다른 유저 정보 조회하기
+    @GetMapping("/{id}")
+    public ResponseEntity<UserResponseDto> getUserById(@PathVariable Integer id) {
+        UserResponseDto userResponseDto = userService.findById(id).orElseThrow();
+        return ResponseEntity.ok(userResponseDto);
+    }
 }
