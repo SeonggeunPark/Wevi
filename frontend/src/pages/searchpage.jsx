@@ -14,7 +14,7 @@ export default function SearchPage() {
     <>
       <TopNavigationBar title="검색" />
       {/* 상단바 하단바 크기+4px 사이즈 */}
-      <div className="mt-17 mb-21 w-screen">
+      <div className=" w-screen">
         <SearchBar />
         <RecentSearch />
         <PopularServices />
