@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class User {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer userId;
 
     @Column(unique = true, nullable = false)
@@ -58,8 +58,4 @@ public class User {
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "spouse_id")   // 사실 이거 안써도 똑같음
     private User spouse;
-
-
-
-
 }
