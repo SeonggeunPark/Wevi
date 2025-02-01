@@ -50,7 +50,7 @@ public class SecurityConfig {
                         .failureHandler(new AuthenticationEntryPointFailureHandler(authenticationEntryPoint))
                         .permitAll(true)
                 ).logout(configurer -> configurer
-                        .logoutRequestMatcher(new AntPathRequestMatcher("/auth/logout", "POST", true))
+                        .logoutRequestMatcher(new AntPathRequestMatcher("/api/auth/logout", "POST", true))
                         .logoutSuccessHandler(new HttpStatusReturningLogoutSuccessHandler())
                         .permitAll(true)
                 )
