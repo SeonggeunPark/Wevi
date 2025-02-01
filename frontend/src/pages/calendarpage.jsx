@@ -4,6 +4,7 @@ import "react-calendar/dist/Calendar.css";
 import TopNavigationBar from "../components/Navigators/TopNavigationBar";
 import scheduleData from "../scheduleData.js";
 import CardCalendar from "../components/Cards/CardCalendar.jsx";
+import BottomNavigationBar from "../components/Navigators/BottomNavigationBar.jsx";
 
 export default function CalendarPage() {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -61,6 +62,7 @@ export default function CalendarPage() {
           ))}
         </div>
       </div>
+      <BottomNavigationBar />
     </>
   );
 }

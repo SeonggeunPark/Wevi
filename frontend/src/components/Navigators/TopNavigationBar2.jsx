@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import backIcon from "../../assets/arrowLeft.png";
-import hamburgerIcon from "../../assets/hamburgericon.png";
+import icon_arrow from "../../assets/2849832_arrows_navigation_arrow_left_back_icon.png";
+import icon_menu from "../../assets/9025668_list_icon.png";
 
 function TopNavigationBar({ title }) {
   return (
@@ -9,16 +9,16 @@ function TopNavigationBar({ title }) {
       {/* 뒤로가기로 수정하기기 */}
       <Link to="/" className="flex items-center">
         <img
-          src={backIcon} // 로고 이미지 경로
+          src={icon_arrow} // 로고 이미지 경로
           alt="arrow"
-          className="h-10 w-10 object-contain" // 로고 크기 조정
+          className="h-8 w-8 object-contain" // 로고 크기 조정
         />
       </Link>
 
       <span className="text-lg font-bold text-gray-900">{title}</span>
 
       <Link to="/menu" aria-label="Menu" className="p-2">
-        <img src={hamburgerIcon} alt="Menu Icon" className="h-6 w-6" />
+        <img src={icon_menu} alt="Menu Icon" className="h-8 w-8" />
       </Link>
     </header>
   );
