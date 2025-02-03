@@ -5,6 +5,7 @@ import com.ssafy.wevi.dto.ApiResponseDto;
 import com.ssafy.wevi.dto.User.UserCreateDto;
 import com.ssafy.wevi.dto.User.UserResponseDto;
 import com.ssafy.wevi.dto.User.UserSpouseResponseDto;
+import com.ssafy.wevi.dto.User.UserUpdateDto;
 import com.ssafy.wevi.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -26,8 +27,8 @@ public class UserController {
     // 회원가입
     @PostMapping("/signup")
     @ResponseStatus(HttpStatus.CREATED)
-    public ApiResponseDto<UserResponseDto> create(@RequestBody UserCreateDto userCreateDto) {
-        UserResponseDto userResponseDto = userService.create(userCreateDto);
+    public ApiResponseDto<UserResponseDto> createUser(@RequestBody UserCreateDto userCreateDto) {
+        UserResponseDto userResponseDto = userService.createUser(userCreateDto);
 
         return new ApiResponseDto<>(
                 HttpStatus.CREATED.value(),
@@ -43,7 +44,7 @@ public class UserController {
         // 로그인한 유저 ID 가져오기
         String userId = SecurityUtils.getAuthenticatedUserId();
 
-        UserResponseDto userResponseDto = userService.findById(Integer.valueOf(userId)).orElseThrow();
+        UserResponseDto userResponseDto = userService.findById(Integer.valueOf(userId));
 
         return new ApiResponseDto<>(
                 HttpStatus.OK.value(),
@@ -56,7 +57,7 @@ public class UserController {
     // 다른 유저 정보 조회하기
     @GetMapping("/{id}")
     public ApiResponseDto<UserResponseDto> getUserById(@PathVariable Integer id) {
-        UserResponseDto userResponseDto = userService.findById(id).orElseThrow();
+        UserResponseDto userResponseDto = userService.findById(id);
 
         return new ApiResponseDto<>(
                 HttpStatus.OK.value(),
@@ -72,15 +73,15 @@ public class UserController {
         String userId = SecurityUtils.getAuthenticatedUserId();
 
         // 배우자 정보 가져오기
-        Optional<UserSpouseResponseDto> spouseResponse = userService.getSpouse(Integer.valueOf(userId));
+        UserSpouseResponseDto spouseResponse = userService.getSpouse(Integer.valueOf(userId));
 
         // 배우자가 있는 경우
-        if (spouseResponse.isPresent()) {
+        if (spouseResponse != null) {
             return new ApiResponseDto<>(
                     HttpStatus.OK.value(),
                     true,
                     "Spouse information found successfully.",
-                    spouseResponse.get()
+                    spouseResponse
             );
         } else {   // 베우자가 없는 경우
             return new ApiResponseDto<>(
@@ -90,5 +91,19 @@ public class UserController {
                     null
             );
         }
+    }
+
+    @PatchMapping
+    public ApiResponseDto<UserResponseDto> updateUser(@RequestBody UserUpdateDto userUpdateDto) {
+        String userId = SecurityUtils.getAuthenticatedUserId();
+
+        UserResponseDto userResponseDto = userService.updateUser(Integer.valueOf(userId), userUpdateDto);
+
+        return new ApiResponseDto<>(
+                HttpStatus.OK.value(),
+                true,
+                "User information updated successfully.",
+                userResponseDto
+        );
     }
 }

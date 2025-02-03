@@ -4,6 +4,7 @@ import com.ssafy.wevi.domain.User;
 import com.ssafy.wevi.dto.User.UserCreateDto;
 import com.ssafy.wevi.dto.User.UserResponseDto;
 import com.ssafy.wevi.dto.User.UserSpouseResponseDto;
+import com.ssafy.wevi.dto.User.UserUpdateDto;
 import com.ssafy.wevi.enums.UserStatus;
 import com.ssafy.wevi.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -23,7 +24,7 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
 
     @Transactional
-    public UserResponseDto create(UserCreateDto userCreateDto) {
+    public UserResponseDto createUser(UserCreateDto userCreateDto) {
         User user = new User();
         user.setEmail(userCreateDto.getEmail());
         user.setNickname(userCreateDto.getNickname());
@@ -42,12 +43,12 @@ public class UserService {
     }
 
     @Transactional(readOnly = true)
-    public Optional<UserResponseDto> findById(Integer id) {
-        return userRepository.findById(id).map(user -> toUserResponseDto(user));
+    public UserResponseDto findById(Integer id) {
+        return userRepository.findById(id).map(user -> toUserResponseDto(user)).orElseThrow();
     }
 
     @Transactional(readOnly = true)
-    public Optional<UserSpouseResponseDto> getSpouse(Integer userId) {
+    public UserSpouseResponseDto getSpouse(Integer userId) {
         // 배우자 정보 조회
         return userRepository.findById(userId)
                 .map(user -> user.getSpouse())
@@ -59,10 +60,32 @@ public class UserService {
                     userSpouseResponseDto.setName(spouse.getName());
 
                     return userSpouseResponseDto;
-                });
+                })
+                .orElse(null);
     }
 
-    // update랑 delete도 만들기!!!!
+    @Transactional
+    public UserResponseDto updateUser(Integer userId, UserUpdateDto userUpdateDto) {
+        return userRepository.findById(userId).map(user -> {
+            // 비밀번호가 변경된 경우만 암호화
+            if (userUpdateDto.getPassword() != null && !userUpdateDto.getPassword().isBlank()) {
+                user.setPassword(passwordEncoder.encode(userUpdateDto.getPassword()));
+            }
+
+            user.setNickname(userUpdateDto.getNickname());
+            user.setPhone(userUpdateDto.getPhone());
+            user.setZonecode(userUpdateDto.getZonecode());
+            user.setAutoRoadAddress(userUpdateDto.getAutoRoadAddress());
+            user.setAddressDetail(userUpdateDto.getAddressDetail());
+
+            userRepository.save(user);
+
+            return toUserResponseDto(user);
+        }).orElseThrow();
+    }
+
+
+    // delete도 만들기!!!!
     // 배우자 추가 기능도 만들기!!
 
     // 내가 원하는 값만 내보내기 위해서
