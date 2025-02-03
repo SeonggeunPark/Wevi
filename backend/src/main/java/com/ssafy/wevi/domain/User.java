@@ -16,17 +16,17 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class User {
     @Id
-    @GeneratedValue
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer userId;
 
     @Column(unique = true, nullable = false)
-    String email;
+    private String email;
 
     @Column(unique = true)
-    String authId;
+    private String authId;
 
     @Column
-    String authProvider;
+    private String authProvider;
 
     @Column(unique = true, nullable = false)
     private String nickname;
@@ -41,14 +41,21 @@ public class User {
     private String phone;
 
     @Column(nullable = false)
-    private String address;
+    private String zonecode;
+
+    @Column(nullable = false)
+    private String autoRoadAddress;
+
+    @Column(nullable = false)
+    private String addressDetail;
 
     @Column(nullable = false)
     private String status;
 
-    @Column(nullable = false)
+    @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
-
-
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "spouse_id")   // 사실 이거 안써도 똑같음
+    private User spouse;
 }

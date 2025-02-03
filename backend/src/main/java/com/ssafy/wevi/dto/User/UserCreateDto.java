@@ -1,4 +1,4 @@
-package com.ssafy.wevi.dto;
+package com.ssafy.wevi.dto.User;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -11,5 +11,7 @@ public class UserCreateDto {
     private String name;
     private String password;
     private String phone;
-    private String address;
+    private String zonecode;
+    private String autoRoadAddress;
+    private String addressDetail;
 }

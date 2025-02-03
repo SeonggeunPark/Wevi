@@ -1,8 +1,10 @@
 package com.ssafy.wevi.service;
 
 import com.ssafy.wevi.domain.User;
-import com.ssafy.wevi.dto.UserCreateDto;
-import com.ssafy.wevi.dto.UserResponseDto;
+import com.ssafy.wevi.dto.User.UserCreateDto;
+import com.ssafy.wevi.dto.User.UserResponseDto;
+import com.ssafy.wevi.dto.User.UserSpouseResponseDto;
+import com.ssafy.wevi.dto.User.UserUpdateDto;
 import com.ssafy.wevi.enums.UserStatus;
 import com.ssafy.wevi.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -21,14 +24,16 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
 
     @Transactional
-    public UserResponseDto create(UserCreateDto userCreateDto) {
+    public UserResponseDto createUser(UserCreateDto userCreateDto) {
         User user = new User();
         user.setEmail(userCreateDto.getEmail());
         user.setNickname(userCreateDto.getNickname());
         user.setName(userCreateDto.getName());
         user.setPassword(passwordEncoder.encode(userCreateDto.getPassword()));
         user.setPhone(userCreateDto.getPhone());
-        user.setAddress(userCreateDto.getAddress());
+        user.setZonecode(userCreateDto.getZonecode());
+        user.setAutoRoadAddress(userCreateDto.getAutoRoadAddress());
+        user.setAddressDetail(userCreateDto.getAddressDetail());
         user.setStatus(UserStatus.ACTIVE.name());
         user.setCreatedAt(LocalDateTime.now());
 
@@ -38,16 +43,50 @@ public class UserService {
     }
 
     @Transactional(readOnly = true)
-    public Optional<UserResponseDto> findById(Integer id) {
-        return userRepository.findById(id).map(user -> toUserResponseDto(user));
+    public UserResponseDto findById(Integer id) {
+        return userRepository.findById(id).map(user -> toUserResponseDto(user)).orElseThrow();
     }
 
-//    @Transactional(readOnly = true)
-//    public Optional<UserResponseDto> findByEmail(String email) {
-//        return userRepository.findByEmail(email).map(user -> toUserResponseDto(user));
-//    }
+    @Transactional(readOnly = true)
+    public UserSpouseResponseDto getSpouse(Integer userId) {
+        // 배우자 정보 조회
+        return userRepository.findById(userId)
+                .map(user -> user.getSpouse())
+                .filter(Objects::nonNull)
+                .map(spouse -> {
+                    UserSpouseResponseDto userSpouseResponseDto = new UserSpouseResponseDto();
+                    userSpouseResponseDto.setSpouseId(spouse.getUserId());
+                    userSpouseResponseDto.setNickname(spouse.getNickname());
+                    userSpouseResponseDto.setName(spouse.getName());
 
-    // update랑 delete도 만들기!!!!!!!!!!!!!!!!
+                    return userSpouseResponseDto;
+                })
+                .orElse(null);
+    }
+
+    @Transactional
+    public UserResponseDto updateUser(Integer userId, UserUpdateDto userUpdateDto) {
+        return userRepository.findById(userId).map(user -> {
+            // 비밀번호가 변경된 경우만 암호화
+            if (userUpdateDto.getPassword() != null && !userUpdateDto.getPassword().isBlank()) {
+                user.setPassword(passwordEncoder.encode(userUpdateDto.getPassword()));
+            }
+
+            user.setNickname(userUpdateDto.getNickname());
+            user.setPhone(userUpdateDto.getPhone());
+            user.setZonecode(userUpdateDto.getZonecode());
+            user.setAutoRoadAddress(userUpdateDto.getAutoRoadAddress());
+            user.setAddressDetail(userUpdateDto.getAddressDetail());
+
+            userRepository.save(user);
+
+            return toUserResponseDto(user);
+        }).orElseThrow();
+    }
+
+
+    // delete도 만들기!!!!
+    // 배우자 추가 기능도 만들기!!
 
     // 내가 원하는 값만 내보내기 위해서
     // 예를 들어, 유저 정보를 조회할 때 굳이 계약까지 불러올 필요는 없음
@@ -56,14 +95,16 @@ public class UserService {
         if (user == null) return null;
 
         UserResponseDto userResponseDto = new UserResponseDto();
-        userResponseDto.setId(user.getId());
+        userResponseDto.setUserId(user.getUserId());
         userResponseDto.setEmail(user.getEmail());
-        userResponseDto.setAuthProvider(user.getAuthProvider());
         userResponseDto.setNickname(user.getNickname());
         userResponseDto.setName(user.getName());
         userResponseDto.setPhone(user.getPhone());
-        userResponseDto.setAddress(user.getAddress());
+        userResponseDto.setZonecode(user.getZonecode());
+        userResponseDto.setAutoRoadAddress(user.getAutoRoadAddress());
+        userResponseDto.setAddressDetail(user.getAddressDetail());
         userResponseDto.setCreatedAt(user.getCreatedAt());
+        userResponseDto.setSpouseId(user.getSpouse() != null ? user.getSpouse().getUserId() : null);
 
         return userResponseDto;
     }
