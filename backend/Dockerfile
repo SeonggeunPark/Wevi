@@ -1,4 +1,4 @@
-FROM openjdk:17-jdk-slim
+FROM openjdk:17-jdk
 
 ARG JAR_FILE=build/libs/*.jar
 # jar 파일 복제
