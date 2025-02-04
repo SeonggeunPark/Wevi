@@ -46,7 +46,7 @@ dependencies {
 	}
 
 	//== 성근 추가 ==//
-	runtimeOnly 'com.h2database:h2' // h2 테스트용
+//	runtimeOnly 'com.h2database:h2' // h2 테스트용
 
 		//test 롬복 사용
 	testCompileOnly 'org.projectlombok:lombok'
