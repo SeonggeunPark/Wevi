@@ -1,4 +1,4 @@
-import example_weddinghall from "./assets/example_weddinghall.png"
+import example_weddinghall from "@/assets/example_weddinghall.png";
 
 const scheduleData = [
   {

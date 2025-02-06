@@ -11,8 +11,9 @@ import HamburgerPage from "./pages/hamburgerpage";
 import MyPage from "./pages/mypage";
 import ProgressPage from "./pages/progresspage";
 import SearchPage from "./pages/searchpage";
-import AiPlannerResultPage from "./pages/aiplannerresultpage";
 import AiPlannerStartPage from "./pages/aiplannerstartpage";
+import ProtectedRoute from "./components/ProtectedRoute";
+import { RecoilRoot } from "recoil";
 
 const router = createBrowserRouter([
   { path: "/login", element: <Loginpage /> },
@@ -28,7 +29,7 @@ const router = createBrowserRouter([
       { path: "/mypage", element: <MyPage /> },
       { path: "/progress", element: <ProgressPage /> },
       { path: "/search", element: <SearchPage /> },
-      { path: "/aiplanner", element: <AiPlannerPage /> },
+      { path: "/aiplanner", element: <AiPlannerStartPage /> },
     ],
   },
 ]);

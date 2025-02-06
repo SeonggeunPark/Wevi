@@ -1,8 +1,8 @@
-import icon_home from "@/assets/home.png";
-import icon_calendar from "@/assets/calendar.png";
-import icon_mypage from "@/assets/mypage.png";
-import icon_search from "@/assets/search.png";
-import icon_progress from "@/assets/progress.png";
+import icon_home from "@/assets/icons/icon_home.png";
+import icon_calendar from "@/assets/icons/icon_calendar.png";
+import icon_mypage from "@/assets/icons/icon_mypage.png";
+import icon_search from "@/assets/icons/icon_search.png";
+import icon_progress from "@/assets/icons/icon_progress.png";
 
 import { Link } from "react-router-dom";
 

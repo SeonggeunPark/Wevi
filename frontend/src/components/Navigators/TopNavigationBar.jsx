@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
-import icon_search from "@/assets/search.png";
-import icon_alarm from "@/assets/alarm.png";
-import icon_menu from "@/assets/menu.png";
-
-import potatosearchicon from "../../assets/potatosearch.png";
+import icon_search from "@/assets/icons/icon_search.png";
+import icon_alarm from "@/assets/icons/icon_alaram.png";
+import icon_menu from "@/assets/icons/icon_menu.png";
+import logo from "@/assets/logo.png";
 
 function TopNavigationBar() {
   return (

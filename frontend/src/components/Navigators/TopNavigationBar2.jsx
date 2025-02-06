@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import icon_arrow from "@/assets/arrow_down.png";
-import icon_menu from "@/assets/menu.png";
+import icon_arrow from "@/assets/icons/icon_arrow_left.png";
+import icon_menu from "@/assets/icons/icon_menu.png";
 
 function TopNavigationBar({ title }) {
   return (
@@ -9,7 +9,7 @@ function TopNavigationBar({ title }) {
       {/* 뒤로가기로 수정하기기 */}
       <Link to="/" className="flex items-center">
         <img
-          src={icon_arrow_left} // 로고 이미지 경로
+          src={icon_arrow} // 로고 이미지 경로
           alt="arrow"
           className="h-8 w-8 object-contain" // 로고 크기 조정
         />
