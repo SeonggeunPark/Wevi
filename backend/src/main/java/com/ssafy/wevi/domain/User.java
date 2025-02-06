@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 // JPA가 Entity에는 Getter, Setter, NoArgs 붙이라고 규칙을 정함.
 @Entity
 @Table(name = "users")  // 안붙이면 소문자 + snake_case. 이 경우에는 안써도 똑같음
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "dtype")
 @Getter
 @Setter
