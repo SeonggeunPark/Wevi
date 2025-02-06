@@ -3,7 +3,7 @@ import TopNavigationBar from "../components/Navigators/TopNavigationBar";
 import BottomNavigationBar from "../components/Navigators/BottomNavigationBar";
 import example_weddinghall from "../assets/example_weddinghall.png";
 
-export default function AiPlannerPage() {
+export default function AiPlannerResultPage() {
   const data = [
     {
       id: 1,
@@ -56,7 +56,7 @@ export default function AiPlannerPage() {
     <>
       {/* 상단 헤더 */}
       <TopNavigationBar />
-      <div className="mt-17 mb-21 w-screen">
+      <div className="w-screen">
         {/* 추천 메시지 */}
         <section className="bg-purple-100 text-center py-4">
           <p className="text-lg font-semibold">이런 곳은 어때?</p>

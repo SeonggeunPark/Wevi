@@ -9,7 +9,7 @@ function TopNavigationBar({ title }) {
       {/* 뒤로가기로 수정하기기 */}
       <Link to="/" className="flex items-center">
         <img
-          src={icon_arrow} // 로고 이미지 경로
+          src={icon_arrow_left} // 로고 이미지 경로
           alt="arrow"
           className="h-8 w-8 object-contain" // 로고 크기 조정
         />

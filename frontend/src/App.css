@@ -1,9 +1,12 @@
 @import "tailwindcss";
+
 @font-face {
-  font-family: Pretendard;
-  font-display: swap;
-  src: url("/frontend/src/assets/Pretendard-Regular.woff");
+  font-family: "Pretendard";
+  src: url("../src/assets/Pretendard-Medium.woff") format("woff2");
+  font-weight: normal;
+  font-style: normal;
 }
+
 @theme {
   --font-pretendard: Pretendard;
 }

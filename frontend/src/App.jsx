@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import Loginpage from "./pages/loginpage";
@@ -10,9 +11,8 @@ import HamburgerPage from "./pages/hamburgerpage";
 import MyPage from "./pages/mypage";
 import ProgressPage from "./pages/progresspage";
 import SearchPage from "./pages/searchpage";
-import AiPlannerPage from "./pages/aiplannerpage";
-import ProtectedRoute from "./components/ProtectedRoute";
-import { RecoilRoot } from "recoil";
+import AiPlannerResultPage from "./pages/aiplannerresultpage";
+import AiPlannerStartPage from "./pages/aiplannerstartpage";
 
 const router = createBrowserRouter([
   { path: "/login", element: <Loginpage /> },
