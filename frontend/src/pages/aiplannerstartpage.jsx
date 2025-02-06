@@ -1,6 +1,6 @@
 import TopNavigationBar from "../components/Navigators/TopNavigationBar";
 import BottomNavigationBar from "../components/Navigators/BottomNavigationBar";
-import potatooriginal from "../assets/potatooriginal.png";
+import potatooriginal from "../assets/characters/potato_original.png";
 
 import { Link } from "react-router-dom";
 

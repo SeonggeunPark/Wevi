@@ -1,6 +1,10 @@
 import TopNavigationBar from "../components/Navigators/TopNavigationBar";
 import BottomNavigationBar from "../components/Navigators/BottomNavigationBar";
-import potatooriginal from "../assets/potatooriginal.png";
+import character_background from "../assets/characters/character_background.png";
+import character_dress from "../assets/characters/character_dress.png";
+import character_hair from "../assets/characters/character_hair.png";
+import character_original from "../assets/characters/character_original.png";
+import character_camera from "../assets/characters/character_camera.png";
 
 import { useState } from "react";
 
@@ -17,27 +21,30 @@ export default function HomePage() {
     <>
       <TopNavigationBar />
       <main className="flex flex-col w-screen items-center justify-center overflow-hidden h-[calc(100vh-144px)] bg-[#609966]">
-        {/* 가운데 사진 */}
-        <div className="relative">
+        <div className="relative w-full flex items-center justify-center">
+          {/* 캐릭터 배경 */}
           <img
-            src={potatooriginal} // 감자 이미지 경로 설정
-            alt="Potato"
-            className="w-auto h-auto" // 높이 고정
+            src={character_background}
+            alt="Character Background"
+            className="absolute  object-contain"
           />
-          {/* 말풍선 */}
-          <div className="font-pretendard absolute top-15 left-1/2 -translate-x-1/2 -translate-y-full bg-white p-4 rounded-lg shadow-md text-center text-gray-800 w-[300px] max-w-auto max-h-30 overflow-y-auto whitespace-normal">
-            {speechText}
-          </div>
-        </div>
-
-        {/* 입력창 */}
-        <div className="mt-6">
-          <input
-            type="text"
-            value={speechText}
-            onChange={handleInputChange}
-            placeholder="말풍선 내용을 입력하세요"
-            className="w-72 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400"
+          {/* 캐릭터 드레스 */}
+          <img
+            src={character_dress}
+            alt="Character Dress"
+            className="absolute  object-contain"
+          />
+          {/* 캐릭터 헤어 */}
+          <img
+            src={character_hair}
+            alt="Character Hair"
+            className="absolute w-full h-full object-contain"
+          />
+          {/* 카메라 */}
+          <img
+            src={character_camera}
+            alt="Character Camera"
+            className="absolute w-30 h-40 object-contain"
           />
         </div>
       </main>

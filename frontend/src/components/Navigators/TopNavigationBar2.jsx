@@ -1,7 +1,15 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import icon_arrow from "../../assets/2849832_arrows_navigation_arrow_left_back_icon.png";
-import icon_menu from "../../assets/9025668_list_icon.png";
+import icon_home from "../../assets/icons/icon_home.png";
+import icon_calendar from "../../assets/icons/icon_calendar.png";
+import icon_mypage from "../../assets/icons/icon_mypage.png";
+import icon_search from "../../assets/icons/icon_search.png";
+import icon_alarm from "../../assets/icons/icon_alaram.png";
+import icon_arrow_bottom from "../../assets/icons/icon_arrow_bottom.png";
+import icon_arrow_left from "../../assets/icons/icon_arrow_left.png";
+import icon_progress from "../../assets/icons/icon_progress.png";
+import icon_menu from "../../assets/icons/icon_menu.png";
+import logo from "../../assets/logo.png";
 
 function TopNavigationBar({ title }) {
   return (
@@ -9,7 +17,7 @@ function TopNavigationBar({ title }) {
       {/* 뒤로가기로 수정하기기 */}
       <Link to="/" className="flex items-center">
         <img
-          src={icon_arrow} // 로고 이미지 경로
+          src={icon_arrow_left} // 로고 이미지 경로
           alt="arrow"
           className="h-8 w-8 object-contain" // 로고 크기 조정
         />
