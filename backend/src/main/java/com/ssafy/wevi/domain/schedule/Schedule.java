@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @DiscriminatorColumn(name = "dtype")
 public abstract class Schedule {
 
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "schedule_id")
     private int id; // 스케줄ID
 

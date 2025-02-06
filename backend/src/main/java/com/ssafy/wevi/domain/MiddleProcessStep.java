@@ -10,7 +10,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Table(name = "MiddleProcessSteps")
 public class MiddleProcessStep {
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "middle_process_step_id")
     private Integer id;
 
