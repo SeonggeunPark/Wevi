@@ -29,21 +29,6 @@ function SearchBar() {
         </Link>
       </div>
 
-      {/* 버튼 클릭에 따라서 하단 호텔/리조트 등 옵션 바뀌게 */}
-      <div className="flex justify-between text-sm text-black-500 mb-4">
-        <button className="cursor-pointer flex-grow text-center py-2 bg-[#900604] rounded mx-2">
-          웨딩홀
-        </button>
-        <button className="cursor-pointer flex-grow text-center py-2 bg-green-200 rounded mx-2">
-          드레스
-        </button>
-        <button className="cursor-pointer flex-grow text-center py-2 bg-green-200 rounded mx-2">
-          스튜디오
-        </button>
-        <button className="cursor-pointer flex-grow text-center py-2 bg-black rounded mx-2">
-          메이크업
-        </button>
-      </div>
 
       <div className="grid grid-cols-3 gap-4 mb-4">
         <select className="bg-gray-100 p-2 rounded-md">

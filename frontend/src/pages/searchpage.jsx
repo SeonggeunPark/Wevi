@@ -8,12 +8,16 @@ import { useState } from "react";
 import SearchBar from "../components/Bars/SearchBar";
 import RecentSearch from "../components/RecentSearch";
 import PopularServices from "../components/PopularServices";
+import SearchCategoryBar from "../components/Bars/SearchCategoryBar";
 
 export default function SearchPage() {
+ 
+
   return (
     <>
       <TopNavigationBar title="검색" />
       {/* 상단바 하단바 크기+4px 사이즈 */}
+      <SearchCategoryBar/>
       <div className=" w-screen">
         <SearchBar />
         <RecentSearch />
