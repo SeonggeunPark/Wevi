@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import icon_arrow from "../../assets/2849832_arrows_navigation_arrow_left_back_icon.png";
-import icon_menu from "../../assets/9025668_list_icon.png";
+import icon_arrow from "@/assets/icons/icon_arrow_left.png";
+import icon_menu from "@/assets/icons/icon_menu.png";
 
 function TopNavigationBar({ title }) {
   return (

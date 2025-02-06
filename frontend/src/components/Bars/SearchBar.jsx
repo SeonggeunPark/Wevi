@@ -1,9 +1,6 @@
 import React from "react";
-import icon_search from "../../assets/5349754_explore_find_magnifier_magnifying glass_search_icon.png";
-import icon_aisearch1 from "../../assets/9027029_sparkle_thin_icon.png";
-import icon_aisearch2 from "../../assets/9310102_star_stars_sparkle_sparkles_icon.png";
-import icon_aisearch3 from "../../assets/9310142_star_sparkle_stars_sparkles_icon.png";
-import icon_aisearch4 from "../../assets/9310142_star_sparkle_stars_sparkles_icon.png 9310102_star_stars_sparkle_sparkles_icon.png 9024956_sparkle_light_icon.png 9027029_sparkle_thin_icon.png.png";
+import icon_search from "../../assets/icons/icon_search.png";
+import icon_aisearch4 from "../../assets/icons/icon_AIsearch.png";
 import { Link } from "react-router-dom";
 
 function SearchBar() {
@@ -24,7 +21,10 @@ function SearchBar() {
 
         {/* 갱신 아이콘 */}
 
-        <Link to = '/aiplannerstart' className="flex items-center justify-center h-8 w-8 bg-white rounded-full shadow-sm">
+        <Link
+          to="/aiplannerstart"
+          className="flex items-center justify-center h-8 w-8 bg-white rounded-full shadow-sm"
+        >
           <img src={icon_aisearch4} alt="Google Icon" className="h-5 w-5" />
         </Link>
       </div>

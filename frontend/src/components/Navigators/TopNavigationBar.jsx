@@ -1,14 +1,8 @@
 import { Link } from "react-router-dom";
-import icon_home from "../../assets/8687429_ic_fluent_home_regular_icon.png";
-import icon_calendar from "../../assets/9025172_calendar_blank_icon.png";
-import icon_mypage from "../../assets/4781820_avatar_male_man_people_person_icon.png";
-import icon_search from "../../assets/5349754_explore_find_magnifier_magnifying glass_search_icon.png";
-import icon_alarm from "../../assets/4781824_alarm_alert_attention_bell_clock_icon.png";
-import icon_arrow from "../../assets/2849832_arrows_navigation_arrow_left_back_icon.png";
-import icon_progress from "../../assets/9025639_list_bullets_icon.png";
-import icon_menu from "../../assets/9025668_list_icon.png";
-
-import potatosearchicon from "../../assets/potatosearch.png";
+import icon_search from "@/assets/icons/icon_search.png";
+import icon_alarm from "@/assets/icons/icon_alaram.png";
+import icon_menu from "@/assets/icons/icon_menu.png";
+import logo from "@/assets/logo.png";
 
 function TopNavigationBar() {
   return (
@@ -16,7 +10,7 @@ function TopNavigationBar() {
       {/* 로고 섹션 */}
       <Link to="/" className="flex items-center">
         <img
-          src={potatosearchicon} // 로고 이미지 경로
+          src={logo} // 로고 이미지 경로
           alt="Logo"
           className="h-10 w-10 object-contain" // 로고 크기 조정
         />

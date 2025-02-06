@@ -1,10 +1,8 @@
-import icon_home from "../../assets/8687429_ic_fluent_home_regular_icon.png";
-import icon_calendar from "../../assets/9025172_calendar_blank_icon.png";
-import icon_mypage from "../../assets/4781820_avatar_male_man_people_person_icon.png";
-import icon_search from "../../assets/5349754_explore_find_magnifier_magnifying glass_search_icon.png";
-import icon_alarm from "../../assets/4781824_alarm_alert_attention_bell_clock_icon.png";
-import icon_arrow from "../../assets/2849832_arrows_navigation_arrow_left_back_icon.png";
-import icon_progress from "../../assets/9025639_list_bullets_icon.png";
+import icon_home from "@/assets/icons/icon_home.png";
+import icon_calendar from "@/assets/icons/icon_calendar.png";
+import icon_mypage from "@/assets/icons/icon_mypage.png";
+import icon_search from "@/assets/icons/icon_search.png";
+import icon_progress from "@/assets/icons/icon_progress.png";
 
 import { Link } from "react-router-dom";
 
@@ -18,7 +16,9 @@ function BottomNavigationBar() {
           alt="Home Icon"
           className="h-8 w-8 object-contain"
         />
-        <span className="font-pretendard text-sm text-center text-[#121212]">홈</span>
+        <span className="font-pretendard text-sm text-center text-[#121212]">
+          홈
+        </span>
       </Link>
 
       {/* 검색 */}
@@ -28,7 +28,9 @@ function BottomNavigationBar() {
           alt="Search Icon"
           className="h-8 w-8 object-contain"
         />
-        <span className="font-pretendard text-[#121212] text-sm text-center ">검색</span>
+        <span className="font-pretendard text-[#121212] text-sm text-center ">
+          검색
+        </span>
       </Link>
 
       {/* 일정 */}
@@ -38,7 +40,9 @@ function BottomNavigationBar() {
           alt="Calendar Icon"
           className="h-8 w-8 object-contain"
         />
-        <span className="font-pretendard text-[#121212] text-sm text-center">일정</span>
+        <span className="font-pretendard text-[#121212] text-sm text-center">
+          일정
+        </span>
       </Link>
 
       {/* 진행도 */}
@@ -48,7 +52,9 @@ function BottomNavigationBar() {
           alt="Progress Icon"
           className="h-8 w-8 object-contain"
         />
-        <span className="font-pretendard text-[#121212] text-sm text-center">진행도</span>
+        <span className="font-pretendard text-[#121212] text-sm text-center">
+          진행도
+        </span>
       </Link>
 
       {/* 마이페이지 */}
@@ -58,7 +64,9 @@ function BottomNavigationBar() {
           alt="Mypage Icon"
           className="h-8 w-8 object-contain"
         />
-        <span className="font-pretendard text-[#121212] text-sm text-center">마이페이지</span>
+        <span className="font-pretendard text-[#121212] text-sm text-center">
+          마이페이지
+        </span>
       </Link>
     </nav>
   );
