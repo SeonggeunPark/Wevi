@@ -58,7 +58,7 @@ public class SecurityConfig {
                         .requestMatchers(
                                 // 로그인 안했어도 요청 가능한 API는 여기 추가해주기
                                 new AntPathRequestMatcher("/api/auth/login", "POST"),
-                                new AntPathRequestMatcher("/api/user/signup", "POST")
+                                new AntPathRequestMatcher("/api/customers/signup", "POST")
                         ).permitAll()
                         .anyRequest().authenticated())
                 .exceptionHandling(customizer -> customizer

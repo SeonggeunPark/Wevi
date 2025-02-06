@@ -1,6 +1,5 @@
-package com.ssafy.wevi.dto.User;
+package com.ssafy.wevi.dto.Customer;
 
-import com.ssafy.wevi.domain.User;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,19 +7,15 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-public class UserDto {
+public class CustomerResponseDto {
     private Integer userId;
     private String email;
-    private String authId;
-    private String authProvider;
     private String nickname;
     private String name;
-    private String password;
     private String phone;
     private String zonecode;
     private String autoRoadAddress;
     private String addressDetail;
-    private String status;
     private LocalDateTime createdAt;
-    private User spouse;
+    private Integer spouseId;
 }
