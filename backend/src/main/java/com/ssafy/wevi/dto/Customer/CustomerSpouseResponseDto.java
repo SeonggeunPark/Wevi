@@ -1,13 +1,11 @@
-package com.ssafy.wevi.dto.User;
+package com.ssafy.wevi.dto.Customer;
 
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
-
 @Getter
 @Setter
-public class UserSpouseResponseDto {
+public class CustomerSpouseResponseDto {
     private Integer spouseId;
     private String nickname;
     private String name;
