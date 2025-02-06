@@ -1,5 +1,4 @@
-import React from "react";
-import example_weddinghall from "../assets/example_weddinghall.png"
+import example_weddinghall from "@/assets/example_weddinghall.png";
 
 function PopularServices() {
   const services = [
@@ -26,7 +25,11 @@ function PopularServices() {
             key={service.id}
             className="bg-white rounded-lg shadow-md overflow-hidden"
           >
-            <img src={service.image} alt={service.name} className="w-full h-40 object-cover" />
+            <img
+              src={service.image}
+              alt={service.name}
+              className="w-full h-40 object-cover"
+            />
             <div className="p-4">
               <h3 className="font-bold">{service.name}</h3>
               <p className="text-sm text-gray-500">{service.priceRange}</p>
