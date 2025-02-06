@@ -40,10 +40,11 @@ export default function LoginPage() {
     setError(null); // 기존 에러 초기화
 
     try {
-      const userData = await handleLogin(emailValue, passwordValue); // ✅ API 호출
-      setUser(userData); // ✅ 로그인 성공 시 Recoil 상태 업데이트
-      navigate("/"); // ✅ 로그인 후 이동
-      console.log("a");
+      const userCode = await handleLogin(emailValue, passwordValue);
+      setUser(userCode);
+      if (userCode == 200) {
+        navigate("/");
+      }
     } catch (err) {
       setError(err.message); // ✅ 서버에서 받은 오류 메시지 표시
     }

@@ -4,6 +4,20 @@ export const userState = atom({
   key: "userState",
   default: {
     key: false,
-    default: JSON.parse(localStorage.getItem("user")) || null,
+    code: null,
+  },
+});
+
+export const signupState = atom({
+  key: "signupState",
+  default: {
+    email: "",
+    nickname: "",
+    name: "",
+    password: "",
+    phone: "",
+    zonecode: "",
+    autoRoadAddress: "",
+    addressDetail: "",
   },
 });
