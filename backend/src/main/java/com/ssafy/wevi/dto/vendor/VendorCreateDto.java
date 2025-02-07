@@ -15,8 +15,8 @@ public class VendorCreateDto {
     private String ownerPhone;
     private String name;
     private String zonecode;
-    private String doCode;
-    private String sigunguCode;
+    private Integer doCode;
+    private Integer sigunguCode;
     private String autoRoadAddress;
     private String addressDetail;
     private String phone;

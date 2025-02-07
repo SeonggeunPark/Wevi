@@ -28,16 +28,17 @@ public class VendorService {
     private final PasswordEncoder passwordEncoder;
 
     @Transactional
-    public VendorResponseDto createVendor(VendorCreateDto vendorCreateDto) {
-        Do do = doRepository.findById(vendorCreateDto.getDoCode()))
+    public VendorDetailResponseDto createVendor(VendorCreateDto vendorCreateDto) {
+        Do doCode = doRepository.findById(vendorCreateDto.getDoCode())
                 .orElseThrow(() -> new IllegalArgumentException("해당 도 코드가 존재하지 않습니다."));
-        Sigungu sigungu = sigunguRepository.findById(vendorCreateDto.getSigunguCode())
-                .orElseThrow(() -> new IllegalArgumentException("해당 시군구 코드가 존재하지 않습니다.");
+
+        Sigungu sigunguCode = sigunguRepository.findById(vendorCreateDto.getSigunguCode())
+                .orElseThrow(() -> new IllegalArgumentException("해당 시군구 코드가 존재하지 않습니다."));
 
         Vendor vendor = new Vendor();
         vendor.setPassword(passwordEncoder.encode(vendorCreateDto.getPassword()));
-        vendor.setDo(do);
-        vendor.setSigungu(sigungu);
+        vendor.setDoCode(doCode);
+        vendor.setSigunguCode(sigunguCode);
         vendor.setOwnerName(vendorCreateDto.getOwnerName());
         vendor.setOwnerPhone(vendorCreateDto.getOwnerPhone());
         vendor.setName(vendorCreateDto.getName());
@@ -66,7 +67,6 @@ public class VendorService {
         if (vendor == null) return null;
 
         VendorDetailResponseDto vendorDetailResponseDto = new VendorDetailResponseDto();
-        vendorDetailResponseDto.setUserId(vendor.getUserId());
         vendorDetailResponseDto.setOwnerName(vendor.getOwnerName());
         vendorDetailResponseDto.setOwnerPhone(vendor.getOwnerPhone());
         vendorDetailResponseDto.setName(vendor.getName());
@@ -83,12 +83,6 @@ public class VendorService {
         vendorDetailResponseDto.setMinPrice(vendor.getMinPrice());
         vendorDetailResponseDto.setSubway(vendor.getSubway());
         vendorDetailResponseDto.setParkinglot(vendor.getParkinglot());
-        vendorDetailResponseDto.setCreatedAt(vendor.getCreatedAt());
-        // vendorDetailResponseDto.setUp
-
-        // 도, 시군구 ID 설정
-        vendorDetailResponseDto.setDoCode(vendor.getDoCode());
-        vendorDetailResponseDto.setSigunguCode(vendor.getSigunguCode());
 
         return vendorDetailResponseDto;
     }
