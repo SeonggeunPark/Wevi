@@ -27,11 +27,11 @@ public class Vendor extends User {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "do_code", nullable = false)
-    private Do doCode; // 도 - 외래키
+    private Do do; // 도 - 외래키
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "sigungu_code", nullable = false, referencedColumnName = "sigunguId")
-    private Sigungu sigunguCode;  //시군구 - 외래키
+    private Sigungu sigungu;  //시군구 - 외래키
 
     @Column(nullable = false)
     private String autoRoadAddress;  // 도로명주소

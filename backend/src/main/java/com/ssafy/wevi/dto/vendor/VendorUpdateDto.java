@@ -1,5 +1,10 @@
 package com.ssafy.wevi.dto.vendor;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class VendorUpdateDto {
     private String ownerName;
     private String ownerPhone;
