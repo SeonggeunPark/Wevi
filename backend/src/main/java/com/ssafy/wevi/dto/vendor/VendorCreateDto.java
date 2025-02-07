@@ -1,7 +1,5 @@
 package com.ssafy.wevi.dto.vendor;
 
-import com.ssafy.wevi.domain.Do;
-import com.ssafy.wevi.domain.Sigungu;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,8 +10,8 @@ public class VendorCreateDto {
     private String ownerPhone;
     private String name;
     private String zonecode;
-    private Do doCode;
-    private Sigungu sigunguCode;
+    private Integer doCode;
+    private Integer sigunguCode;
     private String autoRoadAddress;
     private String addressDetail;
     private String phone;
@@ -24,6 +22,6 @@ public class VendorCreateDto {
     private String details;
     private boolean isIndoor;
     private int minPrice;
-    private int subway;
-    private int parkinglot;
+    private String subway;
+    private String parkinglot;
 }

@@ -73,10 +73,10 @@ public class Vendor extends User {
     private int minPrice;  // 최소가격
 
     @Column(nullable = false)
-    private int subway;  // 가까운 지하철역
+    private String subway;  // 가까운 지하철역
 
     @Column(nullable = false)
-    private int parkinglot;  // 주차 정보
+    private String parkinglot;  // 주차 정보
 //    // 양방향 연결
 //    @OneToMany(mappedBy = "vendor")
 //    private List<Schedule> schedules;

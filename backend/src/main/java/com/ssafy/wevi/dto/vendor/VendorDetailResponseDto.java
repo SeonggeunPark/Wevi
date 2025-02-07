@@ -1,15 +1,12 @@
 package com.ssafy.wevi.dto.vendor;
 
-import com.ssafy.wevi.domain.Do;
-import com.ssafy.wevi.domain.Sigungu;
-
 public class VendorDetailResponseDto {
     private String ownerName;
     private String ownerPhone;
     private String name;
     private String zonecode;
-    private Do doCode;
-    private Sigungu sigunguCode;
+    private Integer doCode;
+    private Integer sigunguCode;
     private String autoRoadAddress;
     private String addressDetail;
     private String phone;
@@ -20,6 +17,6 @@ public class VendorDetailResponseDto {
     private String details;
     private boolean isIndoor;
     private int minPrice;
-    private int subway;
-    private int parkinglot;
+    private String subway;
+    private String parkinglot;
 }
