@@ -5,8 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
-
 @Entity
 @Table(name = "vendors")
 @Getter
@@ -21,7 +19,7 @@ public class Vendor extends User {
     @Column(nullable = false)
     private String ownerPhone;  // 대표자 연락처
 
-    @Column(nullable = false)
+    @Column(unique = true, nullable = false)
     private String name;    // 상호명
 
     @Column(nullable = false)
@@ -61,6 +59,7 @@ public class Vendor extends User {
      * {옵션명|가격|옵션명|가격|...}
      * 띄어쓰기 X, 가격은 세자리마다 쉼표(,)
      */
+
     @Column(nullable = false)
     private String price;   // 옵션별 가격
 
