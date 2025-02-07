@@ -5,6 +5,10 @@ spring:
     password: 1234
     driver-class-name: com.mysql.cj.jdbc.Driver
 
+  sql:
+    init:
+      mode: always
+
   jpa:
     hibernate:
       # ???? ???? ????
@@ -16,7 +20,8 @@ spring:
         # JPA? Hibernate? ???? SQL? ??(System.out?? ??)
         # show_sql: true
         format_sql: true
-
+    defer-datasource-initialization: true
+  
 logging:
   level:
     root: info
