@@ -7,6 +7,8 @@ import com.ssafy.wevi.dto.Customer.CustomerResponseDto;
 import com.ssafy.wevi.dto.Customer.CustomerSpouseResponseDto;
 import com.ssafy.wevi.dto.Customer.CustomerUpdateDto;
 import com.ssafy.wevi.service.CustomerService;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -101,6 +103,21 @@ public class CustomerController {
                 true,
                 "Customer information updated successfully.",
                 customerResponseDto
+        );
+    }
+
+    @PatchMapping("/deactivate")
+    public ApiResponseDto<CustomerResponseDto> deactivateCustomer(HttpServletRequest request, HttpServletResponse response) {
+        String customerId = SecurityUtils.getAuthenticatedUserId();
+
+        // 서비스 호출
+        customerService.deactivateCustomer(Integer.valueOf(customerId), request, response);
+
+        return new ApiResponseDto<>(
+                HttpStatus.NO_CONTENT.value(),
+                true,
+                "Customer information deactivated successfully.",
+                null
         );
     }
 }

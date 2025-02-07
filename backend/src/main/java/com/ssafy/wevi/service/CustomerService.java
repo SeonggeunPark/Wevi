@@ -8,13 +8,18 @@ import com.ssafy.wevi.dto.Customer.CustomerSpouseResponseDto;
 import com.ssafy.wevi.dto.Customer.CustomerUpdateDto;
 import com.ssafy.wevi.enums.UserStatus;
 import com.ssafy.wevi.repository.CustomerRepository;
+import jakarta.persistence.EntityNotFoundException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -84,8 +89,19 @@ public class CustomerService {
         }).orElseThrow();
     }
 
+    @Transactional
+    public void deactivateCustomer(Integer customerId, HttpServletRequest request, HttpServletResponse response) {
+        customerRepository.findById(customerId).ifPresentOrElse(customer -> {
+            customer.setStatus(UserStatus.TERMINATED.name());
+            customerRepository.save(customer);
 
-    // delete도 만들기!!!!
+            // 탈퇴 후 로그아웃 처리
+            new SecurityContextLogoutHandler().logout(request, response, null);
+        }, () -> {
+            throw new EntityNotFoundException("Customer not found");
+        });
+    }
+
     // 배우자 추가 기능도 만들기!!
 
     // 내가 원하는 값만 내보내기 위해서
