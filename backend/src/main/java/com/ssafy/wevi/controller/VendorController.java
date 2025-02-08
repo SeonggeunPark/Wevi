@@ -43,7 +43,7 @@ public class VendorController {
         }
     }
 
-    @GetMapping("/sigungu/{doId}")
+    @GetMapping("/sigungulist/{doId}")
     public ApiResponseDto<List<SigunguDto>> getSigunguList(@PathVariable Integer doId) {
         log.debug("getSigunguList 호출 - doIdx: {}", doId);
         if (doId == null || doId <= 0) {
@@ -72,4 +72,7 @@ public class VendorController {
             );
         }
     }
+
+
+
 }
