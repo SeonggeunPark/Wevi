@@ -3,6 +3,7 @@ package com.ssafy.wevi.service;
 import com.ssafy.wevi.domain.Customer;
 import com.ssafy.wevi.domain.Do;
 import com.ssafy.wevi.domain.Sigungu;
+import com.ssafy.wevi.domain.SigunguId;
 import com.ssafy.wevi.domain.Vendor;
 import com.ssafy.wevi.dto.vendor.VendorCreateDto;
 import com.ssafy.wevi.dto.vendor.VendorDetailResponseDto;
@@ -32,13 +33,17 @@ public class VendorService {
         Do doCode = doRepository.findById(vendorCreateDto.getDoCode())
                 .orElseThrow(() -> new IllegalArgumentException("해당 도 코드가 존재하지 않습니다."));
 
-        Sigungu sigunguCode = sigunguRepository.findById(vendorCreateDto.getSigunguCode())
+        SigunguId sigunguId = new SigunguId(
+                vendorCreateDto.getDoCode(),
+                vendorCreateDto.getSigunguCode()
+        );
+        Sigungu sigungu = sigunguRepository.findById(sigunguId)
                 .orElseThrow(() -> new IllegalArgumentException("해당 시군구 코드가 존재하지 않습니다."));
 
         Vendor vendor = new Vendor();
         vendor.setPassword(passwordEncoder.encode(vendorCreateDto.getPassword()));
         vendor.setDoCode(doCode);
-        vendor.setSigunguCode(sigunguCode);
+        vendor.setSigunguCode(sigungu);
         vendor.setOwnerName(vendorCreateDto.getOwnerName());
         vendor.setOwnerPhone(vendorCreateDto.getOwnerPhone());
         vendor.setName(vendorCreateDto.getName());

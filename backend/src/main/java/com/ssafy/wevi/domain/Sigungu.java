@@ -8,18 +8,19 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "sigungu")
-@Getter
-@Setter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @IdClass(SigunguId.class)
+@Getter @Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Sigungu {
     @Id
     private Integer sigunguId;
 
     @Id
+    private Integer doId;
+
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "do_region_id", nullable = false)
-    private Do doRegion;
+    @JoinColumn(name = "do_id", nullable = false)
+    private Do doEntity;
 
     @Column(nullable = false)
     private String sigunguName;
