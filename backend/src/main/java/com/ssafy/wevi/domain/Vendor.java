@@ -30,7 +30,10 @@ public class Vendor extends User {
     private Do doCode; // 도 - 외래키
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "sigungu_code", nullable = false, referencedColumnName = "sigunguId")
+    @JoinColumns({
+            @JoinColumn(name = "doId", referencedColumnName = "doId", insertable = false, updatable = false),
+            @JoinColumn(name = "sigunguId", referencedColumnName = "sigunguId", insertable = false, updatable = false)
+    })
     private Sigungu sigunguCode;  //시군구 - 외래키
 
     @Column(nullable = false)

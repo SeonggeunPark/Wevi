@@ -12,6 +12,8 @@ public class VendorDetailResponseDto {
     private String ownerPhone;
     private String name;
     private String zonecode;
+    private Integer doCode;
+    private Integer sigunguCode;
     private String autoRoadAddress;
     private String addressDetail;
     private String phone;
@@ -24,5 +26,5 @@ public class VendorDetailResponseDto {
     private int minPrice;
     private String subway;
     private String parkinglot;
-
+    private LocalDateTime createdAt;
 }

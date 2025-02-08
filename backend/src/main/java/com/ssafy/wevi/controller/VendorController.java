@@ -1,6 +1,9 @@
 package com.ssafy.wevi.controller;
 
+import com.ssafy.wevi.domain.Vendor;
 import com.ssafy.wevi.dto.ApiResponseDto;
+import com.ssafy.wevi.dto.Customer.CustomerCreateDto;
+import com.ssafy.wevi.dto.Customer.CustomerResponseDto;
 import com.ssafy.wevi.dto.vendor.DoDto;
 import com.ssafy.wevi.dto.vendor.SigunguDto;
 import com.ssafy.wevi.dto.vendor.VendorCreateDto;
@@ -21,6 +24,20 @@ import java.util.List;
 public class VendorController {
 
     private final VendorService vendorService;
+
+    // 회원가입
+    @PostMapping("/signup")
+    @ResponseStatus(HttpStatus.CREATED)
+    public ApiResponseDto<VendorDetailResponseDto> createVendor(@RequestBody VendorCreateDto vendorCreateDto) {
+        VendorDetailResponseDto vendorDetailResponseDto = vendorService.createVendor(vendorCreateDto);
+
+        return new ApiResponseDto<>(
+                HttpStatus.CREATED.value(),
+                true,
+                "Vendor created successfully.",
+                vendorDetailResponseDto
+        );
+    }
 
     @GetMapping("/dolist")
     public ApiResponseDto<List<DoDto>> getDoList() {
