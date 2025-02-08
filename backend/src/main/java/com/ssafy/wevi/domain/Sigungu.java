@@ -13,13 +13,13 @@ import lombok.Setter;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Sigungu {
     @Id
-    private Integer sigunguId;
-
-    @Id
     private Integer doId;
 
+    @Id
+    private Integer sigunguId;
+
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "do_id", nullable = false)
+    @JoinColumn(name = "doId", nullable = false)
     private Do doEntity;
 
     @Column(nullable = false)

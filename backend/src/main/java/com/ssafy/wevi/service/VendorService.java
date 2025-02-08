@@ -5,9 +5,7 @@ import com.ssafy.wevi.domain.Do;
 import com.ssafy.wevi.domain.Sigungu;
 import com.ssafy.wevi.domain.SigunguId;
 import com.ssafy.wevi.domain.Vendor;
-import com.ssafy.wevi.dto.vendor.VendorCreateDto;
-import com.ssafy.wevi.dto.vendor.VendorDetailResponseDto;
-import com.ssafy.wevi.dto.vendor.VendorResponseDto;
+import com.ssafy.wevi.dto.vendor.*;
 import com.ssafy.wevi.enums.UserStatus;
 import com.ssafy.wevi.repository.DoRepository;
 import com.ssafy.wevi.repository.SigunguRepository;
@@ -18,15 +16,45 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
+@Transactional(readOnly = true)
 public class VendorService {
 
     private final VendorRepository vendorRepository;
     private final DoRepository doRepository;
     private final SigunguRepository sigunguRepository;
     private final PasswordEncoder passwordEncoder;
+
+    public List<DoDto> getDoList() {
+        return doRepository.findAll().stream()
+                .map(this::convertToDoDto)
+                .collect(Collectors.toList());
+    }
+
+    public List<SigunguDto> getSigunguList(int doId) {
+        return sigunguRepository.findByDoId(doId).stream()
+                .map(this::convertToSigunguDto)
+                .collect(Collectors.toList());
+    }
+
+    private DoDto convertToDoDto(Do doEntity) {
+        DoDto dto = new DoDto();
+        dto.setDoId(doEntity.getDoId());
+        dto.setDoName(doEntity.getDoName());
+        return dto;
+    }
+
+    private SigunguDto convertToSigunguDto(Sigungu sigungu) {
+        SigunguDto dto = new SigunguDto();
+        dto.setDoId(sigungu.getDoId());
+        dto.setSigunguId(sigungu.getSigunguId());
+        dto.setSigunguName(sigungu.getSigunguName());
+        return dto;
+    }
 
     @Transactional
     public VendorDetailResponseDto createVendor(VendorCreateDto vendorCreateDto) {

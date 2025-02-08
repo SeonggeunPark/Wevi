@@ -3,7 +3,7 @@ INSERT INTO `do` VALUES
     (31, '경기도'), (32, '강원도'), (33, '충청북도'), (34, '충청남도'), (35, '경상북도'), (36, '경상남도'), (37, '전라북도'),
     (38, '전라남도'), (39, '제주도');
 
-INSERT INTO `sigungu` (sigungu_id, do_region_id, sigungu_name) VALUES
+INSERT INTO `sigungu` (sigungu_id, do_id, sigungu_name) VALUES
     -- 서울 (do_region_id = 1)
     (1, 1, '강남구'), (2, 1, '강동구'), (3, 1, '강북구'), (4, 1, '강서구'), (5, 1, '관악구'),
     (6, 1, '광진구'), (7, 1, '구로구'), (8, 1, '금천구'), (9, 1, '노원구'), (10, 1, '도봉구'),
