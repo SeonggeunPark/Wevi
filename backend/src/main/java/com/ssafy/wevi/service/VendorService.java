@@ -41,20 +41,7 @@ public class VendorService {
                 .collect(Collectors.toList());
     }
 
-    private DoDto convertToDoDto(Do doEntity) {
-        DoDto dto = new DoDto();
-        dto.setDoId(doEntity.getDoId());
-        dto.setDoName(doEntity.getDoName());
-        return dto;
-    }
 
-    private SigunguDto convertToSigunguDto(Sigungu sigungu) {
-        SigunguDto dto = new SigunguDto();
-        dto.setDoId(sigungu.getDoId());
-        dto.setSigunguId(sigungu.getSigunguId());
-        dto.setSigunguName(sigungu.getSigunguName());
-        return dto;
-    }
 
     @Transactional
     public VendorDetailResponseDto createVendor(VendorCreateDto vendorCreateDto) {
@@ -92,8 +79,22 @@ public class VendorService {
         vendor.setCreatedAt(LocalDateTime.now());
 
         vendorRepository.save(vendor);
-
         return toVendorResponseDto(vendor);
+    }
+
+    private DoDto convertToDoDto(Do doEntity) {
+        DoDto dto = new DoDto();
+        dto.setDoId(doEntity.getDoId());
+        dto.setDoName(doEntity.getDoName());
+        return dto;
+    }
+
+    private SigunguDto convertToSigunguDto(Sigungu sigungu) {
+        SigunguDto dto = new SigunguDto();
+        dto.setDoId(sigungu.getDoId());
+        dto.setSigunguId(sigungu.getSigunguId());
+        dto.setSigunguName(sigungu.getSigunguName());
+        return dto;
     }
 
     private VendorDetailResponseDto toVendorResponseDto(Vendor vendor) {
