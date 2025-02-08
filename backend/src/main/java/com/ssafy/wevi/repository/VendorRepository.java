@@ -16,11 +16,11 @@ public interface VendorRepository extends JpaRepository<Vendor, Integer> {
 
     // 기본 CRUD 메서드 제공
 
-    @Query("SELECT v FROM Vendor v " +
-            "WHERE v.doCode = :doCode " +
-            "AND v.sigunguCode = :sigunguCode ")
-    List<Vendor> findVendors(
-            @Param("doCode") Integer doCode,
-            @Param("sigunguCode") Integer sigunguCode
-    );
+//    @Query("SELECT v FROM Vendor v " +
+//            "WHERE v.doCode = :doCode " +
+//            "AND v.sigunguCode = :sigunguCode ")
+//    List<Vendor> findVendors(
+//            @Param("doCode") Integer doCode,
+//            @Param("sigunguCode") Integer sigunguCode
+//    );
 }

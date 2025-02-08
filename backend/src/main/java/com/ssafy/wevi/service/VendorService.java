@@ -45,17 +45,17 @@ public class VendorService {
     @Transactional
     public VendorDetailResponseDto createVendor(VendorCreateDto vendorCreateDto) {
 
-        Do doCode = doRepository.findById(vendorCreateDto.getDoCode())
-                .orElseThrow(() -> new IllegalArgumentException("해당 도 코드가 존재하지 않습니다."));
+//        Do doCode = doRepository.findById(vendorCreateDto.getDoCode())
+//                .orElseThrow(() -> new IllegalArgumentException("해당 도 코드가 존재하지 않습니다."));
 
         SigunguId sigunguId = new SigunguId(
                 vendorCreateDto.getDoCode(),
                 vendorCreateDto.getSigunguCode()
         );
 
-
-        Sigungu sigungu = sigunguRepository.findById(sigunguId)
+        Sigungu sigunguCode = sigunguRepository.findById(sigunguId)
                 .orElseThrow(() -> new IllegalArgumentException("해당 시군구 코드가 존재하지 않습니다."));
+
 
         Vendor vendor = new Vendor();
         vendor.setEmail(vendorCreateDto.getEmail());
@@ -64,8 +64,8 @@ public class VendorService {
         vendor.setOwnerPhone(vendorCreateDto.getOwnerPhone());
         vendor.setName(vendorCreateDto.getName());
         vendor.setZonecode(vendorCreateDto.getZonecode());
-        vendor.setDoCode(doCode);
-        vendor.setSigunguCode(sigungu);
+//        vendor.setDoCode(doCode);
+        vendor.setSigunguCode(sigunguCode);
         vendor.setAutoRoadAddress(vendorCreateDto.getAutoRoadAddress());
         vendor.setAddressDetail(vendorCreateDto.getAddressDetail());
         vendor.setPhone(vendorCreateDto.getPhone());
@@ -81,7 +81,9 @@ public class VendorService {
         vendor.setStatus(UserStatus.ACTIVE.name());
         vendor.setCreatedAt(LocalDateTime.now());
 
-        System.out.println("dddd##############");
+        System.out.println("ddd###############");
+
+
 
         vendorRepository.save(vendor);
 
@@ -113,7 +115,7 @@ public class VendorService {
         vendorDetailResponseDto.setOwnerPhone(vendor.getOwnerPhone());
         vendorDetailResponseDto.setName(vendor.getName());
         vendorDetailResponseDto.setZonecode(vendor.getZonecode());
-        vendorDetailResponseDto.setDoCode(vendor.getDoCode() != null ? vendor.getDoCode().getDoId() : null);
+        vendorDetailResponseDto.setDoCode(vendor.getSigunguCode() != null ? vendor.getSigunguCode().getDoId() : null);
         vendorDetailResponseDto.setSigunguCode(vendor.getSigunguCode() != null ? vendor.getSigunguCode().getSigunguId() : null);
         vendorDetailResponseDto.setAutoRoadAddress(vendor.getAutoRoadAddress());
         vendorDetailResponseDto.setAddressDetail(vendor.getAddressDetail());

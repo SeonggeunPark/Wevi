@@ -25,14 +25,14 @@ public class Vendor extends User {
     @Column(nullable = false)
     private String zonecode;    // 우편번호
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "do_code", nullable = false)
-    private Do doCode; // 도 - 외래키
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "do_code", nullable = false)
+//    private Do doCode; // 도 - 외래키
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumns({
-            @JoinColumn(name = "doId", referencedColumnName = "doId", insertable = false, updatable = false),
-            @JoinColumn(name = "sigunguId", referencedColumnName = "sigunguId", insertable = false, updatable = false)
+            @JoinColumn(name = "do_id", referencedColumnName = "doId"),
+            @JoinColumn(name = "sigungu_code", referencedColumnName = "sigunguId")
     })
     private Sigungu sigunguCode;  //시군구 - 외래키
 
