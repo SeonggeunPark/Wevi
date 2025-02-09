@@ -48,7 +48,7 @@ public class Vendor extends User {
     @Column(nullable = false)
     private String registrationNumber;  // 사업자등록번호
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     private Category category; // 카테고리 - 외래키
 
