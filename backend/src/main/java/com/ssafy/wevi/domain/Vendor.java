@@ -11,7 +11,16 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @DiscriminatorValue("vendor")
+//@PrimaryKeyJoinColumn(name = "vendor_id")
 public class Vendor extends User {
+//    @Id
+//    @Column(name = "user_id")
+//    private Integer userId;
+//
+//    @OneToOne
+//    @MapsId
+//    @JoinColumn(name = "user_id")
+//    private User user;
 
     @Column(nullable = false)
     private String ownerName;   // 대표자명

@@ -8,7 +8,7 @@ import lombok.Setter;
 
 @Entity
 @Getter @Setter
-@Table(name = "otherschedules")
+@Table(name = "other_schedules")
 @NoArgsConstructor
 public class OtherSchedule extends Schedule{
     private String detail;
