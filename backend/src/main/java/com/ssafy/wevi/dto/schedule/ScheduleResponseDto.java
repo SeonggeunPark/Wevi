@@ -1,9 +1,14 @@
 package com.ssafy.wevi.dto.schedule;
 
 import com.ssafy.wevi.enums.MiddleProcessStatus;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
-
+@Getter
+@Setter
+@NoArgsConstructor
 public class ScheduleResponseDto {
     // 공통
     private int id;
