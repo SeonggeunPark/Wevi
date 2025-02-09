@@ -9,6 +9,6 @@ public class VendorResponseDto {
     private String name;
     private Integer doCode;
     private Integer sigunguCode;
-//    private String category;
+    private Integer category;
     private int minPrice;
 }

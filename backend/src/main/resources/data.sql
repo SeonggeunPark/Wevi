@@ -59,3 +59,5 @@ INSERT INTO `sigungu` (sigungu_id, do_id, sigungu_name) VALUES
 INSERT INTO `users` VALUES (1,'2025-02-08 12:38:34.630324',NULL,'customer',NULL,NULL,'test@test.com','$2a$10$kRY19qCSG/Dt8CQYzt06YuACQgxLzvMG3GviCOHVKZLPh1bflbcPi','ACTIVE');
 
 INSERT INTO `customers` VALUES (NULL,1,'101동 101호','서울 양천구 목동서로1길 1','정윤선','쟈몽','01012345678','01234');
+
+INSERT INTO `categories` VALUES (1, '예식장'), (2, '스튜디오'), (3, '드레스'), (4, '메이크업');
