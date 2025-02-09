@@ -4,10 +4,7 @@ import com.ssafy.wevi.domain.Vendor;
 import com.ssafy.wevi.dto.ApiResponseDto;
 import com.ssafy.wevi.dto.Customer.CustomerCreateDto;
 import com.ssafy.wevi.dto.Customer.CustomerResponseDto;
-import com.ssafy.wevi.dto.vendor.DoDto;
-import com.ssafy.wevi.dto.vendor.SigunguDto;
-import com.ssafy.wevi.dto.vendor.VendorCreateDto;
-import com.ssafy.wevi.dto.vendor.VendorDetailResponseDto;
+import com.ssafy.wevi.dto.vendor.*;
 import com.ssafy.wevi.service.VendorService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -90,6 +87,20 @@ public class VendorController {
         }
     }
 
+    @GetMapping("/vendorlist/{doId}/{sigunguId}/{category}")
+    public ApiResponseDto<List<VendorResponseDto>> getVendorList(
+            @PathVariable Integer doId,
+            @PathVariable Integer sigunguId,
+            @PathVariable Integer category) {
 
+        List<VendorResponseDto> vendors = vendorService.findVendorsByLocationAndCategory(
+                doId, sigunguId, category);
 
+        return new ApiResponseDto<>(
+                HttpStatus.OK.value(),
+                true,
+                "시군구 목록 조회 성공",
+                vendors
+        );
+    }
 }

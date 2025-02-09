@@ -1,6 +1,7 @@
 package com.ssafy.wevi.repository;
 
 import com.ssafy.wevi.domain.Customer;
+import com.ssafy.wevi.domain.SigunguId;
 import com.ssafy.wevi.domain.Vendor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -16,11 +17,16 @@ public interface VendorRepository extends JpaRepository<Vendor, Integer> {
 
     // 기본 CRUD 메서드 제공
 
-//    @Query("SELECT v FROM Vendor v " +
-//            "WHERE v.doCode = :doCode " +
-//            "AND v.sigunguCode = :sigunguCode ")
-//    List<Vendor> findVendors(
-//            @Param("doCode") Integer doCode,
-//            @Param("sigunguCode") Integer sigunguCode
-//    );
+    @Query(value =
+            "SELECT v.user_id, v.name, v.category, v.address, " +
+                    "v.do_id, v.sigungu_code "+
+                    "FROM vendors v " +
+                    "WHERE v.do_id = :doId " +
+                    "AND v.sigungu_code = :sigunguCode " +
+                    "AND v.category_id = :category",
+            nativeQuery = true)
+    List<Vendor> findByLocationAndCategory(
+            @Param("doId") Integer doId,
+            @Param("sigunguCode") Integer sigunguCode,
+            @Param("category") Integer category);
 }

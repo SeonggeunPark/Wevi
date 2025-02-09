@@ -86,6 +86,22 @@ public class VendorService {
         return toVendorDetailResponseDto(vendor);
     }
 
+    public List<VendorResponseDto> findVendorsByLocationAndCategory(
+            Integer doId, Integer sigunguId, Integer category) {
+
+        // SigunguId 복합키 생성
+        SigunguId region = new SigunguId(sigunguId, doId);
+
+        List<Vendor> vendors = vendorRepository.findByLocationAndCategory(
+                doId, sigunguId, category);
+
+        return vendors.stream()
+                .map(this::convertToDto)
+                .collect(Collectors.toList());
+    }
+
+
+
     private DoDto convertToDoDto(Do doEntity) {
         DoDto dto = new DoDto();
         dto.setDoId(doEntity.getDoId());
@@ -98,6 +114,19 @@ public class VendorService {
         dto.setDoId(sigungu.getDoId());
         dto.setSigunguId(sigungu.getSigunguId());
         dto.setSigunguName(sigungu.getSigunguName());
+        return dto;
+    }
+
+    private VendorResponseDto convertToDto(Vendor vendor) {
+        VendorResponseDto dto = new VendorResponseDto();
+        dto.setId(vendor.getUserId());
+        dto.setName(vendor.getName());
+        dto.setCategory(vendor.getCategory().getId());
+        dto.setDoId(vendor.getSigunguCode().getDoId());
+        dto.setDoName(vendor.getSigunguCode().getDoEntity().getDoName());
+        dto.setSigunguId(vendor.getSigunguCode().getSigunguId());
+        dto.setSigunguName(vendor.getSigunguCode().getSigunguName());
+        dto.setMinPrice(vendor.getMinPrice());
         return dto;
     }
 

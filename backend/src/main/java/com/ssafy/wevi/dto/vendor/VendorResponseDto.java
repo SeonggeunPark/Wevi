@@ -8,8 +8,10 @@ import lombok.Setter;
 public class VendorResponseDto {
     private Integer id;
     private String name;
-    private Integer doCode;
-    private Integer sigunguCode;
     private Integer category;
+    private Integer doId;
+    private String doName;
+    private Integer sigunguId;
+    private String sigunguName;
     private int minPrice;
 }
