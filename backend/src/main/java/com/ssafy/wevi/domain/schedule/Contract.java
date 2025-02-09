@@ -10,7 +10,8 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 
 @Entity
-@Getter @Setter
+@Getter
+@Setter
 @Table(name = "contracts")
 @NoArgsConstructor
 public class Contract extends Schedule{

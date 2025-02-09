@@ -5,15 +5,22 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
-
 @Entity
 @Table(name = "vendors")
 @Getter
 @Setter
 @NoArgsConstructor
 @DiscriminatorValue("vendor")
+//@PrimaryKeyJoinColumn(name = "vendor_id")
 public class Vendor extends User {
+//    @Id
+//    @Column(name = "user_id")
+//    private Integer userId;
+//
+//    @OneToOne
+//    @MapsId
+//    @JoinColumn(name = "user_id")
+//    private User user;
 
     @Column(nullable = false)
     private String ownerName;   // 대표자명
