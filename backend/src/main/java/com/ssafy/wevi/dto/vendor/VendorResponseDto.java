@@ -6,6 +6,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class VendorResponseDto {
+    private Integer id;
     private String name;
     private Integer doCode;
     private Integer sigunguCode;
