@@ -12,6 +12,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(name = "middle_processes")
+@DiscriminatorValue("middle_process")
 @NoArgsConstructor
 public class MiddleProcess extends Schedule{
     @Enumerated(EnumType.STRING)

@@ -57,5 +57,54 @@ INSERT INTO `sigungu` (sigungu_id, do_id, sigungu_name) VALUES
 
 
 INSERT INTO `users` VALUES (1,'2025-02-08 12:38:34.630324',NULL,'customer',NULL,NULL,'test@test.com','$2a$10$kRY19qCSG/Dt8CQYzt06YuACQgxLzvMG3GviCOHVKZLPh1bflbcPi','ACTIVE');
+INSERT INTO `users` VALUES (2,'2025-02-08 12:38:34.630324',NULL,'vendor',NULL,NULL,'vendor@test.com','$2a$10$kRY19qCSG/Dt8CQYzt06YuACQgxLzvMG3GviCOHVKZLPh1bflbcPi','ACTIVE');
 
-INSERT INTO `customers` VALUES (NULL,1,'101동 101호','서울 양천구 목동서로1길 1','정윤선','쟈몽','01012345678','01234');
+INSERT INTO `customers` VALUES (NULL,1,'101동 101호','서울 양천구 목동서로1길 1','정윤선','쟈몽','010-1234-5678','01234');
+INSERT INTO vendors VALUES (
+                               1,  -- 서울 (do_id = 1)
+                               1,  -- 실내 여부 (1: 실내, 0: 실외)
+                               500000,  -- 최소 가격
+                               20,  -- 영등포구 (sigungu_code = 20)
+                               2,  -- user_id 2번 (이미 존재하는 vendor)
+                               '101호',  -- 상세 주소
+                               '서울특별시 영등포구 여의대로 24',  -- 도로명 주소
+                               '10:00-20:00',  -- 영업시간
+                               '웨딩 촬영 및 드레스 대여 가능',  -- 상세 설명
+                               'https://www.vendor-example.com',  -- 홈페이지
+                               '영등포 웨딩샵',  -- 업체명
+                               '김대표',  -- 대표자명
+                               '010-9876-5432',  -- 대표자 연락처
+                               '가능',  -- 주차장 유무
+                               '02-1234-5678',  -- 업체 전화번호
+                               '500,000원~1,500,000원',  -- 가격대 정보
+                               '123-45-67890',  -- 사업자 등록번호
+                               '여의도역 3번 출구',  -- 지하철 정보
+                               '07345'  -- 우편번호
+                           );
+
+
+INSERT INTO categories (category_id, name) VALUES
+(1, '웨딩홀'), (2, '스튜디오'), (3, '드레스'), (4, '메이크업');
+
+INSERT INTO schedules (schedule_id, start_time, end_time, title, customer_id, vendor_id, dtype) VALUES
+    (1, '2025-02-10 10:00:00', '2025-02-10 12:00:00', '웨딩 촬영 상담', 1, 2, 'consultation'),
+    (2, '2025-02-15 14:00:00', '2025-02-15 16:00:00', '웨딩 계약', 1, 2, 'contract'),
+    (3, '2025-02-20 13:00:00', '2025-02-20 15:00:00', '기타 일정', 1, 2, 'other_schedule'),
+    (4, '2025-02-20 13:00:00', '2025-02-20 15:00:00', '중간과정', 1, 2, 'middle_process');
+
+INSERT INTO consultations (schedule_id, request) VALUES
+    (1, '드레스 선택과 메이크업 상담을 원합니다.');
+
+INSERT INTO contracts (schedule_id, price, detail, contract_date) VALUES
+    (2, 5000000, '웨딩 촬영 및 드레스 대여 포함', '2025-02-20 13:00:00');
+
+INSERT INTO middle_process_steps (middle_process_step_id, category_id, name) VALUES
+    (1, 3, '계약서 작성'),
+    (2, 1, '계약서 검토'),
+    (3, 2, '최종 결제');
+
+INSERT INTO middle_processes (schedule_id, middle_process_step_id, status, detail) VALUES
+    (4, 1, 'IN_PROGRESS', '드레스 가봉 늦춰질 예정');
+
+INSERT INTO other_schedules (schedule_id, detail) VALUES
+    (3, '신혼여행 일정 논의');
