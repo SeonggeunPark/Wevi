@@ -3,6 +3,8 @@ package com.ssafy.wevi.controller;
 import com.ssafy.wevi.dto.ApiResponseDto;
 import com.ssafy.wevi.dto.schedule.ConsultationDto;
 import com.ssafy.wevi.dto.schedule.ContractDto;
+import com.ssafy.wevi.dto.schedule.MiddleProcessDto;
+import com.ssafy.wevi.dto.schedule.OtherScheduleDto;
 import com.ssafy.wevi.repository.ScheduleRepository;
 import com.ssafy.wevi.service.CustomerService;
 import com.ssafy.wevi.service.ScheduleService;
@@ -50,15 +52,53 @@ public class ScheduleController {
             return new ApiResponseDto<>(
                     HttpStatus.NOT_FOUND.value(),
                     false,
-                    "Consultation not found.",
+                    "Contract not found.",
                     null
             );
         }
         return new ApiResponseDto<>(
                 HttpStatus.OK.value(),
                 true,
-                "Consultation found successfully.",
+                "Contract found successfully.",
                 contractDto
+        );
+    }
+    // 중간과정 상세 조회
+    @GetMapping("/middle-process/{id}")
+    public ApiResponseDto<?> getOneMiddleProcess(@PathVariable Integer id) {
+        MiddleProcessDto middleProcessDto = scheduleService.findMiddleProcessById(id);
+        if (middleProcessDto == null) {
+            return new ApiResponseDto<>(
+                    HttpStatus.NOT_FOUND.value(),
+                    false,
+                    "MiddleProcess not found.",
+                    null
+            );
+        }
+        return new ApiResponseDto<>(
+                HttpStatus.OK.value(),
+                true,
+                "MiddleProcess found successfully.",
+                middleProcessDto
+        );
+    }
+    // 수기등록 일정 상세 조회
+    @GetMapping("/other-schedule/{id}")
+    public ApiResponseDto<?> getOneOtherSchedule(@PathVariable Integer id) {
+        OtherScheduleDto otherScheduleDto = scheduleService.findOtherScheduleById(id);
+        if (otherScheduleDto == null) {
+            return new ApiResponseDto<>(
+                    HttpStatus.NOT_FOUND.value(),
+                    false,
+                    "OtherSchedule not found.",
+                    null
+            );
+        }
+        return new ApiResponseDto<>(
+                HttpStatus.OK.value(),
+                true,
+                "OtherSchedule found successfully.",
+                otherScheduleDto
         );
     }
 

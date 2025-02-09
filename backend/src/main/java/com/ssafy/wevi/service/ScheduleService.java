@@ -1,10 +1,10 @@
 package com.ssafy.wevi.service;
 
-import com.ssafy.wevi.domain.schedule.Consultation;
-import com.ssafy.wevi.domain.schedule.Contract;
-import com.ssafy.wevi.domain.schedule.Schedule;
+import com.ssafy.wevi.domain.schedule.*;
 import com.ssafy.wevi.dto.schedule.ConsultationDto;
 import com.ssafy.wevi.dto.schedule.ContractDto;
+import com.ssafy.wevi.dto.schedule.MiddleProcessDto;
+import com.ssafy.wevi.dto.schedule.OtherScheduleDto;
 import com.ssafy.wevi.repository.ScheduleRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -39,6 +39,69 @@ public class ScheduleService {
         } else {
             throw new IllegalArgumentException("해당 ID는 계약 일정이 아닙니다.");
         }
+    }
+    // 중간과정 단건 조회
+    @Transactional(readOnly = true)
+    public MiddleProcessDto findMiddleProcessById(Integer id) {
+        Schedule schedule = scheduleRepository.findById(id)
+                .orElseThrow();
+
+        if (schedule instanceof MiddleProcess) {
+            return toMiddleProcessDto((MiddleProcess) schedule);
+        } else {
+            throw new IllegalArgumentException("해당 ID는 중간과정 일정이 아닙니다.");
+        }
+    }
+    // 수기등록 일정 단건 조회
+    @Transactional(readOnly = true)
+    public OtherScheduleDto findOtherScheduleById(Integer id) {
+        Schedule schedule = scheduleRepository.findById(id)
+                .orElseThrow();
+
+        if (schedule instanceof OtherSchedule) {
+            return toOtherScheduleDto((OtherSchedule) schedule);
+        } else {
+            throw new IllegalArgumentException("해당 ID는 수기등록 일정이 아닙니다.");
+        }
+    }
+
+    private OtherScheduleDto toOtherScheduleDto(OtherSchedule schedule) {
+        OtherScheduleDto otherScheduleDto = new OtherScheduleDto();
+
+        otherScheduleDto.setId(schedule.getId());
+        otherScheduleDto.setStartTime(schedule.getStartTime());
+        otherScheduleDto.setEndTime(schedule.getEndTime());
+        otherScheduleDto.setTitle(schedule.getTitle());
+        otherScheduleDto.setCreatedAt(schedule.getCreatedAt());
+        otherScheduleDto.setUpdatedAt(schedule.getUpdatedAt());
+        otherScheduleDto.setCustomerName(schedule.getCustomer().getName());
+        otherScheduleDto.setCustomerId(schedule.getCustomer().getUserId());
+        otherScheduleDto.setDetail(schedule.getDetail());
+
+        return otherScheduleDto;
+    }
+
+    private MiddleProcessDto toMiddleProcessDto(MiddleProcess schedule) {
+        MiddleProcessDto middleProcessDto = new MiddleProcessDto();
+
+        middleProcessDto.setId(schedule.getId());
+        middleProcessDto.setStartTime(schedule.getStartTime());
+        middleProcessDto.setEndTime(schedule.getEndTime());
+        middleProcessDto.setTitle(schedule.getTitle());
+        middleProcessDto.setCreatedAt(schedule.getCreatedAt());
+        middleProcessDto.setUpdatedAt(schedule.getUpdatedAt());
+        middleProcessDto.setCustomerName(schedule.getCustomer().getName());
+        middleProcessDto.setCustomerId(schedule.getCustomer().getUserId());
+        middleProcessDto.setCustomerPhone(schedule.getCustomer().getPhone());
+        middleProcessDto.setVendorId(schedule.getVendor().getUserId());
+        middleProcessDto.setVendorName(schedule.getVendor().getName());
+        middleProcessDto.setVendorAutoRoadAddress(schedule.getVendor().getAutoRoadAddress());
+        middleProcessDto.setVendorPhone(schedule.getVendor().getPhone());
+        middleProcessDto.setDetail(schedule.getDetail());
+        middleProcessDto.setStepName(schedule.getMiddleProcessStep().getName());
+        middleProcessDto.setStatus(schedule.getStatus());
+
+        return middleProcessDto;
     }
 
     private ContractDto toContractDto(Contract schedule) {

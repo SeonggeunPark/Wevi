@@ -4,9 +4,29 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @NoArgsConstructor
 public class OtherScheduleDto extends ScheduleDto{
-    private String detail;
+    // 일정 공통
+    private int id;
+    private LocalDateTime startTime;
+    private LocalDateTime endTime;
+    private String title;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+
+    // 수기일정 별도 컬럼
+    private String detail;  // 세부내용
+
+    // 객체 직접 참조 X
+//    private Customer customer;
+//    private Vendor vendor;
+
+    // 소비자 데이터
+    private Integer customerId;
+    private String customerName;
+//    private String customerPhone;
 }
