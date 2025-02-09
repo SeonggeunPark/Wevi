@@ -2,6 +2,7 @@ package com.ssafy.wevi.controller;
 
 import com.ssafy.wevi.dto.ApiResponseDto;
 import com.ssafy.wevi.dto.schedule.ConsultationDto;
+import com.ssafy.wevi.dto.schedule.ContractDto;
 import com.ssafy.wevi.repository.ScheduleRepository;
 import com.ssafy.wevi.service.CustomerService;
 import com.ssafy.wevi.service.ScheduleService;
@@ -39,6 +40,25 @@ public class ScheduleController {
                 true,
                 "Consultation found successfully.",
                 consultationDto
+        );
+    }
+    // 계약 상세 조회
+    @GetMapping("/contract/{id}")
+    public ApiResponseDto<?> getOneContract(@PathVariable Integer id) {
+        ContractDto contractDto = scheduleService.findContractById(id);
+        if (contractDto == null) {
+            return new ApiResponseDto<>(
+                    HttpStatus.NOT_FOUND.value(),
+                    false,
+                    "Consultation not found.",
+                    null
+            );
+        }
+        return new ApiResponseDto<>(
+                HttpStatus.OK.value(),
+                true,
+                "Consultation found successfully.",
+                contractDto
         );
     }
 

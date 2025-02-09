@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Inheritance(strategy = InheritanceType.JOINED)
-//@DiscriminatorColumn(name = "dtype")
+@DiscriminatorColumn(name = "dtype")
 public abstract class Schedule extends BaseEntity {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

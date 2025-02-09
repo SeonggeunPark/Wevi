@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor
-public class ConsultationDto extends ScheduleDto{
+public class ContractDto extends ScheduleDto{
     // 일정 공통
     private int id;
     private LocalDateTime startTime;
@@ -18,8 +18,10 @@ public class ConsultationDto extends ScheduleDto{
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    // 상담 별도
-    private String request;
+    // 계약 별도 컬럼
+    private int price;  // 계약금액
+    private LocalDateTime contractDate; // 계약일
+    private String detail;  // 계약 세부사항
 
 
     // 객체 직접 참조 X
@@ -36,5 +38,4 @@ public class ConsultationDto extends ScheduleDto{
     private String vendorName;
     private String vendorAutoRoadAddress;
     private String vendorPhone;
-
 }
