@@ -28,17 +28,22 @@ public class Vendor extends User {
     @Column(nullable = false)
     private String ownerPhone;  // 대표자 연락처
 
-    @Column(nullable = false)
+    @Column(unique = true, nullable = false)
     private String name;    // 상호명
 
     @Column(nullable = false)
     private String zonecode;    // 우편번호
 
-//    @Column(nullable = false)
-//    private Sido sido; // 시도 - 외래키 연결 예정
-//
-//    @Column(nullable = false)
-//    private Sigungu sigungu;  //시군구 - 외래키 연결 예정
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "do_code", nullable = false)
+//    private Do doCode; // 도 - 외래키
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumns({
+            @JoinColumn(name = "do_id", referencedColumnName = "doId"),
+            @JoinColumn(name = "sigungu_code", referencedColumnName = "sigunguId")
+    })
+    private Sigungu sigunguCode;  //시군구 - 외래키
 
     @Column(nullable = false)
     private String autoRoadAddress;  // 도로명주소
@@ -66,6 +71,7 @@ public class Vendor extends User {
      * {옵션명|가격|옵션명|가격|...}
      * 띄어쓰기 X, 가격은 세자리마다 쉼표(,)
      */
+
     @Column(nullable = false)
     private String price;   // 옵션별 가격
 
@@ -79,10 +85,10 @@ public class Vendor extends User {
     private int minPrice;  // 최소가격
 
     @Column(nullable = false)
-    private int subway;  // 가까운 지하철역
+    private String subway;  // 가까운 지하철역
 
     @Column(nullable = false)
-    private int parkinglot;  // 주차 정보
+    private String parkinglot;  // 주차 정보
 //    // 양방향 연결
 //    @OneToMany(mappedBy = "vendor")
 //    private List<Schedule> schedules;
