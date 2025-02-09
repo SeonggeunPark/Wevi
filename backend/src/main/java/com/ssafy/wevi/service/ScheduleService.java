@@ -1,20 +1,21 @@
 package com.ssafy.wevi.service;
 
 import com.ssafy.wevi.domain.schedule.*;
-import com.ssafy.wevi.dto.schedule.ConsultationDto;
-import com.ssafy.wevi.dto.schedule.ContractDto;
-import com.ssafy.wevi.dto.schedule.MiddleProcessDto;
-import com.ssafy.wevi.dto.schedule.OtherScheduleDto;
+import com.ssafy.wevi.dto.schedule.*;
 import com.ssafy.wevi.repository.ScheduleRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class ScheduleService {
 
     private final ScheduleRepository scheduleRepository;
+    //==========조회=========//
 
     // 상담 단건 조회
     @Transactional(readOnly = true)
@@ -63,6 +64,39 @@ public class ScheduleService {
         } else {
             throw new IllegalArgumentException("해당 ID는 수기등록 일정이 아닙니다.");
         }
+    }
+    // 일정 전체 조회
+    @Transactional(readOnly = true)
+    public List<CommonScheduleDto> findAllSchedules(Integer id) {
+        List<Schedule> scheduleList = scheduleRepository.findAllScheduleByCustomerId(id);
+        if (scheduleList.size() > 0) {
+            return toCommonScheduleList(scheduleList);
+        } else {
+            throw new IllegalArgumentException("해당하는 일정이 없습니다.");
+        }
+    }
+
+    private List<CommonScheduleDto> toCommonScheduleList(List<Schedule> scheduleList) {
+        List<CommonScheduleDto> commonSchedulelist = new ArrayList<>();
+
+        for (int i=0; i<scheduleList.size(); i++) {
+            commonSchedulelist.add(toCommonScheduleDto(scheduleList.get(i)));
+        }
+
+        return commonSchedulelist;
+    }
+
+    private CommonScheduleDto toCommonScheduleDto(Schedule schedule) {
+        CommonScheduleDto commonScheduleDto = new CommonScheduleDto();
+
+        commonScheduleDto.setId(schedule.getId());
+        commonScheduleDto.setStartTime(schedule.getStartTime());
+        commonScheduleDto.setEndTime(schedule.getEndTime());
+        commonScheduleDto.setTitle(schedule.getTitle());
+        commonScheduleDto.setCreatedAt(schedule.getCreatedAt());
+        commonScheduleDto.setUpdatedAt(schedule.getUpdatedAt());
+
+        return commonScheduleDto;
     }
 
     private OtherScheduleDto toOtherScheduleDto(OtherSchedule schedule) {

@@ -1,10 +1,8 @@
 package com.ssafy.wevi.controller;
 
+import com.ssafy.wevi.config.SecurityUtils;
 import com.ssafy.wevi.dto.ApiResponseDto;
-import com.ssafy.wevi.dto.schedule.ConsultationDto;
-import com.ssafy.wevi.dto.schedule.ContractDto;
-import com.ssafy.wevi.dto.schedule.MiddleProcessDto;
-import com.ssafy.wevi.dto.schedule.OtherScheduleDto;
+import com.ssafy.wevi.dto.schedule.*;
 import com.ssafy.wevi.repository.ScheduleRepository;
 import com.ssafy.wevi.service.CustomerService;
 import com.ssafy.wevi.service.ScheduleService;
@@ -15,6 +13,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/schedule")
 @RequiredArgsConstructor
@@ -24,7 +24,8 @@ public class ScheduleController {
     private final ScheduleRepository scheduleRepository;
     private final CustomerService customerService;
 
-    //== READ ==//
+    //===== 조회 =====//
+
     // 상담 상세 조회
     @GetMapping("/consultation/{id}")
     public ApiResponseDto<?> getOneConsultation(@PathVariable Integer id) {
@@ -99,6 +100,30 @@ public class ScheduleController {
                 true,
                 "OtherSchedule found successfully.",
                 otherScheduleDto
+        );
+    }
+
+    // 일정 전체 조회
+    @GetMapping()
+    public ApiResponseDto<?> getAllSchedule() {
+        // 로그인한 유저 ID 가져오기
+        String customerId = SecurityUtils.getAuthenticatedUserId();
+
+        List<CommonScheduleDto> scheduleList =  scheduleService.findAllSchedules(Integer.valueOf(customerId));
+
+        if (scheduleList.size() <= 0) {
+            return new ApiResponseDto<>(
+                    HttpStatus.NOT_FOUND.value(),
+                    false,
+                    "CommonSchedule not found.",
+                    null
+            );
+        }
+        return new ApiResponseDto<>(
+                HttpStatus.OK.value(),
+                true,
+                "CommonSchedule found successfully.",
+                scheduleList
         );
     }
 
