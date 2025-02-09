@@ -16,7 +16,7 @@ public class ScheduleService {
 
     private final ScheduleRepository scheduleRepository;
 
-    // 상담 단건 조회
+    // 상담 단건 조회 
     @Transactional(readOnly = true)
     public ConsultationDto findConsultationById(Integer id) {
         Schedule schedule = scheduleRepository.findById(id)
