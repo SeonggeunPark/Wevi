@@ -48,17 +48,16 @@ pipeline {
                             chmod 777 src/main/resources
                         '''
 
-                        // 시크릿 파일 설정 부분 (필요시 주석 해제)
-                        // withCredentials([
-                        //     file(credentialsId: 'prod-yaml', variable: 'prodFile'),
-                        //     file(credentialsId: 'secret-yaml', variable: 'secretFile')
-                        // ]) 
-                        // sh '''
-                        //     cp "$prodFile" src/main/resources/application-prod.yml
-                        //     cp "$secretFile" src/main/resources/application-secret.yml
-                        //     chmod 644 src/main/resources/application-*.yml
-                        // '''
-
+                        시크릿 파일 설정 부분 (필요시 주석 해제)
+                        withCredentials([
+                            file(credentialsId: 'prod-yaml', variable: 'prodFile')
+                            // file(credentialsId: 'secret-yaml', variable: 'secretFile')
+                        ]) 
+                        sh '''
+                            cp "$prodFile" src/main/resources/application-prod.yml
+                            chmod 644 src/main/resources/application-*.yml
+                        '''
+                        // cp "$secretFile" src/main/resources/application-secret.yml
                         // Gradle 빌드
                         sh '''
                             chmod +x gradlew
