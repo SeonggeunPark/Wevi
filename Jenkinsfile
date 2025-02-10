@@ -48,7 +48,7 @@ pipeline {
                             chmod 777 src/main/resources
                         '''
 
-                        시크릿 파일 설정 부분 (필요시 주석 해제)
+                        // 시크릿 파일 설정 부분 (필요시 주석 해제)
                         withCredentials([
                             file(credentialsId: 'prod-yaml', variable: 'prodFile')
                             // file(credentialsId: 'secret-yaml', variable: 'secretFile')
