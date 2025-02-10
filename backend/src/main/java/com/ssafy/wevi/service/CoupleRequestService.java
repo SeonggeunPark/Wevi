@@ -15,6 +15,7 @@ public class CoupleRequestService {
 
     private final CustomerRepository customerRepository;
     private final CoupleRequestRepository coupleRequestRepository;
+    private final NotificationService notificationService;
 
     // 커플 요청 보내기
     // 알림도 보내야함
@@ -30,6 +31,11 @@ public class CoupleRequestService {
                         .build();
 
         coupleRequestRepository.save(coupleRequest);
+
+        // 알림을 생성하고 푸시 알림 전송
+        String message = customer.getName() + "님이 커플 연동 신청을 보냈습니다.";
+        notificationService.createCoupleRequestSentNotification(spouse, message, coupleRequest);
+
         return coupleRequest;
     }
 

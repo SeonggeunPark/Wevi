@@ -24,7 +24,7 @@ public class UserController {
         String userId = SecurityUtils.getAuthenticatedUserId(); // 현재 로그인한 사용자 ID 가져오기
         userService.updateFcmToken(Integer.valueOf(userId), fcmTokenRequestDto.getToken());
         return new ApiResponseDto<>(
-                HttpStatus.OK.value(),
+                HttpStatus.NO_CONTENT.value(),
                 true,
                 "FcmToken saved successfully.",
                 null
