@@ -7,6 +7,7 @@ import com.ssafy.wevi.repository.CategoryRepository;
 import com.ssafy.wevi.repository.DoRepository;
 import com.ssafy.wevi.repository.SigunguRepository;
 import com.ssafy.wevi.repository.VendorRepository;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -87,10 +88,9 @@ public class VendorService {
     }
 
     public List<VendorResponseDto> findVendorsByLocationAndCategory(
-            Integer doId, Integer sigunguId, Integer category) {
+            Integer doId, Integer sigunguId, Integer categoryId) {
 
-        // SigunguId 복합키 생성
-        SigunguId region = new SigunguId(sigunguId, doId);
+        Category category = categoryRepository.findById(categoryId).orElseThrow(() -> new EntityNotFoundException("Category not found"));
 
         List<Vendor> vendors = vendorRepository.findByLocationAndCategory(
                 doId, sigunguId, category);
@@ -99,8 +99,6 @@ public class VendorService {
                 .map(this::convertToDto)
                 .collect(Collectors.toList());
     }
-
-
 
     private DoDto convertToDoDto(Do doEntity) {
         DoDto dto = new DoDto();
