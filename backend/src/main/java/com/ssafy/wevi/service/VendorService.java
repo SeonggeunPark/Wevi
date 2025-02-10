@@ -3,10 +3,7 @@ package com.ssafy.wevi.service;
 import com.ssafy.wevi.domain.*;
 import com.ssafy.wevi.dto.vendor.*;
 import com.ssafy.wevi.enums.UserStatus;
-import com.ssafy.wevi.repository.CategoryRepository;
-import com.ssafy.wevi.repository.DoRepository;
-import com.ssafy.wevi.repository.SigunguRepository;
-import com.ssafy.wevi.repository.VendorRepository;
+import com.ssafy.wevi.repository.*;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -27,6 +24,7 @@ public class VendorService {
     private final SigunguRepository sigunguRepository;
     private final PasswordEncoder passwordEncoder;
     private final CategoryRepository categoryRepository;
+    private final ReviewRepository reviewRepository;
 
     public List<DoDto> getDoList() {
         return doRepository.findAll().stream()
@@ -107,6 +105,15 @@ public class VendorService {
         Vendor vendor = vendorRepository.findById(vendorId).orElseThrow(() -> new IllegalArgumentException("해당 업체가 존재하지 않습니다."));;
 
         return toVendorDetailResponseDto(vendor);
+    }
+
+    @Transactional(readOnly = true)
+    public List<ReviewDto> getReviewListByVendorId(Integer vendorId) {
+        List<ReviewDto> reviews = reviewRepository.findByVendorId(vendorId);
+
+        return vendors.stream()
+                .map(this::convertToDto)
+                .collect(Collectors.toList());
     }
 
     private DoDto convertToDoDto(Do doEntity) {

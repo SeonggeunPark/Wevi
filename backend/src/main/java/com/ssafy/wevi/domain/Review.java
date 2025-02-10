@@ -27,10 +27,10 @@ public class Review {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id")
-    private Customer customerId;        // 소비자 ID
+    private Customer customer;        // 소비자 ID
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "vendor_id")
-    private Vendor vendorId;          // 업체 ID
+    private Vendor vendor;          // 업체 ID
 
 }
