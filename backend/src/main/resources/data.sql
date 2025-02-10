@@ -109,7 +109,7 @@ INSERT INTO middle_processes (schedule_id, middle_process_step_id, status, detai
 INSERT INTO other_schedules (schedule_id, detail) VALUES
     (3, '신혼여행 일정 논의');
 
-INSERT INTO `reviews` (customer_id, review_id, vendor_id, create_at, update_at, content) VALUES 
+INSERT INTO `reviews` (customer_id, review_id, vendor_id, created_at, updated_at, content) VALUES
     (1,1,2,'2025-02-10 06:46:22.998077',NULL,'좋은 서비스였습니다!'),
     (1,2,2,'2025-02-10 06:46:43.161904',NULL,'맛있어요요요!'),
     (1,3,2,'2025-02-10 06:46:54.005500',NULL,'주차가 편리해요!');
