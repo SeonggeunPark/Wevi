@@ -1,14 +1,13 @@
 package com.ssafy.wevi.service;
 
-import com.ssafy.wevi.domain.Do;
-import com.ssafy.wevi.domain.Sigungu;
-import com.ssafy.wevi.domain.SigunguId;
-import com.ssafy.wevi.domain.Vendor;
+import com.ssafy.wevi.domain.*;
 import com.ssafy.wevi.dto.vendor.*;
 import com.ssafy.wevi.enums.UserStatus;
+import com.ssafy.wevi.repository.CategoryRepository;
 import com.ssafy.wevi.repository.DoRepository;
 import com.ssafy.wevi.repository.SigunguRepository;
 import com.ssafy.wevi.repository.VendorRepository;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -27,6 +26,7 @@ public class VendorService {
     private final DoRepository doRepository;
     private final SigunguRepository sigunguRepository;
     private final PasswordEncoder passwordEncoder;
+    private final CategoryRepository categoryRepository;
 
     public List<DoDto> getDoList() {
         return doRepository.findAll().stream()
@@ -39,8 +39,6 @@ public class VendorService {
                 .map(this::convertToSigunguDto)
                 .collect(Collectors.toList());
     }
-
-
 
     @Transactional
     public VendorDetailResponseDto createVendor(VendorCreateDto vendorCreateDto) {
@@ -56,6 +54,8 @@ public class VendorService {
         Sigungu sigunguCode = sigunguRepository.findById(sigunguId)
                 .orElseThrow(() -> new IllegalArgumentException("해당 시군구 코드가 존재하지 않습니다."));
 
+        Category category = categoryRepository.findById(vendorCreateDto.getCategory())
+                .orElseThrow(() -> new IllegalArgumentException("해당 카테고리 아이디가 존재하지 않습니다."));
 
         Vendor vendor = new Vendor();
         vendor.setEmail(vendorCreateDto.getEmail());
@@ -70,6 +70,7 @@ public class VendorService {
         vendor.setAddressDetail(vendorCreateDto.getAddressDetail());
         vendor.setPhone(vendorCreateDto.getPhone());
         vendor.setRegistrationNumber(vendorCreateDto.getRegistrationNumber());
+        vendor.setCategory(category);
         vendor.setBusinessHour(vendorCreateDto.getBusinessHour());
         vendor.setHomepage(vendorCreateDto.getHomepage());
         vendor.setPrice(vendorCreateDto.getPrice());
@@ -81,13 +82,29 @@ public class VendorService {
         vendor.setStatus(UserStatus.ACTIVE.name());
         vendor.setCreatedAt(LocalDateTime.now());
 
-        System.out.println("ddd###############");
-
-
-
         vendorRepository.save(vendor);
 
-        System.out.println("dddd*************");
+        return toVendorDetailResponseDto(vendor);
+    }
+
+    @Transactional(readOnly = true)
+    public List<VendorResponseDto> findVendorsByLocationAndCategory(
+            Integer doId, Integer sigunguId, Integer categoryId) {
+
+        Category category = categoryRepository.findById(categoryId).orElseThrow(() -> new EntityNotFoundException("Category not found"));
+
+        List<Vendor> vendors = vendorRepository.findByLocationAndCategory(
+                doId, sigunguId, category);
+
+        return vendors.stream()
+                .map(this::convertToDto)
+                .collect(Collectors.toList());
+    }
+
+    @Transactional(readOnly = true)
+    public VendorDetailResponseDto findVendorById(Integer vendorId) {
+
+        Vendor vendor = vendorRepository.findById(vendorId).orElseThrow(() -> new IllegalArgumentException("해당 업체가 존재하지 않습니다."));;
 
         return toVendorDetailResponseDto(vendor);
     }
@@ -107,6 +124,19 @@ public class VendorService {
         return dto;
     }
 
+    private VendorResponseDto convertToDto(Vendor vendor) {
+        VendorResponseDto dto = new VendorResponseDto();
+        dto.setId(vendor.getUserId());
+        dto.setName(vendor.getName());
+        dto.setCategory(vendor.getCategory().getId());
+        dto.setDoId(vendor.getSigunguCode().getDoId());
+        dto.setDoName(vendor.getSigunguCode().getDoEntity().getDoName());
+        dto.setSigunguId(vendor.getSigunguCode().getSigunguId());
+        dto.setSigunguName(vendor.getSigunguCode().getSigunguName());
+        dto.setMinPrice(vendor.getMinPrice());
+        return dto;
+    }
+
     private VendorDetailResponseDto toVendorDetailResponseDto(Vendor vendor) {
         if (vendor == null) return null;
 
@@ -121,6 +151,7 @@ public class VendorService {
         vendorDetailResponseDto.setAddressDetail(vendor.getAddressDetail());
         vendorDetailResponseDto.setPhone(vendor.getPhone());
         vendorDetailResponseDto.setRegistrationNumber(vendor.getRegistrationNumber());
+        vendorDetailResponseDto.setCategory(vendor.getCategory() != null ? vendor.getCategory().getId() : null);
         vendorDetailResponseDto.setBusinessHour(vendor.getBusinessHour());
         vendorDetailResponseDto.setHomepage(vendor.getHomepage());
         vendorDetailResponseDto.setPrice(vendor.getPrice());
