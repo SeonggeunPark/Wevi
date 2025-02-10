@@ -138,6 +138,17 @@ public class VendorService {
         return convertToReviewDto(review);
     }
 
+    public ReviewDto updateReview(Integer reviewId, ReviewDto reviewDto) {
+
+        Review review = reviewRepository.findById(reviewId).orElseThrow();
+        review.setContent(reviewDto.getContent());
+        review.setUpdatedAt(LocalDateTime.now());
+
+        reviewRepository.save(review);
+
+        return convertToReviewDto(review);
+    }
+
     private DoDto convertToDoDto(Do doEntity) {
         DoDto dto = new DoDto();
         dto.setDoId(doEntity.getDoId());

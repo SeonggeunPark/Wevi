@@ -153,9 +153,9 @@ public class VendorController {
 
     @PostMapping("/{vendorId}/reviews")
     public ApiResponseDto<ReviewDto> createReview(@PathVariable Integer vendorId, @RequestBody ReviewDto reviewDto) {
-        String customerId = SecurityUtils.getAuthenticatedUserId();
+        Integer customerId = Integer.valueOf(SecurityUtils.getAuthenticatedUserId());
 
-        ReviewDto review = vendorService.createReview(vendorId, Integer.valueOf(customerId), reviewDto);
+        ReviewDto review = vendorService.createReview(vendorId, customerId, reviewDto);
         return new ApiResponseDto<>(
                 HttpStatus.OK.value(),
                 true,
@@ -164,26 +164,36 @@ public class VendorController {
         );
     }
 
-//    @PatchMapping("/reviews/{reviewId}")
-//    public ApiResponseDto<ReviewDto> updateReview(@PathVariable Integer reviewId, @RequestBody ReviewDto reviewDto) {
-//        ReviewDto review = vendorService.updateReview(reviewId, reviewDto);
-//        if (review != null) {
-//            return new ApiResponseDto<>(
-//                    HttpStatus.OK.value(),
-//                    true,
-//                    "리뷰 업데이트 성공",
-//                    review
-//            );
-//        } else {
+    @PatchMapping("/reviews/{reviewId}")
+    public ApiResponseDto<ReviewDto> updateReview(@PathVariable Integer reviewId, @RequestBody ReviewDto reviewDto) {
+//        Integer customerId = Integer.valueOf(SecurityUtils.getAuthenticatedUserId());
+//        if (reviewDto.getCustomerId() != customerId) {
 //            return new ApiResponseDto<>(
 //                    HttpStatus.BAD_REQUEST.value(),
-//                    true,
-//                    "리뷰 업데이트 실패",
+//                    false,
+//                    "리뷰를 업데이트할 권한이 없습니다.",
 //                    null
 //            );
 //        }
-//    }
-//
+
+        ReviewDto review = vendorService.updateReview(reviewId, reviewDto);
+        if (review != null) {
+            return new ApiResponseDto<>(
+                    HttpStatus.OK.value(),
+                    true,
+                    "리뷰 업데이트 성공",
+                    review
+            );
+        } else {
+            return new ApiResponseDto<>(
+                    HttpStatus.BAD_REQUEST.value(),
+                    false,
+                    "리뷰 업데이트 실패",
+                    null
+            );
+        }
+    }
+
 //    @DeleteMapping("/reviews/{reviewId}")
 //    public ApiResponseDto<ReviewDto> deleteReview(@PathVariable Integer reviewId) {
 //        ReviewDto review = vendorService.deleteReview(reviewId);
