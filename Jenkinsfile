@@ -52,11 +52,13 @@ pipeline {
                         withCredentials([
                             file(credentialsId: 'prod-yaml', variable: 'prodFile')
                             // file(credentialsId: 'secret-yaml', variable: 'secretFile')
-                        ]) 
+                        ]) {
                         sh '''
                             cp "$prodFile" src/main/resources/application-prod.yml
                             chmod 644 src/main/resources/application-*.yml
                         '''
+                        }
+                        
                         // cp "$secretFile" src/main/resources/application-secret.yml
                         // Gradle 빌드
                         sh '''
