@@ -33,4 +33,7 @@ public abstract class User extends BaseEntity {
 
     @Column(nullable = false)
     private String status;
+
+    @Column
+    private String fcmToken;
 }
