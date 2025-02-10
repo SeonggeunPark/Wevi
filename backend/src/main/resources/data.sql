@@ -86,7 +86,7 @@ INSERT INTO vendors VALUES (
 INSERT INTO categories (category_id, name) VALUES
 (1, '웨딩홀'), (2, '스튜디오'), (3, '드레스'), (4, '메이크업');
 
-INSERT INTO schedules (schedule_id, start_time, end_time, title, customer_id, vendor_id, dtype) VALUES
+INSERT INTO schedules (schedule_id, start_date_time, end_date_time, title, customer_id, vendor_id, dtype) VALUES
     (1, '2025-02-10 10:00:00', '2025-02-10 12:00:00', '웨딩 촬영 상담', 1, 2, 'consultation'),
     (2, '2025-02-15 14:00:00', '2025-02-15 16:00:00', '웨딩 계약', 1, 2, 'contract'),
     (3, '2025-02-20 13:00:00', '2025-02-20 15:00:00', '기타 일정', 1, 2, 'other_schedule'),
@@ -103,8 +103,8 @@ INSERT INTO middle_process_steps (middle_process_step_id, category_id, name) VAL
     (2, 1, '계약서 검토'),
     (3, 2, '최종 결제');
 
-INSERT INTO middle_processes (schedule_id, middle_process_step_id, status, detail) VALUES
-    (4, 1, 'IN_PROGRESS', '드레스 가봉 늦춰질 예정');
+INSERT INTO middle_processes (schedule_id, middle_process_step_id, status, detail, contract_id) VALUES
+    (4, 1, 'IN_PROGRESS', '드레스 가봉 늦춰질 예정', 2);
 
 INSERT INTO other_schedules (schedule_id, detail) VALUES
     (3, '신혼여행 일정 논의');
