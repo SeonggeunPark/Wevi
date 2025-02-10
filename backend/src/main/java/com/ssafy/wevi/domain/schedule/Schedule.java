@@ -21,11 +21,11 @@ public abstract class Schedule extends BaseEntity {
     @Column(name = "schedule_id")
     private int id; // 스케줄ID
 
-    @Column(name = "start_time")
-    private LocalDateTime startTime;
+    @Column(name = "start_date_time")
+    private LocalDateTime startDateTime;
 
-    @Column(name = "end_time")
-    private LocalDateTime endTime;
+    @Column(name = "end_date_time")
+    private LocalDateTime endDateTime;
 
     private String title;
 
@@ -39,4 +39,6 @@ public abstract class Schedule extends BaseEntity {
 //    @JoinColumn(name = "vendor_id")
     private Vendor vendor;
 
+    @Column(insertable = false, updatable = false, name = "dtype")
+    private String dtype;
 }

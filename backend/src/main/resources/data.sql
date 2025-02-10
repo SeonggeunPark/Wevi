@@ -86,7 +86,7 @@ INSERT INTO `vendors` (
       (4,3,_binary '\0',100000,2,9,'2층','대전광역시 동구 중앙로 567','09:30 - 19:30','전문 아티스트가 맞춤 메이크업을 제공합니다.','http://www.beauty-makeup.com','박뷰티 메이크업','박예은','010-5678-9012','공용 주차장 이용 가능','042-1234-5678','신부 화장 150,000원, 일반 화장 100,000원','310-78-54321','대전역 1호선','54321'),
       (3,4,_binary '\0',300000,1,10,'5층','대구광역시 남구 패션로 789','10:00 - 21:00','고급스러운 디자인의 웨딩 드레스 전문점입니다.','http://www.elegance-dress.com','엘레강스 드레스','김하늘','010-6789-0123','주차 타워 이용 가능','053-7890-1234','웨딩 드레스 500,000원, 턱시도 300,000원','410-98-76543','대구역 2호선','67890');
 
-INSERT INTO schedules (schedule_id, start_time, end_time, title, customer_id, vendor_id, dtype) VALUES
+INSERT INTO schedules (schedule_id, start_date_time, end_date_time, title, customer_id, vendor_id, dtype) VALUES
     (1, '2025-02-10 10:00:00', '2025-02-10 12:00:00', '웨딩 촬영 상담', 1, 2, 'consultation'),
     (2, '2025-02-15 14:00:00', '2025-02-15 16:00:00', '웨딩 계약', 1, 2, 'contract'),
     (3, '2025-02-20 13:00:00', '2025-02-20 15:00:00', '기타 일정', 1, 2, 'other_schedule'),
@@ -103,8 +103,8 @@ INSERT INTO middle_process_steps (middle_process_step_id, category_id, name) VAL
     (2, 1, '계약서 검토'),
     (3, 2, '최종 결제');
 
-INSERT INTO middle_processes (schedule_id, middle_process_step_id, status, detail) VALUES
-    (4, 1, 'IN_PROGRESS', '드레스 가봉 늦춰질 예정');
+INSERT INTO middle_processes (schedule_id, middle_process_step_id, status, detail, contract_id) VALUES
+    (4, 1, 'IN_PROGRESS', '드레스 가봉 늦춰질 예정', 2);
 
 INSERT INTO other_schedules (schedule_id, detail) VALUES
     (3, '신혼여행 일정 논의');
