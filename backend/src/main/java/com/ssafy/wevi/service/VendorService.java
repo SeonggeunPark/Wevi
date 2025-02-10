@@ -138,6 +138,7 @@ public class VendorService {
         return convertToReviewDto(review);
     }
 
+    @Transactional
     public ReviewDto updateReview(Integer reviewId, ReviewDto reviewDto) {
 
         Review review = reviewRepository.findById(reviewId).orElseThrow();
@@ -147,6 +148,11 @@ public class VendorService {
         reviewRepository.save(review);
 
         return convertToReviewDto(review);
+    }
+
+    @Transactional
+    public void deleteReview(Integer reviewId) {
+        reviewRepository.deleteById(reviewId);
     }
 
     private DoDto convertToDoDto(Do doEntity) {

@@ -194,23 +194,14 @@ public class VendorController {
         }
     }
 
-//    @DeleteMapping("/reviews/{reviewId}")
-//    public ApiResponseDto<ReviewDto> deleteReview(@PathVariable Integer reviewId) {
-//        ReviewDto review = vendorService.deleteReview(reviewId);
-//        if (review != null) {
-//            return new ApiResponseDto<>(
-//                    HttpStatus.OK.value(),
-//                    true,
-//                    "리뷰 삭제 성공",
-//                    review
-//            );
-//        } else {
-//            return new ApiResponseDto<>(
-//                    HttpStatus.NO_CONTENT.value(),
-//                    true,
-//                    "삭제할 리뷰를 찾지 못했습니다.",
-//                    null
-//            );
-//        }
-//    }
+    @DeleteMapping("/reviews/{reviewId}")
+    public ApiResponseDto<ReviewDto> deleteReview(@PathVariable Integer reviewId) {
+        vendorService.deleteReview(reviewId);
+        return new ApiResponseDto<>(
+                HttpStatus.OK.value(),
+                true,
+                "리뷰 삭제 성공",
+                null
+        );
+    }
 }
