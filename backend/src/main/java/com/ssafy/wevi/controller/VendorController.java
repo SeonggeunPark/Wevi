@@ -1,5 +1,6 @@
 package com.ssafy.wevi.controller;
 
+import com.ssafy.wevi.config.SecurityUtils;
 import com.ssafy.wevi.dto.ApiResponseDto;
 import com.ssafy.wevi.dto.vendor.*;
 import com.ssafy.wevi.service.VendorService;
@@ -131,8 +132,8 @@ public class VendorController {
     }
 
     @GetMapping("/{vendorId}/reviews")
-    public ApiResponseDto<List<ReviewDto>> getReviewList(@PathVariable Integer vendorId) {
-        List<ReviewDto> reviews = vendorService.getReviewList(vendorId);
+    public ApiResponseDto<List<ReviewDto>> getReviewListByVendorId(@PathVariable Integer vendorId) {
+        List<ReviewDto> reviews = vendorService.getReviewListByVendorId(vendorId);
         if (reviews != null && !reviews.isEmpty()) {
             return new ApiResponseDto<>(
                     HttpStatus.OK.value(),
@@ -152,7 +153,9 @@ public class VendorController {
 
     @PostMapping("/{vendorId}/reviews")
     public ApiResponseDto<ReviewDto> createReview(@PathVariable Integer vendorId, @RequestBody ReviewDto reviewDto) {
-        ReviewDto review = vendorService.createReview(vendorId, reviewDto);
+        String customerId = SecurityUtils.getAuthenticatedUserId();
+
+        ReviewDto review = vendorService.createReview(vendorId, Integer.valueOf(customerId), reviewDto);
         return new ApiResponseDto<>(
                 HttpStatus.OK.value(),
                 true,
@@ -161,43 +164,43 @@ public class VendorController {
         );
     }
 
-    @PatchMapping("/reviews/{reviewId}")
-    public ApiResponseDto<ReviewDto> updateReview(@PathVariable Integer reviewId, @RequestBody ReviewDto reviewDto) {
-        ReviewDto review = vendorService.updateReview(reviewId, reviewDto);
-        if (review != null) {
-            return new ApiResponseDto<>(
-                    HttpStatus.OK.value(),
-                    true,
-                    "리뷰 업데이트 성공",
-                    review
-            );
-        } else {
-            return new ApiResponseDto<>(
-                    HttpStatus.BAD_REQUEST.value(),
-                    true,
-                    "리뷰 업데이트 실패",
-                    null
-            );
-        }
-    }
-
-    @DeleteMapping("/reviews/{reviewId}")
-    public ApiResponseDto<ReviewDto> deleteReview(@PathVariable Integer reviewId) {
-        ReviewDto review = vendorService.deleteReview(reviewId);
-        if (review != null) {
-            return new ApiResponseDto<>(
-                    HttpStatus.OK.value(),
-                    true,
-                    "리뷰 삭제 성공",
-                    review
-            );
-        } else {
-            return new ApiResponseDto<>(
-                    HttpStatus.NO_CONTENT.value(),
-                    true,
-                    "삭제할 리뷰를 찾지 못했습니다.",
-                    null
-            );
-        }
-    }
+//    @PatchMapping("/reviews/{reviewId}")
+//    public ApiResponseDto<ReviewDto> updateReview(@PathVariable Integer reviewId, @RequestBody ReviewDto reviewDto) {
+//        ReviewDto review = vendorService.updateReview(reviewId, reviewDto);
+//        if (review != null) {
+//            return new ApiResponseDto<>(
+//                    HttpStatus.OK.value(),
+//                    true,
+//                    "리뷰 업데이트 성공",
+//                    review
+//            );
+//        } else {
+//            return new ApiResponseDto<>(
+//                    HttpStatus.BAD_REQUEST.value(),
+//                    true,
+//                    "리뷰 업데이트 실패",
+//                    null
+//            );
+//        }
+//    }
+//
+//    @DeleteMapping("/reviews/{reviewId}")
+//    public ApiResponseDto<ReviewDto> deleteReview(@PathVariable Integer reviewId) {
+//        ReviewDto review = vendorService.deleteReview(reviewId);
+//        if (review != null) {
+//            return new ApiResponseDto<>(
+//                    HttpStatus.OK.value(),
+//                    true,
+//                    "리뷰 삭제 성공",
+//                    review
+//            );
+//        } else {
+//            return new ApiResponseDto<>(
+//                    HttpStatus.NO_CONTENT.value(),
+//                    true,
+//                    "삭제할 리뷰를 찾지 못했습니다.",
+//                    null
+//            );
+//        }
+//    }
 }

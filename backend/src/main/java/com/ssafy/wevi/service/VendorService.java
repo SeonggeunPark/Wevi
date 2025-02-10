@@ -25,6 +25,7 @@ public class VendorService {
     private final PasswordEncoder passwordEncoder;
     private final CategoryRepository categoryRepository;
     private final ReviewRepository reviewRepository;
+    private final CustomerRepository customerRepository;
 
     public List<DoDto> getDoList() {
         return doRepository.findAll().stream()
@@ -109,11 +110,32 @@ public class VendorService {
 
     @Transactional(readOnly = true)
     public List<ReviewDto> getReviewListByVendorId(Integer vendorId) {
-        List<ReviewDto> reviews = reviewRepository.findByVendorId(vendorId);
+        Vendor vendor = vendorRepository.findById(vendorId)
+                .orElseThrow(() -> new IllegalArgumentException("해당 업체가 존재하지 않습니다."));
+        List<Review> reviews = reviewRepository.findByVendor(vendor);
 
-        return vendors.stream()
-                .map(this::convertToDto)
+        return reviews.stream()
+                .map(this::convertToReviewDto)
                 .collect(Collectors.toList());
+    }
+
+    @Transactional
+    public ReviewDto createReview(Integer vendorId, Integer costomerId, ReviewDto reviewDto) {
+
+        Vendor vendor = vendorRepository.findById(vendorId)
+                .orElseThrow(() -> new IllegalArgumentException("해당 업체가 존재하지 않습니다."));
+        Customer customer = customerRepository.findById(costomerId)
+                .orElseThrow(() -> new IllegalArgumentException("해당 유저가 존재하지 않습니다."));
+
+        Review review = new Review();
+        review.setContent(reviewDto.getContent());
+        review.setCreatedAt(LocalDateTime.now());
+        review.setVendor(vendor);
+        review.setCustomer(customer);
+
+        reviewRepository.save(review);
+
+        return convertToReviewDto(review);
     }
 
     private DoDto convertToDoDto(Do doEntity) {
@@ -170,5 +192,16 @@ public class VendorService {
         vendorDetailResponseDto.setCreatedAt(vendor.getCreatedAt());
 
         return vendorDetailResponseDto;
+    }
+
+    private ReviewDto convertToReviewDto(Review review) {
+        ReviewDto reviewDto = new ReviewDto();
+        reviewDto.setReviewId(review.getReviewId());
+        reviewDto.setContent(review.getContent());
+        reviewDto.setCreatedAt(review.getCreatedAt());
+        reviewDto.setUpdatedAt(review.getUpdatedAt());
+        reviewDto.setCustomerId(review.getCustomer().getUserId());
+        reviewDto.setVendorId(review.getVendor().getUserId());
+        return reviewDto;
     }
 }
