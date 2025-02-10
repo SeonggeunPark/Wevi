@@ -14,7 +14,9 @@ public class MiddleProcessStep {
     @Column(name = "middle_process_step_id")
     private Integer id;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id", nullable = false, unique = false)
     private Category category;
+
+    private String name;
 }

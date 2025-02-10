@@ -11,7 +11,16 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @DiscriminatorValue("customer")
+//@PrimaryKeyJoinColumn(name = "customer_id")
 public class Customer extends User {
+//    @Id
+//    @Column(name = "user_id")
+//    private Integer userId;
+//
+//    @OneToOne
+//    @MapsId
+//    @JoinColumn(name = "user_id")
+//    private User user;
 
     @Column(unique = true, nullable = false)
     private String nickname;

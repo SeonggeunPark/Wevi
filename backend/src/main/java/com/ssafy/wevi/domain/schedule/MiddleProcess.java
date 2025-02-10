@@ -11,7 +11,8 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(name = "middleProcesses")
+@Table(name = "middle_processes")
+@DiscriminatorValue("middle_process")
 @NoArgsConstructor
 public class MiddleProcess extends Schedule{
     @Enumerated(EnumType.STRING)
@@ -20,7 +21,7 @@ public class MiddleProcess extends Schedule{
 
     private String detail;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "middle_process_step_id", nullable = false)
     private MiddleProcessStep middleProcessStep;
 }

@@ -1,6 +1,7 @@
 package com.ssafy.wevi.domain.schedule;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.Getter;
@@ -10,9 +11,11 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 
 @Entity
-@Getter @Setter
+@Getter
+@Setter
 @Table(name = "contracts")
 @NoArgsConstructor
+@DiscriminatorValue("contract")
 public class Contract extends Schedule{
     private int price;  // 계약금액
     @Column(nullable = false)

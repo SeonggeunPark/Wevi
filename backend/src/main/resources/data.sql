@@ -85,3 +85,26 @@ INSERT INTO `vendors` (
       (2,2,_binary '\0',200000,3,7,'3층','인천광역시 미추홀구 예술로 456','10:00 - 20:00','감성적인 촬영을 제공하는 스튜디오입니다.','http://www.style-studio.com','스타일 스튜디오','이민호','010-3456-7890','전용 주차장 10대 가능','032-9876-1234','촬영 200,000원, 앨범 300,000원','210-56-12345','인천시청역 1호선','13579'),
       (4,3,_binary '\0',100000,2,9,'2층','대전광역시 동구 중앙로 567','09:30 - 19:30','전문 아티스트가 맞춤 메이크업을 제공합니다.','http://www.beauty-makeup.com','박뷰티 메이크업','박예은','010-5678-9012','공용 주차장 이용 가능','042-1234-5678','신부 화장 150,000원, 일반 화장 100,000원','310-78-54321','대전역 1호선','54321'),
       (3,4,_binary '\0',300000,1,10,'5층','대구광역시 남구 패션로 789','10:00 - 21:00','고급스러운 디자인의 웨딩 드레스 전문점입니다.','http://www.elegance-dress.com','엘레강스 드레스','김하늘','010-6789-0123','주차 타워 이용 가능','053-7890-1234','웨딩 드레스 500,000원, 턱시도 300,000원','410-98-76543','대구역 2호선','67890');
+
+INSERT INTO schedules (schedule_id, start_time, end_time, title, customer_id, vendor_id, dtype) VALUES
+    (1, '2025-02-10 10:00:00', '2025-02-10 12:00:00', '웨딩 촬영 상담', 1, 2, 'consultation'),
+    (2, '2025-02-15 14:00:00', '2025-02-15 16:00:00', '웨딩 계약', 1, 2, 'contract'),
+    (3, '2025-02-20 13:00:00', '2025-02-20 15:00:00', '기타 일정', 1, 2, 'other_schedule'),
+    (4, '2025-02-20 13:00:00', '2025-02-20 15:00:00', '중간과정', 1, 2, 'middle_process');
+
+INSERT INTO consultations (schedule_id, request) VALUES
+    (1, '드레스 선택과 메이크업 상담을 원합니다.');
+
+INSERT INTO contracts (schedule_id, price, detail, contract_date) VALUES
+    (2, 5000000, '웨딩 촬영 및 드레스 대여 포함', '2025-02-20 13:00:00');
+
+INSERT INTO middle_process_steps (middle_process_step_id, category_id, name) VALUES
+    (1, 3, '계약서 작성'),
+    (2, 1, '계약서 검토'),
+    (3, 2, '최종 결제');
+
+INSERT INTO middle_processes (schedule_id, middle_process_step_id, status, detail) VALUES
+    (4, 1, 'IN_PROGRESS', '드레스 가봉 늦춰질 예정');
+
+INSERT INTO other_schedules (schedule_id, detail) VALUES
+    (3, '신혼여행 일정 논의');
