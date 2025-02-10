@@ -1,10 +1,15 @@
 package com.ssafy.wevi.domain;
 
 import com.ssafy.wevi.domain.schedule.Schedule;
+import com.ssafy.wevi.domain.user.User;
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
+@Table(name = "notifications")
 @Getter
 @Setter
 @NoArgsConstructor
