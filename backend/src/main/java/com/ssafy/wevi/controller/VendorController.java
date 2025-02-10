@@ -1,15 +1,11 @@
 package com.ssafy.wevi.controller;
 
-import com.ssafy.wevi.domain.Vendor;
 import com.ssafy.wevi.dto.ApiResponseDto;
-import com.ssafy.wevi.dto.Customer.CustomerCreateDto;
-import com.ssafy.wevi.dto.Customer.CustomerResponseDto;
 import com.ssafy.wevi.dto.vendor.*;
 import com.ssafy.wevi.service.VendorService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -96,11 +92,41 @@ public class VendorController {
         List<VendorResponseDto> vendors = vendorService.findVendorsByLocationAndCategory(
                 doId, sigunguId, category);
 
-        return new ApiResponseDto<>(
-                HttpStatus.OK.value(),
-                true,
-                "시군구 목록 조회 성공",
-                vendors
-        );
+        if (vendors != null && !vendors.isEmpty()) {
+            return new ApiResponseDto<>(
+                    HttpStatus.OK.value(),
+                    true,
+                    "업체 목록 조회 성공",
+                    vendors
+            );
+        } else {
+            return new ApiResponseDto<>(
+                    HttpStatus.NO_CONTENT.value(),
+                    true,
+                    "업체 목록이 비어있습니다",
+                    null
+            );
+        }
+    }
+
+    @GetMapping("/{vendorId}")
+    public ApiResponseDto<VendorDetailResponseDto> getVendorById(@PathVariable Integer vendorId) {
+        VendorDetailResponseDto vendorDetailResponseDto = vendorService.findVendorById(vendorId);
+
+        if (vendorDetailResponseDto != null) {
+            return new ApiResponseDto<>(
+                    HttpStatus.OK.value(),
+                    true,
+                    "업체 상세 조회 성공",
+                    vendorDetailResponseDto
+            );
+        } else {
+            return new ApiResponseDto<>(
+                    HttpStatus.BAD_REQUEST.value(),
+                    false,
+                    "해당 ID의 업체가 존재하지 않습니다.",
+                    null
+            );
+        }
     }
 }

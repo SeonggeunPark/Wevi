@@ -21,4 +21,6 @@ public interface VendorRepository extends JpaRepository<Vendor, Integer> {
     List<Vendor> findByLocationAndCategory(@Param("doId") Integer doId,
                                            @Param("sigunguId") Integer sigunguId,
                                            @Param("category") Category category);
+
+    List<Vendor> findByUserId(Integer userId);
 }

@@ -87,6 +87,7 @@ public class VendorService {
         return toVendorDetailResponseDto(vendor);
     }
 
+    @Transactional(readOnly = true)
     public List<VendorResponseDto> findVendorsByLocationAndCategory(
             Integer doId, Integer sigunguId, Integer categoryId) {
 
@@ -98,6 +99,14 @@ public class VendorService {
         return vendors.stream()
                 .map(this::convertToDto)
                 .collect(Collectors.toList());
+    }
+
+    @Transactional(readOnly = true)
+    public VendorDetailResponseDto findVendorById(Integer vendorId) {
+
+        Vendor vendor = vendorRepository.findById(vendorId).orElseThrow(() -> new IllegalArgumentException("해당 업체가 존재하지 않습니다."));;
+
+        return toVendorDetailResponseDto(vendor);
     }
 
     private DoDto convertToDoDto(Do doEntity) {
