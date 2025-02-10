@@ -72,7 +72,7 @@ pipeline {
                             docker build -t ${DOCKER_IMAGE} .
                             docker run -d \
                                 --name ${APP_NAME} \
-                                --link mysql-container:localhost \
+                                --network my-network \
                                 --restart unless-stopped \
                                 -p 8080:8080 \
                                 ${DOCKER_IMAGE}
