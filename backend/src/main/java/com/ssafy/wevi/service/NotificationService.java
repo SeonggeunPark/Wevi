@@ -1,6 +1,7 @@
 package com.ssafy.wevi.service;
 
-import com.ssafy.wevi.domain.User;
+import com.ssafy.wevi.domain.Notification;
+import com.ssafy.wevi.domain.user.User;
 import com.ssafy.wevi.domain.schedule.Schedule;
 import com.ssafy.wevi.repository.NotificationRepository;
 import lombok.RequiredArgsConstructor;
@@ -19,13 +20,12 @@ public class NotificationService {
                 .type("SCHEDULE_REMINDER")
                 .schedule(schedule)
                 .isRead(false)
-                .createdAt(LocalDateTime.now())
                 .build();
 
         notificationRepository.save(notification);
 
         if (receiver.getFcmToken() != null) {
-            firebaseMessagingService.sendPushNotification(receiver.getFcmToken(), "📅 일정 알림", message);
+            firebaseCloudMessagingService.sendPushNotification(receiver.getFcmToken(), "📅 일정 알림", message);
         }
     }
 }
