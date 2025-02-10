@@ -3,10 +3,7 @@ package com.ssafy.wevi.service;
 import com.ssafy.wevi.domain.*;
 import com.ssafy.wevi.dto.vendor.*;
 import com.ssafy.wevi.enums.UserStatus;
-import com.ssafy.wevi.repository.CategoryRepository;
-import com.ssafy.wevi.repository.DoRepository;
-import com.ssafy.wevi.repository.SigunguRepository;
-import com.ssafy.wevi.repository.VendorRepository;
+import com.ssafy.wevi.repository.*;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -27,6 +24,8 @@ public class VendorService {
     private final SigunguRepository sigunguRepository;
     private final PasswordEncoder passwordEncoder;
     private final CategoryRepository categoryRepository;
+    private final ReviewRepository reviewRepository;
+    private final CustomerRepository customerRepository;
 
     public List<DoDto> getDoList() {
         return doRepository.findAll().stream()
@@ -109,6 +108,53 @@ public class VendorService {
         return toVendorDetailResponseDto(vendor);
     }
 
+    @Transactional(readOnly = true)
+    public List<ReviewDto> getReviewListByVendorId(Integer vendorId) {
+        Vendor vendor = vendorRepository.findById(vendorId)
+                .orElseThrow(() -> new IllegalArgumentException("해당 업체가 존재하지 않습니다."));
+        List<Review> reviews = reviewRepository.findByVendor(vendor);
+
+        return reviews.stream()
+                .map(this::convertToReviewDto)
+                .collect(Collectors.toList());
+    }
+
+    @Transactional
+    public ReviewDto createReview(Integer vendorId, Integer costomerId, ReviewDto reviewDto) {
+
+        Vendor vendor = vendorRepository.findById(vendorId)
+                .orElseThrow(() -> new IllegalArgumentException("해당 업체가 존재하지 않습니다."));
+        Customer customer = customerRepository.findById(costomerId)
+                .orElseThrow(() -> new IllegalArgumentException("해당 유저가 존재하지 않습니다."));
+
+        Review review = new Review();
+        review.setContent(reviewDto.getContent());
+        review.setCreatedAt(LocalDateTime.now());
+        review.setVendor(vendor);
+        review.setCustomer(customer);
+
+        reviewRepository.save(review);
+
+        return convertToReviewDto(review);
+    }
+
+    @Transactional
+    public ReviewDto updateReview(Integer reviewId, ReviewDto reviewDto) {
+
+        Review review = reviewRepository.findById(reviewId).orElseThrow();
+        review.setContent(reviewDto.getContent());
+        review.setUpdatedAt(LocalDateTime.now());
+
+        reviewRepository.save(review);
+
+        return convertToReviewDto(review);
+    }
+
+    @Transactional
+    public void deleteReview(Integer reviewId) {
+        reviewRepository.deleteById(reviewId);
+    }
+
     private DoDto convertToDoDto(Do doEntity) {
         DoDto dto = new DoDto();
         dto.setDoId(doEntity.getDoId());
@@ -163,5 +209,16 @@ public class VendorService {
         vendorDetailResponseDto.setCreatedAt(vendor.getCreatedAt());
 
         return vendorDetailResponseDto;
+    }
+
+    private ReviewDto convertToReviewDto(Review review) {
+        ReviewDto reviewDto = new ReviewDto();
+        reviewDto.setReviewId(review.getReviewId());
+        reviewDto.setContent(review.getContent());
+        reviewDto.setCreatedAt(review.getCreatedAt());
+        reviewDto.setUpdatedAt(review.getUpdatedAt());
+        reviewDto.setCustomerId(review.getCustomer().getUserId());
+        reviewDto.setVendorId(review.getVendor().getUserId());
+        return reviewDto;
     }
 }
