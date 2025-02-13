@@ -8,12 +8,16 @@ import { useNavigate } from "react-router-dom";
 
 export default function CardSchedule({ data }) {
   const categoryBackgroundMap = {
-    weddinghall: weddinghall_schedule,
-    dress: dress_schedule,
-    makeup: hairmakeup_schedule,
-    studio: studio_schedule,
+    weddinghall:
+      "https://REMOVED.s3.REMOVED.amazonaws.com/weddinghall_schedule.png",
+    dress:
+      "https://REMOVED.s3.REMOVED.amazonaws.com/dress_schedule.jpg",
+    makeup:
+      "https://REMOVED.s3.REMOVED.amazonaws.com/hairmakeup_schedule.png",
+    studio:
+      "https://REMOVED.s3.REMOVED.amazonaws.com/studio_schedule.png",
   };
-
+  //
   const backgroundImageURL =
     categoryBackgroundMap[data.categoryName] || "default_schedule";
 
