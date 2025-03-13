@@ -1019,131 +1019,131 @@ INSERT INTO `reviews` (review_id, customer_id, vendor_id, created_at, updated_at
 
 -- Vendor Wedding hall Main Image
 INSERT INTO `images` (image_id, order_index, review_id, vendor_id, created_at, image_url, image_type)
-VALUES (1, 1, null, 16, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/w/1.jpg', 'VENDOR'),
-       (2, 1, null, 24, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/w/2.jpg', 'VENDOR'),
-       (3, 1, null, 32, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/w/3.jpg', 'VENDOR'),
-       (4, 1, null, 17, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/w/4.jpg', 'VENDOR'),
-       (5, 1, null, 27, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/w/5.jpg', 'VENDOR'),
-       (6, 1, null, 26, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/w/6.jpg', 'VENDOR');
+VALUES (1, 1, null, 16, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/w/1.jpg', 'VENDOR'),
+       (2, 1, null, 24, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/w/2.jpg', 'VENDOR'),
+       (3, 1, null, 32, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/w/3.jpg', 'VENDOR'),
+       (4, 1, null, 17, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/w/4.jpg', 'VENDOR'),
+       (5, 1, null, 27, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/w/5.jpg', 'VENDOR'),
+       (6, 1, null, 26, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/w/6.jpg', 'VENDOR');
 
 -- Vendor Studio Main Image
 INSERT INTO `images` (image_id, order_index, review_id, vendor_id, created_at, image_url, image_type)
-VALUES (7, 1, null, 18, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/s/1.jpg', 'VENDOR'),
-       (8, 1, null, 36, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/s/13.png', 'VENDOR'),
-       (9, 1, null, 38, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/s/18.png', 'VENDOR'),
-       (10, 1, null, 37, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/s/17.jpg', 'VENDOR'),
-       (11, 1, null, 44, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/s/16.jpg', 'VENDOR'),
-       (12, 1, null, 39, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/s/12.png', 'VENDOR');
+VALUES (7, 1, null, 18, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/s/1.jpg', 'VENDOR'),
+       (8, 1, null, 36, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/s/13.png', 'VENDOR'),
+       (9, 1, null, 38, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/s/18.png', 'VENDOR'),
+       (10, 1, null, 37, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/s/17.jpg', 'VENDOR'),
+       (11, 1, null, 44, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/s/16.jpg', 'VENDOR'),
+       (12, 1, null, 39, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/s/12.png', 'VENDOR');
 
 -- Vendor Dress Main Image
 INSERT INTO `images` (image_id, order_index, review_id, vendor_id, created_at, image_url, image_type)
-VALUES (13, 1, null, 51, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/d/1.webp', 'VENDOR'),
-       (14, 1, null, 53, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/d/6.jpg', 'VENDOR'),
-       (15, 1, null, 52, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/d/14.jpg', 'VENDOR');
+VALUES (13, 1, null, 51, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/d/1.webp', 'VENDOR'),
+       (14, 1, null, 53, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/d/6.jpg', 'VENDOR'),
+       (15, 1, null, 52, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/d/14.jpg', 'VENDOR');
 
 -- Vendor Makeup Main Image
 INSERT INTO `images` (image_id, order_index, review_id, vendor_id, created_at, image_url, image_type)
-VALUES (16, 1, null, 66, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/m/2.webp', 'VENDOR'),
-       (17, 1, null, 70, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/m/3.webp', 'VENDOR'),
-       (18, 1, null, 73, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/m/4.webp', 'VENDOR'),
-       (19, 1, null, 67, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/m/5.webp', 'VENDOR'),
-       (20, 1, null, 71, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/m/6.webp', 'VENDOR'),
-       (21, 1, null, 72, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/m/7.webp', 'VENDOR'),
-       (22, 1, null, 69, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/m/8.webp', 'VENDOR'),
-       (23, 1, null, 68, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/m/9.webp', 'VENDOR'),
-       (24, 1, null, 73, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/m/10.webp', 'VENDOR');
+VALUES (16, 1, null, 66, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/m/2.webp', 'VENDOR'),
+       (17, 1, null, 70, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/m/3.webp', 'VENDOR'),
+       (18, 1, null, 73, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/m/4.webp', 'VENDOR'),
+       (19, 1, null, 67, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/m/5.webp', 'VENDOR'),
+       (20, 1, null, 71, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/m/6.webp', 'VENDOR'),
+       (21, 1, null, 72, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/m/7.webp', 'VENDOR'),
+       (22, 1, null, 69, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/m/8.webp', 'VENDOR'),
+       (23, 1, null, 68, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/m/9.webp', 'VENDOR'),
+       (24, 1, null, 73, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/m/10.webp', 'VENDOR');
 
 -- Vendor Wedding hall Detail Image
 INSERT INTO `images` (image_id, order_index, review_id, vendor_id, created_at, image_url, image_type)
-VALUES (25, 1, null, 16, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/w/7.jpg', 'PANORAMA'),
-       (26, 1, null, 16, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/w/8.jpg', 'MAGAZINE'),
-       (27, 2, null, 16, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/w/9.jpg', 'MAGAZINE'),
-       (28, 3, null, 16, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/w/10.jpg', 'MAGAZINE'),
-       (29, 4, null, 16, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/w/11.jpg', 'MAGAZINE'),
-       (30, 5, null, 16, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/w/12.jpg', 'MAGAZINE');
+VALUES (25, 1, null, 16, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/w/7.jpg', 'PANORAMA'),
+       (26, 1, null, 16, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/w/8.jpg', 'MAGAZINE'),
+       (27, 2, null, 16, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/w/9.jpg', 'MAGAZINE'),
+       (28, 3, null, 16, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/w/10.jpg', 'MAGAZINE'),
+       (29, 4, null, 16, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/w/11.jpg', 'MAGAZINE'),
+       (30, 5, null, 16, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/w/12.jpg', 'MAGAZINE');
 
 -- Vendor Studio Detail Image
 INSERT INTO `images` (image_id, order_index, review_id, vendor_id, created_at, image_url, image_type)
-VALUES (31, 1, null, 18, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/s/7.jpg', 'MAGAZINE'),
-       (32, 2, null, 18, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/s/8.png', 'MAGAZINE'),
-       (33, 3, null, 18, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/s/9.png', 'MAGAZINE'),
-       (34, 4, null, 18, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/s/10.png', 'MAGAZINE'),
-       (35, 5, null, 18, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/s/11.png', 'MAGAZINE'),
-       (36, 6, null, 18, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/s/12.png', 'MAGAZINE');
+VALUES (31, 1, null, 18, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/s/7.jpg', 'MAGAZINE'),
+       (32, 2, null, 18, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/s/8.png', 'MAGAZINE'),
+       (33, 3, null, 18, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/s/9.png', 'MAGAZINE'),
+       (34, 4, null, 18, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/s/10.png', 'MAGAZINE'),
+       (35, 5, null, 18, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/s/11.png', 'MAGAZINE'),
+       (36, 6, null, 18, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/s/12.png', 'MAGAZINE');
 
 
 -- Vendor Dress Detail Image
 INSERT INTO `images` (image_id, order_index, review_id, vendor_id, created_at, image_url, image_type)
-VALUES (37, 1, null, 51, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/d/7.jpg', 'MAGAZINE'),
-       (38, 2, null, 51, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/d/8.jpg', 'MAGAZINE'),
-       (39, 3, null, 51, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/d/9.jpg', 'MAGAZINE'),
-       (40, 4, null, 51, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/d/10.png', 'MAGAZINE'),
-       (41, 5, null, 51, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/d/11.png', 'MAGAZINE'),
-       (42, 6, null, 51, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/d/12.png', 'MAGAZINE');
+VALUES (37, 1, null, 51, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/d/7.jpg', 'MAGAZINE'),
+       (38, 2, null, 51, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/d/8.jpg', 'MAGAZINE'),
+       (39, 3, null, 51, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/d/9.jpg', 'MAGAZINE'),
+       (40, 4, null, 51, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/d/10.png', 'MAGAZINE'),
+       (41, 5, null, 51, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/d/11.png', 'MAGAZINE'),
+       (42, 6, null, 51, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/d/12.png', 'MAGAZINE');
 
 
 -- Vendor Makeup Detail Image
 INSERT INTO `images` (image_id, order_index, review_id, vendor_id, created_at, image_url, image_type)
-VALUES (43, 1, null, 66, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/m/11.webp', 'MAGAZINE'),
-       (44, 2, null, 66, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/m/12.webp', 'MAGAZINE'),
-       (45, 3, null, 66, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/m/13.webp', 'MAGAZINE'),
-       (46, 4, null, 66, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/m/14.webp', 'MAGAZINE'),
-       (47, 5, null, 66, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/m/15.webp', 'MAGAZINE'),
-       (48, 6, null, 66, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/vendor/m/16.webp', 'MAGAZINE');
+VALUES (43, 1, null, 66, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/m/11.webp', 'MAGAZINE'),
+       (44, 2, null, 66, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/m/12.webp', 'MAGAZINE'),
+       (45, 3, null, 66, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/m/13.webp', 'MAGAZINE'),
+       (46, 4, null, 66, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/m/14.webp', 'MAGAZINE'),
+       (47, 5, null, 66, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/m/15.webp', 'MAGAZINE'),
+       (48, 6, null, 66, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/vendor/m/16.webp', 'MAGAZINE');
 
 
 -- Review Wedding hall Image
 INSERT INTO `images` (image_id, order_index, review_id, vendor_id, created_at, image_url, image_type)
-VALUES (49, 1, 1, null, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/review/w1.jpg', 'REVIEW'),
-       (50, 2, 1, null, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/review/w2.jpg', 'REVIEW'),
-       (51, 3, 1, null, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/review/w3.jpg', 'REVIEW'),
-       (52, 1, 2, null, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/review/w4.jpg', 'REVIEW'),
-       (53, 2, 2, null, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/review/w5.jpg', 'REVIEW'),
-       (54, 1, 3, null, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/review/w6.jpg', 'REVIEW'),
-       (55, 1, 4, null, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/review/w7.jpg', 'REVIEW'),
-       (56, 1, 5, null, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/review/w8.jpg', 'REVIEW'),
-       (57, 1, 6, null, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/review/w9.jpg', 'REVIEW'),
-       (58, 1, 7, null, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/review/w10.jpg', 'REVIEW'),
-       (59, 1, 8, null, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/review/w11.jpg', 'REVIEW');
+VALUES (49, 1, 1, null, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/review/w1.jpg', 'REVIEW'),
+       (50, 2, 1, null, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/review/w2.jpg', 'REVIEW'),
+       (51, 3, 1, null, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/review/w3.jpg', 'REVIEW'),
+       (52, 1, 2, null, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/review/w4.jpg', 'REVIEW'),
+       (53, 2, 2, null, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/review/w5.jpg', 'REVIEW'),
+       (54, 1, 3, null, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/review/w6.jpg', 'REVIEW'),
+       (55, 1, 4, null, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/review/w7.jpg', 'REVIEW'),
+       (56, 1, 5, null, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/review/w8.jpg', 'REVIEW'),
+       (57, 1, 6, null, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/review/w9.jpg', 'REVIEW'),
+       (58, 1, 7, null, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/review/w10.jpg', 'REVIEW'),
+       (59, 1, 8, null, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/review/w11.jpg', 'REVIEW');
 
 -- Review Studio Image
 INSERT INTO `images` (image_id, order_index, review_id, vendor_id, created_at, image_url, image_type)
-VALUES (60, 1, 25, null, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/review/s1.jpg', 'REVIEW'),
-       (61, 2, 25, null, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/review/s2.jpg', 'REVIEW'),
-       (62, 3, 25, null, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/review/s3.jpg', 'REVIEW'),
-       (63, 1, 26, null, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/review/s4.jpg', 'REVIEW'),
-       (64, 2, 26, null, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/review/s5.jpg', 'REVIEW'),
-       (65, 1, 27, null, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/review/s6.jpg', 'REVIEW'),
-       (66, 1, 28, null, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/review/s7.jpg', 'REVIEW'),
-       (67, 1, 29, null, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/review/s8.jpg', 'REVIEW'),
-       (68, 1, 30, null, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/review/s9.jpg', 'REVIEW'),
-       (69, 1, 31, null, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/review/s10.jpg', 'REVIEW');
+VALUES (60, 1, 25, null, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/review/s1.jpg', 'REVIEW'),
+       (61, 2, 25, null, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/review/s2.jpg', 'REVIEW'),
+       (62, 3, 25, null, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/review/s3.jpg', 'REVIEW'),
+       (63, 1, 26, null, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/review/s4.jpg', 'REVIEW'),
+       (64, 2, 26, null, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/review/s5.jpg', 'REVIEW'),
+       (65, 1, 27, null, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/review/s6.jpg', 'REVIEW'),
+       (66, 1, 28, null, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/review/s7.jpg', 'REVIEW'),
+       (67, 1, 29, null, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/review/s8.jpg', 'REVIEW'),
+       (68, 1, 30, null, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/review/s9.jpg', 'REVIEW'),
+       (69, 1, 31, null, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/review/s10.jpg', 'REVIEW');
 
 -- Review Dress Image
 INSERT INTO `images` (image_id, order_index, review_id, vendor_id, created_at, image_url, image_type)
-VALUES (70, 1, 90, null, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/review/d1.jpg', 'REVIEW'),
-       (71, 2, 90, null, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/review/d2.jpg', 'REVIEW'),
-       (72, 3, 90, null, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/review/d3.jpg', 'REVIEW'),
-       (73, 1, 51, null, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/review/d4.jpg', 'REVIEW'),
-       (74, 2, 51, null, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/review/d5.jpg', 'REVIEW'),
-       (75, 1, 52, null, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/review/d6.jpg', 'REVIEW'),
-       (76, 1, 53, null, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/review/d7.jpg', 'REVIEW'),
-       (77, 1, 54, null, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/review/d8.jpg', 'REVIEW'),
-       (78, 1, 55, null, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/review/d9.jpg', 'REVIEW'),
-       (79, 1, 56, null, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/review/d10.jpg', 'REVIEW'),
-       (80, 1, 57, null, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/review/d11.jpg', 'REVIEW');
+VALUES (70, 1, 90, null, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/review/d1.jpg', 'REVIEW'),
+       (71, 2, 90, null, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/review/d2.jpg', 'REVIEW'),
+       (72, 3, 90, null, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/review/d3.jpg', 'REVIEW'),
+       (73, 1, 51, null, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/review/d4.jpg', 'REVIEW'),
+       (74, 2, 51, null, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/review/d5.jpg', 'REVIEW'),
+       (75, 1, 52, null, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/review/d6.jpg', 'REVIEW'),
+       (76, 1, 53, null, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/review/d7.jpg', 'REVIEW'),
+       (77, 1, 54, null, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/review/d8.jpg', 'REVIEW'),
+       (78, 1, 55, null, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/review/d9.jpg', 'REVIEW'),
+       (79, 1, 56, null, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/review/d10.jpg', 'REVIEW'),
+       (80, 1, 57, null, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/review/d11.jpg', 'REVIEW');
 
 -- Review Makeup Image
 INSERT INTO `images` (image_id, order_index, review_id, vendor_id, created_at, image_url, image_type)
-VALUES (81, 1, 68, null, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/review/m1.webp', 'REVIEW'),
-       (82, 2, 68, null, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/review/m2.webp', 'REVIEW'),
-       (83, 3, 68, null, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/review/m3.jpg', 'REVIEW'),
-       (84, 1, 67, null, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/review/m4.jpg', 'REVIEW'),
-       (85, 2, 67, null, null, 'https://REMOVED.s3.REMOVED.amazonaws.com/review/m5.jpg', 'REVIEW');
+VALUES (81, 1, 68, null, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/review/m1.webp', 'REVIEW'),
+       (82, 2, 68, null, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/review/m2.webp', 'REVIEW'),
+       (83, 3, 68, null, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/review/m3.jpg', 'REVIEW'),
+       (84, 1, 67, null, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/review/m4.jpg', 'REVIEW'),
+       (85, 2, 67, null, null, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/review/m5.jpg', 'REVIEW');
 
 INSERT  INTO audio_summaries  (audio_summary_id, original_file_url, status, summary_result, customer_id, consultation_id)
 VALUES
-        (1, 'https://REMOVED.s3.REMOVED.amazonaws.com/audio/f04c5550-f403-4349-934b-9d39198d5c3d', 'COMPLETED', '{
+        (1, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/audio/f04c5550-f403-4349-934b-9d39198d5c3d', 'COMPLETED', '{
              "날짜": "26/03/22 11:00",
              "업체명": "더뉴컨벤션웨딩",
              "홀명": "컨벤션홀",
@@ -1161,48 +1161,48 @@ VALUES
              "환불_규정": "1개월 전 100% 환불, 2주 전 50% 환불",
              "기타사항": ["주차 100대 무료", "평일 예식 10% 할인", "3개월 내 계약시 대관료 10% 할인"]
          }', 1, 9),
-        (2, 'https://REMOVED.s3.REMOVED.amazonaws.com/audio/584441', 'COMPLETED', '{"날짜": "26-02-29 13:30", "업체명": "대림동웨딩홀",  "위치": "서울특별시 서초구", "가능 날짜": "2025-02-29 가능", "홀_유형": "채플홀", "최대인원": "300명", "대관료": "100만 원", "예식_방식": "분리예식", "식사_형태": "한상차림", "1인당_식사_비용": "10만원", "최소_보장_인원": "150명", "포함_서비스": ["조명 연출", "음악"], "계약금": "25만 원", "환불_규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["혼주 식사 제공", "플래너 이용권 10% 할인", "사회자 10% 할인", "평일 예식 10% 할인"]}', 1, 250),
-        (3, 'https://REMOVED.s3.REMOVED.amazonaws.com/audio/643866', 'COMPLETED', '{"날짜": "26-02-36 13:30", "업체명": "문화웨딩홀", "위치": "대구광역시 동구", "가능 날짜": "2025-02-36 가능", "홀_유형": "채플홀", "최대인원": "350명", "대관료": "200만 원", "예식_방식": "2부예식", "식사_형태": "뷔페", "1인당_식사_비용": "10만원", "최소_보장_인원": "100명", "포함_서비스": ["라이브 연주", "리프트 입장"], "계약금": "50만 원", "환불_규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["스드메 패키지 10% 할인", "평일 예식 10% 할인", "혼주 식사 제공"]}', 1, 254),
-        (4, 'https://REMOVED.s3.REMOVED.amazonaws.com/audio/527698', 'COMPLETED', '{"날짜": "26-02-43 11:30", "업체명": "고려웨딩홀", "위치": "인천광역시 미추홀구", "가능 날짜": "2025-02-43 가능", "홀_유형": "컨벤션홀", "최대인원": "300명", "대관료": "100만 원", "예식_방식": "동시예식", "식사_형태": "뷔페", "1인당_식사_비용": "6만원", "최소_보장_인원": "200명", "포함_서비스": ["고급 테이블 장식", "플라워 장식", "조명 연출"], "계약금": "25만 원", "환불_규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["플래너 이용권 10% 할인", "주차 100대 무료", "사회자 10% 할인"]}', 1, 258),
-        (5, 'https://REMOVED.s3.REMOVED.amazonaws.com/audio/168475', 'COMPLETED', '{"날짜": "26-03-50 13:30", "업체명": "유토피아웨딩홀", "위치": "광주광역시 남구", "가능 날짜": "2025-03-50 가능", "홀_유형": "채플홀", "최대인원": "250명", "대관료": "300만 원", "예식_방식": "분리예식", "식사_형태": "뷔페", "1인당_식사_비용": "10만원", "최소_보장_인원": "100명", "포함_서비스": ["음악", "조명 연출", "리프트 입장"], "계약금": "75만 원", "환불_규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["플래너 이용권 10% 할인", "평일 예식 10% 할인", "혼주 식사 제공", "사회자 10% 할인"]}', 1, 262),
-        (6, 'https://REMOVED.s3.REMOVED.amazonaws.com/audio/853097', 'COMPLETED', '{"날짜": "26-03-27 11:00", "업체명": "라페스타웨딩홀", "위치": "광주광역시 서구", "가능 날짜": "2025-03-27 가능", "홀_유형": "채플홀", "최대인원": "300명", "대관료": "150만 원", "예식_방식": "2부예식", "식사_형태": "코스식사", "1인당_식사_비용": "10만원", "최소_보장_인원": "200명", "포함_서비스": ["웨딩 플래너 서비스", "리프트 입장"], "계약금": "38만 원", "환불_규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["주차 100대 무료", "평일 예식 10% 할인", "사회자 10% 할인"]}', 11, 266),
-        (7, 'https://REMOVED.s3.REMOVED.amazonaws.com/audio/345449', 'COMPLETED', '{"날짜": "26-03-34 13:30", "업체명": "더채플앳논현", "위치": "서울특별시 강남구", "가능 날짜": "2025-03-34 가능", "홀_유형": "컨벤션홀", "최대인원": "350명", "대관료": "100만 원", "예식_방식": "분리예식", "식사_형태": "한상차림", "1인당_식사_비용": "8만원", "최소_보장_인원": "150명", "포함_서비스": ["라이브 연주", "조명 연출"], "계약금": "25만 원", "환불_규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["혼주 식사 제공", "스드메 패키지 10% 할인", "플래너 이용권 10% 할인"]}', 11, 34),
-        (8, 'https://REMOVED.s3.REMOVED.amazonaws.com/audio/328343', 'COMPLETED', '{"날짜": "26-03-41 11:00", "업체명": "트라디노이", "위치": "서울특별시 강남구", "가능 날짜": "2025-03-41 가능", "홀_유형": "채플홀", "최대인원": "300명", "대관료": "100만 원", "예식_방식": "분리예식", "식사_형태": "코스식사", "1인당_식사_비용": "6만원", "최소_보장_인원": "150명", "포함_서비스": ["웨딩 플래너 서비스", "플라워 장식"], "계약금": "25만 원", "환불_규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["주차 100대 무료", "스드메 패키지 10% 할인", "혼주 식사 제공"]}', 11, 38),
-        (9, 'https://REMOVED.s3.REMOVED.amazonaws.com/audio/128127', 'COMPLETED', '{"날짜": "26-04-48 12:00", "업체명": "현대웨딩홀", "위치": "서울특별시 성동구", "가능 날짜": "2025-04-48 가능", "홀_유형": "채플홀", "최대인원": "300명", "대관료": "300만 원", "예식_방식": "2부예식", "식사_형태": "뷔페", "1인당_식사_비용": "8만원", "최소_보장_인원": "100명", "포함_서비스": ["조명 연출", "리프트 입장", "음악"], "계약금": "75만 원", "환불_규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["평일 예식 10% 할인", "주차 100대 무료", "3개월 내 계약시 대관료 10% 할인", "플래너 이용권 10% 할인"]}', 1, 42);--         (10, 'https://REMOVED.s3.REMOVED.amazonaws.com/audio/412081', 'COMPLETED', '{"날짜": "26-04-25 13:00", "업체명": "로얄가든웨딩홀", "홀명": "로얄가든웨딩홀 홀", "위치": "서울특별시 서초구", "가능 날짜": "2025-04-25 가능", "홀_유형": "가든", "최대인원": "150명", "대관료": "150만 원", "예식_방식": "분리예식", "식사_형태": "한상차림", "1인당_식사_비용": "5만원", "최소_보장_인원": "100명", "포함_서비스": ["고급 테이블 장식", "조명 연출"], "계약금": "38만 원", "환불_규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["사회자 10% 할인", "평일 예식 10% 할인", "플래너 이용권 10% 할인", "주차 100대 무료"]}', 1, 31);
+        (2, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/audio/584441', 'COMPLETED', '{"날짜": "26-02-29 13:30", "업체명": "대림동웨딩홀",  "위치": "서울특별시 서초구", "가능 날짜": "2025-02-29 가능", "홀_유형": "채플홀", "최대인원": "300명", "대관료": "100만 원", "예식_방식": "분리예식", "식사_형태": "한상차림", "1인당_식사_비용": "10만원", "최소_보장_인원": "150명", "포함_서비스": ["조명 연출", "음악"], "계약금": "25만 원", "환불_규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["혼주 식사 제공", "플래너 이용권 10% 할인", "사회자 10% 할인", "평일 예식 10% 할인"]}', 1, 250),
+        (3, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/audio/643866', 'COMPLETED', '{"날짜": "26-02-36 13:30", "업체명": "문화웨딩홀", "위치": "대구광역시 동구", "가능 날짜": "2025-02-36 가능", "홀_유형": "채플홀", "최대인원": "350명", "대관료": "200만 원", "예식_방식": "2부예식", "식사_형태": "뷔페", "1인당_식사_비용": "10만원", "최소_보장_인원": "100명", "포함_서비스": ["라이브 연주", "리프트 입장"], "계약금": "50만 원", "환불_규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["스드메 패키지 10% 할인", "평일 예식 10% 할인", "혼주 식사 제공"]}', 1, 254),
+        (4, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/audio/527698', 'COMPLETED', '{"날짜": "26-02-43 11:30", "업체명": "고려웨딩홀", "위치": "인천광역시 미추홀구", "가능 날짜": "2025-02-43 가능", "홀_유형": "컨벤션홀", "최대인원": "300명", "대관료": "100만 원", "예식_방식": "동시예식", "식사_형태": "뷔페", "1인당_식사_비용": "6만원", "최소_보장_인원": "200명", "포함_서비스": ["고급 테이블 장식", "플라워 장식", "조명 연출"], "계약금": "25만 원", "환불_규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["플래너 이용권 10% 할인", "주차 100대 무료", "사회자 10% 할인"]}', 1, 258),
+        (5, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/audio/168475', 'COMPLETED', '{"날짜": "26-03-50 13:30", "업체명": "유토피아웨딩홀", "위치": "광주광역시 남구", "가능 날짜": "2025-03-50 가능", "홀_유형": "채플홀", "최대인원": "250명", "대관료": "300만 원", "예식_방식": "분리예식", "식사_형태": "뷔페", "1인당_식사_비용": "10만원", "최소_보장_인원": "100명", "포함_서비스": ["음악", "조명 연출", "리프트 입장"], "계약금": "75만 원", "환불_규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["플래너 이용권 10% 할인", "평일 예식 10% 할인", "혼주 식사 제공", "사회자 10% 할인"]}', 1, 262),
+        (6, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/audio/853097', 'COMPLETED', '{"날짜": "26-03-27 11:00", "업체명": "라페스타웨딩홀", "위치": "광주광역시 서구", "가능 날짜": "2025-03-27 가능", "홀_유형": "채플홀", "최대인원": "300명", "대관료": "150만 원", "예식_방식": "2부예식", "식사_형태": "코스식사", "1인당_식사_비용": "10만원", "최소_보장_인원": "200명", "포함_서비스": ["웨딩 플래너 서비스", "리프트 입장"], "계약금": "38만 원", "환불_규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["주차 100대 무료", "평일 예식 10% 할인", "사회자 10% 할인"]}', 11, 266),
+        (7, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/audio/345449', 'COMPLETED', '{"날짜": "26-03-34 13:30", "업체명": "더채플앳논현", "위치": "서울특별시 강남구", "가능 날짜": "2025-03-34 가능", "홀_유형": "컨벤션홀", "최대인원": "350명", "대관료": "100만 원", "예식_방식": "분리예식", "식사_형태": "한상차림", "1인당_식사_비용": "8만원", "최소_보장_인원": "150명", "포함_서비스": ["라이브 연주", "조명 연출"], "계약금": "25만 원", "환불_규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["혼주 식사 제공", "스드메 패키지 10% 할인", "플래너 이용권 10% 할인"]}', 11, 34),
+        (8, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/audio/328343', 'COMPLETED', '{"날짜": "26-03-41 11:00", "업체명": "트라디노이", "위치": "서울특별시 강남구", "가능 날짜": "2025-03-41 가능", "홀_유형": "채플홀", "최대인원": "300명", "대관료": "100만 원", "예식_방식": "분리예식", "식사_형태": "코스식사", "1인당_식사_비용": "6만원", "최소_보장_인원": "150명", "포함_서비스": ["웨딩 플래너 서비스", "플라워 장식"], "계약금": "25만 원", "환불_규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["주차 100대 무료", "스드메 패키지 10% 할인", "혼주 식사 제공"]}', 11, 38),
+        (9, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/audio/128127', 'COMPLETED', '{"날짜": "26-04-48 12:00", "업체명": "현대웨딩홀", "위치": "서울특별시 성동구", "가능 날짜": "2025-04-48 가능", "홀_유형": "채플홀", "최대인원": "300명", "대관료": "300만 원", "예식_방식": "2부예식", "식사_형태": "뷔페", "1인당_식사_비용": "8만원", "최소_보장_인원": "100명", "포함_서비스": ["조명 연출", "리프트 입장", "음악"], "계약금": "75만 원", "환불_규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["평일 예식 10% 할인", "주차 100대 무료", "3개월 내 계약시 대관료 10% 할인", "플래너 이용권 10% 할인"]}', 1, 42);--         (10, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/audio/412081', 'COMPLETED', '{"날짜": "26-04-25 13:00", "업체명": "로얄가든웨딩홀", "홀명": "로얄가든웨딩홀 홀", "위치": "서울특별시 서초구", "가능 날짜": "2025-04-25 가능", "홀_유형": "가든", "최대인원": "150명", "대관료": "150만 원", "예식_방식": "분리예식", "식사_형태": "한상차림", "1인당_식사_비용": "5만원", "최소_보장_인원": "100명", "포함_서비스": ["고급 테이블 장식", "조명 연출"], "계약금": "38만 원", "환불_규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["사회자 10% 할인", "평일 예식 10% 할인", "플래너 이용권 10% 할인", "주차 100대 무료"]}', 1, 31);
 INSERT INTO audio_summaries (audio_summary_id, original_file_url, status, summary_result, customer_id, consultation_id)
 VALUES
-    (11, 'https://REMOVED.s3.REMOVED.amazonaws.com/audio/520690', 'COMPLETED', '{"날짜": "2025-06-22 13:30", "업체명": "화이트스튜디오", "패키지": "프리미엄 패키지", "촬영 스타일": "모던", "사진 장수": "60장", "촬영 시간": "4시간", "드레스 체인지 횟수": "2회", "메이크업": "신랑+신부", "앨범": "커스텀 앨범", "패키지 비용": "300만 원", "계약금": "60만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["스튜디오 소품 무료 제공", "리허설 촬영 무료", "야외 촬영 옵션 제공", "보정 서비스 포함"]}', 1, 1),
-    (12, 'https://REMOVED.s3.REMOVED.amazonaws.com/audio/583351', 'COMPLETED', '{"날짜": "2025-06-29 13:30", "업체명": "메종드힐", "패키지": "스페셜 패키지", "촬영 스타일": "클래식", "사진 장수": "20장", "촬영 시간": "5시간", "드레스 체인지 횟수": "4회", "메이크업": "신부 단독", "앨범": "커스텀 앨범", "패키지 비용": "200만 원", "계약금": "40만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["가족 사진 추가 무료", "촬영 원본 제공", "스튜디오 소품 무료 제공"]}', 1, 251),
-    (13, 'https://REMOVED.s3.REMOVED.amazonaws.com/audio/539619', 'COMPLETED', '{"날짜": "2025-06-12 11:30", "업체명": "아이엠스냅", "패키지": "스페셜 패키지", "촬영 스타일": "빈티지", "사진 장수": "30장", "촬영 시간": "4시간", "드레스 체인지 횟수": "1회", "메이크업": "신랑+신부", "앨범": "기본 앨범", "패키지 비용": "150만 원", "계약금": "30만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["촬영 원본 제공", "가족 사진 추가 무료", "앨범 업그레이드 할인", "스튜디오 소품 무료 제공"]}', 1, 255),
-    (14, 'https://REMOVED.s3.REMOVED.amazonaws.com/audio/747366', 'COMPLETED', '{"날짜": "2025-06-13 13:00", "업체명": "라마리에", "패키지": "기본 패키지", "촬영 스타일": "내추럴", "사진 장수": "20장", "촬영 시간": "4시간", "드레스 체인지 횟수": "2회", "메이크업": "신부 단독", "앨범": "커스텀 앨범", "패키지 비용": "300만 원", "계약금": "60만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["가족 사진 추가 무료", "SNS 홍보용 사진 무료 제공", "보정 서비스 포함"]}', 1, 259),
-    (15, 'https://REMOVED.s3.REMOVED.amazonaws.com/audio/569789', 'COMPLETED', '{"날짜": "2025-05-30 11:30", "업체명": "클래식 웨딩 스튜디오", "패키지": "럭셔리 패키지", "촬영 스타일": "클래식", "사진 장수": "30장", "촬영 시간": "4시간", "드레스 체인지 횟수": "2회", "메이크업": "신랑+신부", "앨범": "고급 앨범", "패키지 비용": "150만 원", "계약금": "30만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["드레스 피팅 1회 무료", "리허설 촬영 무료", "가족 사진 추가 무료", "보정 서비스 포함"]}', 1, 263),
-    (16, 'https://REMOVED.s3.REMOVED.amazonaws.com/audio/507334', 'COMPLETED', '{"날짜": "2025-06-27 13:00", "업체명": "크리에이티브 스튜디오", "패키지": "프리미엄 패키지", "촬영 스타일": "빈티지", "사진 장수": "60장", "촬영 시간": "4시간", "드레스 체인지 횟수": "3회", "메이크업": "가족 포함", "앨범": "고급 앨범", "패키지 비용": "200만 원", "계약금": "40만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["가족 사진 추가 무료", "앨범 업그레이드 할인", "스튜디오 소품 무료 제공", "야외 촬영 옵션 제공"]}', 11, 267),
-    (17, 'https://REMOVED.s3.REMOVED.amazonaws.com/audio/864958', 'COMPLETED', '{"날짜": "2025-06-30 13:30", "업체명": "바시움 스튜디오", "패키지": "기본 패키지", "촬영 스타일": "빈티지", "사진 장수": "50장", "촬영 시간": "2시간", "드레스 체인지 횟수": "3회", "메이크업": "신랑+신부", "앨범": "기본 앨범", "패키지 비용": "300만 원", "계약금": "60만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["스튜디오 소품 무료 제공", "보정 서비스 포함", "가족 사진 추가 무료"]}', 11, 35),
-    (18, 'https://REMOVED.s3.REMOVED.amazonaws.com/audio/411547', 'COMPLETED', '{"날짜": "2025-06-21 12:00", "업체명": "듀안 스튜디오", "패키지": "스페셜 패키지", "촬영 스타일": "클래식", "사진 장수": "60장", "촬영 시간": "4시간", "드레스 체인지 횟수": "2회", "메이크업": "신랑+신부", "앨범": "고급 앨범", "패키지 비용": "100만 원", "계약금": "20만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["특정 날짜 예약 시 할인 혜택", "드레스 피팅 1회 무료", "야외 촬영 옵션 제공", "가족 사진 추가 무료"]}', 11, 39);
---  (19, 'https://REMOVED.s3.REMOVED.amazonaws.com/audio/805665', 'COMPLETED', '{"날짜": "2025-04-48 13:00", "업체명": "에버애프터스튜디오", "패키지": "프리미엄 패키지", "촬영 스타일": "내추럴", "사진 장수": "40장", "촬영 시간": "3시간", "드레스 체인지 횟수": "1회", "메이크업": "신부 단독", "앨범": "기본 앨범", "패키지 비용": "300만 원", "계약금": "60만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["촬영 원본 제공", "특정 날짜 예약 시 할인 혜택", "리허설 촬영 무료"]}', 1, 1),
---  (20, 'https://REMOVED.s3.REMOVED.amazonaws.com/audio/315690', 'COMPLETED', '{"날짜": "2025-04-25 13:30", "업체명": "골든라이트스튜디오", "패키지": "기본 패키지", "촬영 스타일": "내추럴", "사진 장수": "20장", "촬영 시간": "4시간", "드레스 체인지 횟수": "2회", "메이크업": "가족 포함", "앨범": "기본 앨범", "패키지 비용": "200만 원", "계약금": "40만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["보정 서비스 포함", "가족 사진 추가 무료", "리허설 촬영 무료", "야외 촬영 옵션 제공"]}', 1, 1);
+    (11, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/audio/520690', 'COMPLETED', '{"날짜": "2025-06-22 13:30", "업체명": "화이트스튜디오", "패키지": "프리미엄 패키지", "촬영 스타일": "모던", "사진 장수": "60장", "촬영 시간": "4시간", "드레스 체인지 횟수": "2회", "메이크업": "신랑+신부", "앨범": "커스텀 앨범", "패키지 비용": "300만 원", "계약금": "60만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["스튜디오 소품 무료 제공", "리허설 촬영 무료", "야외 촬영 옵션 제공", "보정 서비스 포함"]}', 1, 1),
+    (12, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/audio/583351', 'COMPLETED', '{"날짜": "2025-06-29 13:30", "업체명": "메종드힐", "패키지": "스페셜 패키지", "촬영 스타일": "클래식", "사진 장수": "20장", "촬영 시간": "5시간", "드레스 체인지 횟수": "4회", "메이크업": "신부 단독", "앨범": "커스텀 앨범", "패키지 비용": "200만 원", "계약금": "40만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["가족 사진 추가 무료", "촬영 원본 제공", "스튜디오 소품 무료 제공"]}', 1, 251),
+    (13, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/audio/539619', 'COMPLETED', '{"날짜": "2025-06-12 11:30", "업체명": "아이엠스냅", "패키지": "스페셜 패키지", "촬영 스타일": "빈티지", "사진 장수": "30장", "촬영 시간": "4시간", "드레스 체인지 횟수": "1회", "메이크업": "신랑+신부", "앨범": "기본 앨범", "패키지 비용": "150만 원", "계약금": "30만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["촬영 원본 제공", "가족 사진 추가 무료", "앨범 업그레이드 할인", "스튜디오 소품 무료 제공"]}', 1, 255),
+    (14, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/audio/747366', 'COMPLETED', '{"날짜": "2025-06-13 13:00", "업체명": "라마리에", "패키지": "기본 패키지", "촬영 스타일": "내추럴", "사진 장수": "20장", "촬영 시간": "4시간", "드레스 체인지 횟수": "2회", "메이크업": "신부 단독", "앨범": "커스텀 앨범", "패키지 비용": "300만 원", "계약금": "60만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["가족 사진 추가 무료", "SNS 홍보용 사진 무료 제공", "보정 서비스 포함"]}', 1, 259),
+    (15, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/audio/569789', 'COMPLETED', '{"날짜": "2025-05-30 11:30", "업체명": "클래식 웨딩 스튜디오", "패키지": "럭셔리 패키지", "촬영 스타일": "클래식", "사진 장수": "30장", "촬영 시간": "4시간", "드레스 체인지 횟수": "2회", "메이크업": "신랑+신부", "앨범": "고급 앨범", "패키지 비용": "150만 원", "계약금": "30만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["드레스 피팅 1회 무료", "리허설 촬영 무료", "가족 사진 추가 무료", "보정 서비스 포함"]}', 1, 263),
+    (16, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/audio/507334', 'COMPLETED', '{"날짜": "2025-06-27 13:00", "업체명": "크리에이티브 스튜디오", "패키지": "프리미엄 패키지", "촬영 스타일": "빈티지", "사진 장수": "60장", "촬영 시간": "4시간", "드레스 체인지 횟수": "3회", "메이크업": "가족 포함", "앨범": "고급 앨범", "패키지 비용": "200만 원", "계약금": "40만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["가족 사진 추가 무료", "앨범 업그레이드 할인", "스튜디오 소품 무료 제공", "야외 촬영 옵션 제공"]}', 11, 267),
+    (17, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/audio/864958', 'COMPLETED', '{"날짜": "2025-06-30 13:30", "업체명": "바시움 스튜디오", "패키지": "기본 패키지", "촬영 스타일": "빈티지", "사진 장수": "50장", "촬영 시간": "2시간", "드레스 체인지 횟수": "3회", "메이크업": "신랑+신부", "앨범": "기본 앨범", "패키지 비용": "300만 원", "계약금": "60만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["스튜디오 소품 무료 제공", "보정 서비스 포함", "가족 사진 추가 무료"]}', 11, 35),
+    (18, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/audio/411547', 'COMPLETED', '{"날짜": "2025-06-21 12:00", "업체명": "듀안 스튜디오", "패키지": "스페셜 패키지", "촬영 스타일": "클래식", "사진 장수": "60장", "촬영 시간": "4시간", "드레스 체인지 횟수": "2회", "메이크업": "신랑+신부", "앨범": "고급 앨범", "패키지 비용": "100만 원", "계약금": "20만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["특정 날짜 예약 시 할인 혜택", "드레스 피팅 1회 무료", "야외 촬영 옵션 제공", "가족 사진 추가 무료"]}', 11, 39);
+--  (19, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/audio/805665', 'COMPLETED', '{"날짜": "2025-04-48 13:00", "업체명": "에버애프터스튜디오", "패키지": "프리미엄 패키지", "촬영 스타일": "내추럴", "사진 장수": "40장", "촬영 시간": "3시간", "드레스 체인지 횟수": "1회", "메이크업": "신부 단독", "앨범": "기본 앨범", "패키지 비용": "300만 원", "계약금": "60만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["촬영 원본 제공", "특정 날짜 예약 시 할인 혜택", "리허설 촬영 무료"]}', 1, 1),
+--  (20, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/audio/315690', 'COMPLETED', '{"날짜": "2025-04-25 13:30", "업체명": "골든라이트스튜디오", "패키지": "기본 패키지", "촬영 스타일": "내추럴", "사진 장수": "20장", "촬영 시간": "4시간", "드레스 체인지 횟수": "2회", "메이크업": "가족 포함", "앨범": "기본 앨범", "패키지 비용": "200만 원", "계약금": "40만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["보정 서비스 포함", "가족 사진 추가 무료", "리허설 촬영 무료", "야외 촬영 옵션 제공"]}', 1, 1);
 INSERT INTO audio_summaries (audio_summary_id, original_file_url, status, summary_result, customer_id, consultation_id)
 VALUES
-    (19, 'https://REMOVED.s3.REMOVED.amazonaws.com/audio/237613', 'COMPLETED', '{"날짜": "2025-02-22 11:30", "업체명": "모던드레스", "위치": "인천광역시 남동구", "패키지": "프리미엄 패키지", "드레스 종류": "본식 드레스 1벌, 촬영 드레스 1벌", "피팅 횟수": "3회", "메이크업 포함 여부": "미포함", "패키지 비용": "180만 원", "계약금": "36만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["드레스 소품 무료 제공", "특정 날짜 예약 시 할인 혜택", "보정 서비스 포함", "드레스 피팅 시 헤어 메이크업 무료"]}', 1, 252),
-    (20, 'https://REMOVED.s3.REMOVED.amazonaws.com/audio/762980', 'COMPLETED', '{"날짜": "2025-02-29 12:30", "업체명": "엘레강트드레스", "위치": "대전광역시 서구", "패키지": "럭셔리 패키지", "드레스 종류": "본식 드레스 1벌, 촬영 드레스 3벌", "피팅 횟수": "3회", "메이크업 포함 여부": "미포함", "패키지 비용": "100만 원", "계약금": "20만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["앨범 업그레이드 할인", "드레스 소품 무료 제공", "드레스 피팅 시 헤어 메이크업 무료", "야외 촬영 옵션 제공"]}', 1, 256),
-    (21, 'https://REMOVED.s3.REMOVED.amazonaws.com/audio/919580', 'COMPLETED', '{"날짜": "2025-02-36 12:30", "업체명": "유니크드레스", "위치": "대구광역시 수성구", "패키지": "스페셜 패키지", "드레스 종류": "본식 드레스 1벌, 촬영 드레스 3벌", "피팅 횟수": "2회", "메이크업 포함 여부": "포함", "패키지 비용": "160만 원", "계약금": "32만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["드레스 피팅 시 헤어 메이크업 무료", "드레스 소품 무료 제공", "보정 서비스 포함", "특정 날짜 예약 시 할인 혜택"]}', 1, 260),
-    (22, 'https://REMOVED.s3.REMOVED.amazonaws.com/audio/552698', 'COMPLETED', '{"날짜": "2025-02-43 13:30", "업체명": "심플드레스", "위치": "부산광역시 해운대구", "패키지": "기본 패키지", "드레스 종류": "본식 드레스 1벌, 촬영 드레스 1벌", "피팅 횟수": "4회", "메이크업 포함 여부": "포함", "패키지 비용": "140만 원", "계약금": "28만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["특정 날짜 예약 시 할인 혜택", "앨범 업그레이드 할인", "촬영 원본 제공"]}', 1, 264),
-    (23, 'https://REMOVED.s3.REMOVED.amazonaws.com/audio/455746', 'COMPLETED', '{"날짜": "2025-03-50 11:30", "업체명": "빈티지드레스", "위치": "울산광역시 남구", "패키지": "프리미엄 패키지", "드레스 종류": "본식 드레스 1벌, 촬영 드레스 2벌", "피팅 횟수": "3회", "메이크업 포함 여부": "포함", "패키지 비용": "160만 원", "계약금": "32만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["촬영 원본 제공", "야외 촬영 옵션 제공", "드레스 피팅 시 헤어 메이크업 무료"]}', 1, 268),
-    (24, 'https://REMOVED.s3.REMOVED.amazonaws.com/audio/720880', 'COMPLETED', '{"날짜": "2025-03-27 12:00", "업체명": "비비드블랑", "위치": "서울특별시 강남구", "패키지": "기본 패키지", "드레스 종류": "본식 드레스 1벌, 촬영 드레스 2벌", "피팅 횟수": "4회", "메이크업 포함 여부": "미포함", "패키지 비용": "160만 원", "계약금": "32만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["야외 촬영 옵션 제공", "앨범 업그레이드 할인", "가족 사진 추가 무료", "보정 서비스 포함"]}', 11, 36),
-    (25, 'https://REMOVED.s3.REMOVED.amazonaws.com/audio/441303', 'COMPLETED', '{"날짜": "2025-03-34 11:00", "업체명": "브라이드영", "위치": "서울특별시 강남구", "패키지": "스페셜 패키지", "드레스 종류": "본식 드레스 1벌, 촬영 드레스 1벌", "피팅 횟수": "2회", "메이크업 포함 여부": "포함", "패키지 비용": "140만 원", "계약금": "28만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["야외 촬영 옵션 제공", "특정 날짜 예약 시 할인 혜택", "드레스 소품 무료 제공"]}', 11, 40),
-    (26, 'https://REMOVED.s3.REMOVED.amazonaws.com/audio/930597', 'COMPLETED', '{"날짜": "2025-03-41 12:30", "업체명": "로맨스드레스", "위치": "서울특별시 강남구", "패키지": "럭셔리 패키지", "드레스 종류": "본식 드레스 1벌, 촬영 드레스 1벌", "피팅 횟수": "4회", "메이크업 포함 여부": "포함", "패키지 비용": "120만 원", "계약금": "24만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["드레스 피팅 시 헤어 메이크업 무료", "촬영 원본 제공", "앨범 업그레이드 할인", "야외 촬영 옵션 제공"]}', 11, 44);
---         (27, 'https://REMOVED.s3.REMOVED.amazonaws.com/audio/837001', 'COMPLETED', '{"날짜": "2025-04-48 13:00", "업체명": "에버애프터드레스", "위치": "서울특별시 마포구", "패키지": "프리미엄 패키지", "드레스 종류": "본식 드레스 1벌, 촬영 드레스 3벌", "피팅 횟수": "3회", "메이크업 포함 여부": "포함", "패키지 비용": "100만 원", "계약금": "20만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["드레스 소품 무료 제공", "앨범 업그레이드 할인", "드레스 피팅 시 헤어 메이크업 무료", "야외 촬영 옵션 제공"]}', 1, 1),
---         (28, 'https://REMOVED.s3.REMOVED.amazonaws.com/audio/398636', 'COMPLETED', '{"날짜": "2025-04-25 11:00", "업체명": "골든라이트드레스", "위치": "서울특별시 마포구", "패키지": "럭셔리 패키지", "드레스 종류": "본식 드레스 1벌, 촬영 드레스 1벌", "피팅 횟수": "2회", "메이크업 포함 여부": "미포함", "패키지 비용": "140만 원", "계약금": "28만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["앨범 업그레이드 할인", "촬영 원본 제공", "드레스 피팅 시 헤어 메이크업 무료", "보정 서비스 포함"]}', 1, 1);
+    (19, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/audio/237613', 'COMPLETED', '{"날짜": "2025-02-22 11:30", "업체명": "모던드레스", "위치": "인천광역시 남동구", "패키지": "프리미엄 패키지", "드레스 종류": "본식 드레스 1벌, 촬영 드레스 1벌", "피팅 횟수": "3회", "메이크업 포함 여부": "미포함", "패키지 비용": "180만 원", "계약금": "36만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["드레스 소품 무료 제공", "특정 날짜 예약 시 할인 혜택", "보정 서비스 포함", "드레스 피팅 시 헤어 메이크업 무료"]}', 1, 252),
+    (20, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/audio/762980', 'COMPLETED', '{"날짜": "2025-02-29 12:30", "업체명": "엘레강트드레스", "위치": "대전광역시 서구", "패키지": "럭셔리 패키지", "드레스 종류": "본식 드레스 1벌, 촬영 드레스 3벌", "피팅 횟수": "3회", "메이크업 포함 여부": "미포함", "패키지 비용": "100만 원", "계약금": "20만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["앨범 업그레이드 할인", "드레스 소품 무료 제공", "드레스 피팅 시 헤어 메이크업 무료", "야외 촬영 옵션 제공"]}', 1, 256),
+    (21, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/audio/919580', 'COMPLETED', '{"날짜": "2025-02-36 12:30", "업체명": "유니크드레스", "위치": "대구광역시 수성구", "패키지": "스페셜 패키지", "드레스 종류": "본식 드레스 1벌, 촬영 드레스 3벌", "피팅 횟수": "2회", "메이크업 포함 여부": "포함", "패키지 비용": "160만 원", "계약금": "32만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["드레스 피팅 시 헤어 메이크업 무료", "드레스 소품 무료 제공", "보정 서비스 포함", "특정 날짜 예약 시 할인 혜택"]}', 1, 260),
+    (22, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/audio/552698', 'COMPLETED', '{"날짜": "2025-02-43 13:30", "업체명": "심플드레스", "위치": "부산광역시 해운대구", "패키지": "기본 패키지", "드레스 종류": "본식 드레스 1벌, 촬영 드레스 1벌", "피팅 횟수": "4회", "메이크업 포함 여부": "포함", "패키지 비용": "140만 원", "계약금": "28만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["특정 날짜 예약 시 할인 혜택", "앨범 업그레이드 할인", "촬영 원본 제공"]}', 1, 264),
+    (23, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/audio/455746', 'COMPLETED', '{"날짜": "2025-03-50 11:30", "업체명": "빈티지드레스", "위치": "울산광역시 남구", "패키지": "프리미엄 패키지", "드레스 종류": "본식 드레스 1벌, 촬영 드레스 2벌", "피팅 횟수": "3회", "메이크업 포함 여부": "포함", "패키지 비용": "160만 원", "계약금": "32만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["촬영 원본 제공", "야외 촬영 옵션 제공", "드레스 피팅 시 헤어 메이크업 무료"]}', 1, 268),
+    (24, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/audio/720880', 'COMPLETED', '{"날짜": "2025-03-27 12:00", "업체명": "비비드블랑", "위치": "서울특별시 강남구", "패키지": "기본 패키지", "드레스 종류": "본식 드레스 1벌, 촬영 드레스 2벌", "피팅 횟수": "4회", "메이크업 포함 여부": "미포함", "패키지 비용": "160만 원", "계약금": "32만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["야외 촬영 옵션 제공", "앨범 업그레이드 할인", "가족 사진 추가 무료", "보정 서비스 포함"]}', 11, 36),
+    (25, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/audio/441303', 'COMPLETED', '{"날짜": "2025-03-34 11:00", "업체명": "브라이드영", "위치": "서울특별시 강남구", "패키지": "스페셜 패키지", "드레스 종류": "본식 드레스 1벌, 촬영 드레스 1벌", "피팅 횟수": "2회", "메이크업 포함 여부": "포함", "패키지 비용": "140만 원", "계약금": "28만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["야외 촬영 옵션 제공", "특정 날짜 예약 시 할인 혜택", "드레스 소품 무료 제공"]}', 11, 40),
+    (26, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/audio/930597', 'COMPLETED', '{"날짜": "2025-03-41 12:30", "업체명": "로맨스드레스", "위치": "서울특별시 강남구", "패키지": "럭셔리 패키지", "드레스 종류": "본식 드레스 1벌, 촬영 드레스 1벌", "피팅 횟수": "4회", "메이크업 포함 여부": "포함", "패키지 비용": "120만 원", "계약금": "24만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["드레스 피팅 시 헤어 메이크업 무료", "촬영 원본 제공", "앨범 업그레이드 할인", "야외 촬영 옵션 제공"]}', 11, 44);
+--         (27, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/audio/837001', 'COMPLETED', '{"날짜": "2025-04-48 13:00", "업체명": "에버애프터드레스", "위치": "서울특별시 마포구", "패키지": "프리미엄 패키지", "드레스 종류": "본식 드레스 1벌, 촬영 드레스 3벌", "피팅 횟수": "3회", "메이크업 포함 여부": "포함", "패키지 비용": "100만 원", "계약금": "20만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["드레스 소품 무료 제공", "앨범 업그레이드 할인", "드레스 피팅 시 헤어 메이크업 무료", "야외 촬영 옵션 제공"]}', 1, 1),
+--         (28, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/audio/398636', 'COMPLETED', '{"날짜": "2025-04-25 11:00", "업체명": "골든라이트드레스", "위치": "서울특별시 마포구", "패키지": "럭셔리 패키지", "드레스 종류": "본식 드레스 1벌, 촬영 드레스 1벌", "피팅 횟수": "2회", "메이크업 포함 여부": "미포함", "패키지 비용": "140만 원", "계약금": "28만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["앨범 업그레이드 할인", "촬영 원본 제공", "드레스 피팅 시 헤어 메이크업 무료", "보정 서비스 포함"]}', 1, 1);
 
 INSERT INTO audio_summaries (audio_summary_id, original_file_url, status, summary_result, customer_id, consultation_id)
 VALUES
-    (27, 'https://REMOVED.s3.REMOVED.amazonaws.com/audio/648191', 'COMPLETED', '{"날짜": "2025-02-22 12:00", "업체명": "제니하우스 청담힐", "위치": "서울특별시 강남구", "패키지": "본식 메이크업", "메이크업 스타일": "자연스러운 누드 메이크업", "헤어 스타일": "글램 웨이브", "패키지 비용": "50만 원", "계약금": "10만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["헤어 악세서리 무료 대여", "프리미엄 스킨케어 서비스 포함", "자연광 촬영 메이크업 최적화", "베이스 메이크업 업그레이드 제공"]}', 1, 253),
-    (28, 'https://REMOVED.s3.REMOVED.amazonaws.com/audio/510228', 'COMPLETED', '{"날짜": "2025-02-29 13:00", "업체명": "라뷰티코아 청담점", "위치": "서울특별시 강남구", "패키지": "본식 메이크업", "메이크업 스타일": "자연스러운 누드 메이크업", "헤어 스타일": "내추럴 웨이브", "패키지 비용": "70만 원", "계약금": "14만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["신랑 메이크업 무료 포함", "수정 메이크업 서비스 제공", "자연광 촬영 메이크업 최적화"]}', 1, 257),
-    (29, 'https://REMOVED.s3.REMOVED.amazonaws.com/audio/239224', 'COMPLETED', '{"날짜": "2025-02-36 13:00", "업체명": "손윤희 메이크업", "위치": "서울특별시 강남구", "패키지": "신랑&신부 메이크업", "메이크업 스타일": "자연스러운 누드 메이크업", "헤어 스타일": "전통적인 업두", "패키지 비용": "30만 원", "계약금": "6만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["특정 날짜 예약 시 추가 할인", "신랑 메이크업 무료 포함", "수정 메이크업 서비스 제공", "신부 전용 맞춤 메이크업 컨설팅 제공"]}', 1, 261),
-    (30, 'https://REMOVED.s3.REMOVED.amazonaws.com/audio/980659', 'COMPLETED', '{"날짜": "2025-02-43 12:00", "업체명": "정샘물 인스피레이션", "위치": "서울특별시 강남구", "패키지": "촬영+본식 신부신랑 헤어메이크업", "메이크업 스타일": "클래식한 메이크업", "헤어 스타일": "우아한 업스타일", "패키지 비용": "50만 원", "계약금": "10만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["자연광 촬영 메이크업 최적화", "베이스 메이크업 업그레이드 제공", "메이크업 리허설 무료 제공", "신랑 메이크업 무료 포함"]}', 1, 265),
-    (31, 'https://REMOVED.s3.REMOVED.amazonaws.com/audio/414576', 'COMPLETED', '{"날짜": "2025-03-50 13:30", "업체명": "이희 헤어앤메이크업", "위치": "서울특별시 강남구", "패키지": "본식 메이크업", "메이크업 스타일": "클래식한 메이크업", "헤어 스타일": "내추럴 웨이브", "패키지 비용": "90만 원", "계약금": "18만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["자연광 촬영 메이크업 최적화", "특정 날짜 예약 시 추가 할인", "신부 전용 맞춤 메이크업 컨설팅 제공", "수정 메이크업 서비스 제공"]}', 1, 269),
-    (32, 'https://REMOVED.s3.REMOVED.amazonaws.com/audio/903970', 'COMPLETED', '{"날짜": "2025-03-27 11:30", "업체명": "뷰티 메이크업", "위치": "서울특별시 강남구", "패키지": "신랑&신부 메이크업", "메이크업 스타일": "고급스러운 음영 메이크업", "헤어 스타일": "로맨틱 반업스타일", "패키지 비용": "90만 원", "계약금": "18만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["자연광 촬영 메이크업 최적화", "메이크업 리허설 무료 제공", "신랑 메이크업 무료 포함", "프리미엄 스킨케어 서비스 포함"]}', 11, 7),
-    (33, 'https://REMOVED.s3.REMOVED.amazonaws.com/audio/430885', 'COMPLETED', '{"날짜": "2025-03-34 12:00", "업체명": "유림", "위치": "서울특별시 강남구", "패키지": "본식 메이크업", "메이크업 스타일": "화사하고 러블리한 메이크업", "헤어 스타일": "로맨틱 반업스타일", "패키지 비용": "90만 원", "계약금": "18만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["수정 메이크업 서비스 제공", "프리미엄 스킨케어 서비스 포함", "신부 전용 맞춤 메이크업 컨설팅 제공", "메이크업 리허설 무료 제공"]}', 11, 37),
-    (34, 'https://REMOVED.s3.REMOVED.amazonaws.com/audio/247256', 'COMPLETED', '{"날짜": "2025-03-41 13:30", "업체명": "이엘 헤어메이크업", "위치": "서울특별시 강남구", "패키지": "본식 메이크업", "메이크업 스타일": "청순하고 맑은 메이크업", "헤어 스타일": "전통적인 업두", "패키지 비용": "30만 원", "계약금": "6만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["메이크업 리허설 무료 제공", "프리미엄 스킨케어 서비스 포함", "신부 전용 맞춤 메이크업 컨설팅 제공", "베이스 메이크업 업그레이드 제공"]}', 11, 41);
---         (35, 'https://REMOVED.s3.REMOVED.amazonaws.com/audio/951888', 'COMPLETED', '{"날짜": "2025-04-48 12:30", "업체명": "에버뷰티살롱", "위치": "서울특별시 중구", "패키지": "촬영+본식 신부신랑 헤어메이크업", "메이크업 스타일": "고급스러운 음영 메이크업", "헤어 스타일": "심플한 로우 번", "패키지 비용": "50만 원", "계약금": "10만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["프리미엄 스킨케어 서비스 포함", "신랑 메이크업 무료 포함", "베이스 메이크업 업그레이드 제공", "수정 메이크업 서비스 제공"]}', 1, 77),
---         (36, 'https://REMOVED.s3.REMOVED.amazonaws.com/audio/193553', 'COMPLETED', '{"날짜": "2025-04-25 13:30", "업체명": "골든라이트메이크업", "위치": "서울특별시 서초구", "패키지": "본식 메이크업", "메이크업 스타일": "화사하고 러블리한 메이크업", "헤어 스타일": "전통적인 업두", "패키지 비용": "90만 원", "계약금": "18만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["메이크업 리허설 무료 제공", "헤어 악세서리 무료 대여", "신부 전용 맞춤 메이크업 컨설팅 제공"]}', 1, 1);
+    (27, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/audio/648191', 'COMPLETED', '{"날짜": "2025-02-22 12:00", "업체명": "제니하우스 청담힐", "위치": "서울특별시 강남구", "패키지": "본식 메이크업", "메이크업 스타일": "자연스러운 누드 메이크업", "헤어 스타일": "글램 웨이브", "패키지 비용": "50만 원", "계약금": "10만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["헤어 악세서리 무료 대여", "프리미엄 스킨케어 서비스 포함", "자연광 촬영 메이크업 최적화", "베이스 메이크업 업그레이드 제공"]}', 1, 253),
+    (28, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/audio/510228', 'COMPLETED', '{"날짜": "2025-02-29 13:00", "업체명": "라뷰티코아 청담점", "위치": "서울특별시 강남구", "패키지": "본식 메이크업", "메이크업 스타일": "자연스러운 누드 메이크업", "헤어 스타일": "내추럴 웨이브", "패키지 비용": "70만 원", "계약금": "14만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["신랑 메이크업 무료 포함", "수정 메이크업 서비스 제공", "자연광 촬영 메이크업 최적화"]}', 1, 257),
+    (29, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/audio/239224', 'COMPLETED', '{"날짜": "2025-02-36 13:00", "업체명": "손윤희 메이크업", "위치": "서울특별시 강남구", "패키지": "신랑&신부 메이크업", "메이크업 스타일": "자연스러운 누드 메이크업", "헤어 스타일": "전통적인 업두", "패키지 비용": "30만 원", "계약금": "6만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["특정 날짜 예약 시 추가 할인", "신랑 메이크업 무료 포함", "수정 메이크업 서비스 제공", "신부 전용 맞춤 메이크업 컨설팅 제공"]}', 1, 261),
+    (30, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/audio/980659', 'COMPLETED', '{"날짜": "2025-02-43 12:00", "업체명": "정샘물 인스피레이션", "위치": "서울특별시 강남구", "패키지": "촬영+본식 신부신랑 헤어메이크업", "메이크업 스타일": "클래식한 메이크업", "헤어 스타일": "우아한 업스타일", "패키지 비용": "50만 원", "계약금": "10만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["자연광 촬영 메이크업 최적화", "베이스 메이크업 업그레이드 제공", "메이크업 리허설 무료 제공", "신랑 메이크업 무료 포함"]}', 1, 265),
+    (31, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/audio/414576', 'COMPLETED', '{"날짜": "2025-03-50 13:30", "업체명": "이희 헤어앤메이크업", "위치": "서울특별시 강남구", "패키지": "본식 메이크업", "메이크업 스타일": "클래식한 메이크업", "헤어 스타일": "내추럴 웨이브", "패키지 비용": "90만 원", "계약금": "18만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["자연광 촬영 메이크업 최적화", "특정 날짜 예약 시 추가 할인", "신부 전용 맞춤 메이크업 컨설팅 제공", "수정 메이크업 서비스 제공"]}', 1, 269),
+    (32, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/audio/903970', 'COMPLETED', '{"날짜": "2025-03-27 11:30", "업체명": "뷰티 메이크업", "위치": "서울특별시 강남구", "패키지": "신랑&신부 메이크업", "메이크업 스타일": "고급스러운 음영 메이크업", "헤어 스타일": "로맨틱 반업스타일", "패키지 비용": "90만 원", "계약금": "18만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["자연광 촬영 메이크업 최적화", "메이크업 리허설 무료 제공", "신랑 메이크업 무료 포함", "프리미엄 스킨케어 서비스 포함"]}', 11, 7),
+    (33, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/audio/430885', 'COMPLETED', '{"날짜": "2025-03-34 12:00", "업체명": "유림", "위치": "서울특별시 강남구", "패키지": "본식 메이크업", "메이크업 스타일": "화사하고 러블리한 메이크업", "헤어 스타일": "로맨틱 반업스타일", "패키지 비용": "90만 원", "계약금": "18만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["수정 메이크업 서비스 제공", "프리미엄 스킨케어 서비스 포함", "신부 전용 맞춤 메이크업 컨설팅 제공", "메이크업 리허설 무료 제공"]}', 11, 37),
+    (34, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/audio/247256', 'COMPLETED', '{"날짜": "2025-03-41 13:30", "업체명": "이엘 헤어메이크업", "위치": "서울특별시 강남구", "패키지": "본식 메이크업", "메이크업 스타일": "청순하고 맑은 메이크업", "헤어 스타일": "전통적인 업두", "패키지 비용": "30만 원", "계약금": "6만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["메이크업 리허설 무료 제공", "프리미엄 스킨케어 서비스 포함", "신부 전용 맞춤 메이크업 컨설팅 제공", "베이스 메이크업 업그레이드 제공"]}', 11, 41);
+--         (35, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/audio/951888', 'COMPLETED', '{"날짜": "2025-04-48 12:30", "업체명": "에버뷰티살롱", "위치": "서울특별시 중구", "패키지": "촬영+본식 신부신랑 헤어메이크업", "메이크업 스타일": "고급스러운 음영 메이크업", "헤어 스타일": "심플한 로우 번", "패키지 비용": "50만 원", "계약금": "10만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["프리미엄 스킨케어 서비스 포함", "신랑 메이크업 무료 포함", "베이스 메이크업 업그레이드 제공", "수정 메이크업 서비스 제공"]}', 1, 77),
+--         (36, 'https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/audio/193553', 'COMPLETED', '{"날짜": "2025-04-25 13:30", "업체명": "골든라이트메이크업", "위치": "서울특별시 서초구", "패키지": "본식 메이크업", "메이크업 스타일": "화사하고 러블리한 메이크업", "헤어 스타일": "전통적인 업두", "패키지 비용": "90만 원", "계약금": "18만 원", "환불 규정": "1개월 전 100% 환불, 2주 전 50% 환불", "기타사항": ["메이크업 리허설 무료 제공", "헤어 악세서리 무료 대여", "신부 전용 맞춤 메이크업 컨설팅 제공"]}', 1, 1);

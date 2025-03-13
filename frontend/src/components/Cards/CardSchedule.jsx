@@ -14,13 +14,13 @@ export default function CardSchedule({ data }) {
 
   const categoryBackgroundMap = {
     weddinghall:
-      "https://REMOVED.s3.REMOVED.amazonaws.com/weddinghall_schedule.png",
+      "https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/weddinghall_schedule.png",
     dress:
-      "https://REMOVED.s3.REMOVED.amazonaws.com/dress_schedule.jpg",
+      "https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/dress_schedule.jpg",
     makeup:
-      "https://REMOVED.s3.REMOVED.amazonaws.com/hairmakeup_schedule.png",
+      "https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/hairmakeup_schedule.png",
     studio:
-      "https://REMOVED.s3.REMOVED.amazonaws.com/studio_schedule.png",
+      "https://my-vendor-images.s3.ap-northeast-2.amazonaws.com/studio_schedule.png",
   };
   //
   const backgroundImageURL =
